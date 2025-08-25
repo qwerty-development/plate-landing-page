@@ -267,7 +267,11 @@ function Step({
         `}
         style={{ animationDelay: `${delay}ms` }}
       >
-        <div className="flex items-center gap-3">
+        <div
+          className={`flex items-center gap-3 ${
+            isLeft ? "lg:justify-end" : ""
+          }`}
+        >
           <span className="inline-flex h-6 w-6 shrink-0 items-center justify-center rounded-md bg-[hsl(var(--accent)/.15)] border border-white/50">
             {icon}
           </span>
