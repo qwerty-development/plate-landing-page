@@ -1,3 +1,4 @@
+import Navbar from "../components/Navbar";
 import RestaurantsHero from "../components/RestaurantsHero";
 import RestaurantsFeatures from "../components/RestaurantsFeatures";
 import RestaurantsPricing from "../components/RestaurantsPricing";
@@ -8,6 +9,9 @@ import RestaurantsFooter from "../components/RestaurantsFooter";
 export default function RestaurantsPage() {
   return (
     <main id="main" className="relative min-h-screen text-foreground">
+      {/* Sticky, glassy navbar (client component) */}
+      <Navbar />
+
       {/* Hero Section */}
       <RestaurantsHero />
 
