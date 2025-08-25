@@ -83,25 +83,40 @@ export default function HowPoints() {
               the boost; Plate makes it easy to find and book.
             </p>
             <div className="mt-4 grid grid-cols-1 sm:grid-cols-3 gap-3 text-center">
-              <div className="rounded-lg bg-white/50 border border-black/10 p-3 flex flex-row sm:flex-col items-center justify-center gap-3 sm:gap-0">
-                <SunIcon />
-                <span className="text-xs text-muted-foreground">
-                  Lunch (Mon–Thu)
-                </span>
+              <div className="rounded-lg bg-white/50 border border-black/10 p-3 sm:p-3 py-4 px-6 flex flex-row sm:flex-col items-center justify-center gap-3 sm:gap-0">
+                <div className="flex items-center gap-2 sm:flex-col sm:gap-0">
+                  <SunIcon />
+                  <span className="text-xs text-muted-foreground whitespace-nowrap">
+                    Lunch (Mon–Thu)
+                  </span>
+                </div>
+                <div className="block sm:hidden w-full">
+                  <ArrowRightIcon className="text-muted-foreground" />
+                </div>
                 <span className="font-bold text-lg text-foreground">1.5×</span>
               </div>
-              <div className="rounded-lg bg-white/50 border border-black/10 p-3 flex flex-row sm:flex-col items-center justify-center gap-3 sm:gap-0">
-                <SunsetIcon />
-                <span className="text-xs text-muted-foreground">
-                  Early Dinner
-                </span>
+              <div className="rounded-lg bg-white/50 border border-black/10 p-3 sm:p-3 py-4 px-6 flex flex-row sm:flex-col items-center justify-center gap-3 sm:gap-0">
+                <div className="flex items-center gap-2 sm:flex-col sm:gap-0">
+                  <SunsetIcon />
+                  <span className="text-xs text-muted-foreground whitespace-nowrap">
+                    Early Dinner
+                  </span>
+                </div>
+                <div className="block sm:hidden w-full">
+                  <ArrowRightIcon className="text-muted-foreground" />
+                </div>
                 <span className="font-bold text-lg text-foreground">2×</span>
               </div>
-              <div className="rounded-lg bg-white/50 border border-black/10 p-3 flex flex-row sm:flex-col items-center justify-center gap-3 sm:gap-0">
-                <MoonIcon />
-                <span className="text-xs text-muted-foreground">
-                  Late Seating
-                </span>
+              <div className="rounded-lg bg-white/50 border border-black/10 p-3 sm:p-3 py-4 px-6 flex flex-row sm:flex-col items-center justify-center gap-3 sm:gap-0">
+                <div className="flex items-center gap-2 sm:flex-col sm:gap-0">
+                  <MoonIcon />
+                  <span className="text-xs text-muted-foreground whitespace-nowrap">
+                    Late Seating
+                  </span>
+                </div>
+                <div className="block sm:hidden w-full">
+                  <ArrowRightIcon className="text-muted-foreground" />
+                </div>
                 <span className="font-bold text-lg text-foreground">3×</span>
               </div>
             </div>
@@ -400,5 +415,14 @@ function CheckmarkIcon() {
     >
       <polyline points="20 6 9 17 4 12" />
     </svg>
+  );
+}
+
+function ArrowRightIcon({ className }: { className?: string }) {
+  return (
+    <div className={`flex items-center ${className}`}>
+      <div className="flex-1 h-0.5 bg-current opacity-60"></div>
+      <div className="w-0 h-0 border-l-6 border-l-current border-t-3 border-t-transparent border-b-3 border-b-transparent ml-0"></div>
+    </div>
   );
 }
