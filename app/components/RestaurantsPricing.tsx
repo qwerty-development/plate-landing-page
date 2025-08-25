@@ -126,8 +126,8 @@ export default function RestaurantsPricing() {
             }`}
             style={{ transitionDelay: "200ms" }}
           >
-            Choose the plan that fits your restaurant's needs. All plans include
-            a 14-day free trial.
+            Choose the plan that fits your restaurant&apos;s needs. All plans
+            include a 14-day free trial.
           </p>
 
           {/* Billing toggle */}
@@ -201,7 +201,8 @@ export default function RestaurantsPricing() {
           style={{ transitionDelay: "800ms" }}
         >
           <p className="text-white/80 mb-6">
-            Need a custom plan? Let's talk about your specific requirements.
+            Need a custom plan? Let&apos;s talk about your specific
+            requirements.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <button className="bg-white text-primary px-8 py-3 rounded-xl font-semibold hover:bg-white/90 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:scale-105">

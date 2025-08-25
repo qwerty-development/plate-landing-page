@@ -242,7 +242,7 @@ function TestimonialCard({
             ))}
           </div>
           <blockquote className="text-muted-foreground text-sm leading-relaxed mb-4">
-            "{content}"
+            &ldquo;{content}&rdquo;
           </blockquote>
           <div>
             <div className="font-semibold text-foreground">{name}</div>

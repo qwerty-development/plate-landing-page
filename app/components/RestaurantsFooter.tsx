@@ -1,4 +1,4 @@
-'use client'
+"use client";
 import Link from "next/link";
 
 export default function RestaurantsFooter() {
@@ -10,10 +10,15 @@ export default function RestaurantsFooter() {
           <div className="rounded-2xl border border-border/70 bg-white/60 backdrop-blur p-6 lg:p-8 shadow-sm">
             <div className="grid lg:grid-cols-[1fr_auto] items-center gap-6">
               <div>
-                <p className="text-xs uppercase tracking-[0.18em] text-muted-foreground">Ready to grow your restaurant?</p>
-                <h3 className="mt-2 text-2xl lg:text-3xl font-semibold">Join 500+ successful restaurants</h3>
+                <p className="text-xs uppercase tracking-[0.18em] text-muted-foreground">
+                  Ready to grow your restaurant?
+                </p>
+                <h3 className="mt-2 text-2xl lg:text-3xl font-semibold">
+                  Join 500+ successful restaurants
+                </h3>
                 <p className="mt-2 text-muted-foreground max-w-2xl">
-                  Start your free trial today and see the difference Plate can make for your business.
+                  Start your free trial today and see the difference Plate can
+                  make for your business.
                 </p>
               </div>
               <div className="flex flex-wrap gap-3">
@@ -47,19 +52,50 @@ export default function RestaurantsFooter() {
                 </span>
               </Link>
               <p className="text-sm text-muted-foreground max-w-md">
-                The smart restaurant management platform built for Lebanon's vibrant food scene. 
-                Fill tables, boost revenue, and delight guests with AI-powered tools.
+                The smart restaurant management platform built for
+                Lebanon&apos;s vibrant food scene. Fill tables, boost revenue,
+                and delight guests with AI-powered tools.
               </p>
             </div>
 
             {/* Quick links */}
             <div>
-              <h4 className="font-semibold text-foreground mb-4">For Restaurants</h4>
+              <h4 className="font-semibold text-foreground mb-4">
+                For Restaurants
+              </h4>
               <ul className="space-y-2 text-sm">
-                <li><Link href="#" className="text-muted-foreground hover:text-foreground transition">Features</Link></li>
-                <li><Link href="#" className="text-muted-foreground hover:text-foreground transition">Pricing</Link></li>
-                <li><Link href="#" className="text-muted-foreground hover:text-foreground transition">Success Stories</Link></li>
-                <li><Link href="#" className="text-muted-foreground hover:text-foreground transition">Support</Link></li>
+                <li>
+                  <Link
+                    href="#"
+                    className="text-muted-foreground hover:text-foreground transition"
+                  >
+                    Features
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    href="#"
+                    className="text-muted-foreground hover:text-foreground transition"
+                  >
+                    Pricing
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    href="#"
+                    className="text-muted-foreground hover:text-foreground transition"
+                  >
+                    Success Stories
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    href="#"
+                    className="text-muted-foreground hover:text-foreground transition"
+                  >
+                    Support
+                  </Link>
+                </li>
               </ul>
             </div>
 
@@ -67,10 +103,38 @@ export default function RestaurantsFooter() {
             <div>
               <h4 className="font-semibold text-foreground mb-4">Company</h4>
               <ul className="space-y-2 text-sm">
-                <li><Link href="#" className="text-muted-foreground hover:text-foreground transition">About</Link></li>
-                <li><Link href="#" className="text-muted-foreground hover:text-foreground transition">Blog</Link></li>
-                <li><Link href="#" className="text-muted-foreground hover:text-foreground transition">Careers</Link></li>
-                <li><Link href="#" className="text-muted-foreground hover:text-foreground transition">Contact</Link></li>
+                <li>
+                  <Link
+                    href="#"
+                    className="text-muted-foreground hover:text-foreground transition"
+                  >
+                    About
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    href="#"
+                    className="text-muted-foreground hover:text-foreground transition"
+                  >
+                    Blog
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    href="#"
+                    className="text-muted-foreground hover:text-foreground transition"
+                  >
+                    Careers
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    href="#"
+                    className="text-muted-foreground hover:text-foreground transition"
+                  >
+                    Contact
+                  </Link>
+                </li>
               </ul>
             </div>
           </div>
@@ -80,8 +144,14 @@ export default function RestaurantsFooter() {
             <div className="flex flex-col sm:flex-row items-center justify-between gap-4">
               {/* brand + builder credit */}
               <p className="text-sm text-muted-foreground text-center sm:text-left">
-                © {new Date().getFullYear()} <span className="font-medium">Plate</span>. Built by{" "}
-                <a href="https://www.notqwerty.com" target="_blank" rel="noopener noreferrer" className="underline underline-offset-4 hover:no-underline">
+                © {new Date().getFullYear()}{" "}
+                <span className="font-medium">Plate</span>. Built by{" "}
+                <a
+                  href="https://www.notqwerty.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="underline underline-offset-4 hover:no-underline"
+                >
                   www.notqwerty.com
                 </a>
                 .
@@ -89,9 +159,24 @@ export default function RestaurantsFooter() {
 
               {/* links */}
               <div className="flex items-center gap-5 text-sm">
-                <Link href="#" className="text-muted-foreground hover:text-foreground transition">Privacy</Link>
-                <Link href="#" className="text-muted-foreground hover:text-foreground transition">Terms</Link>
-                <Link href="#" className="text-muted-foreground hover:text-foreground transition">Support</Link>
+                <Link
+                  href="#"
+                  className="text-muted-foreground hover:text-foreground transition"
+                >
+                  Privacy
+                </Link>
+                <Link
+                  href="#"
+                  className="text-muted-foreground hover:text-foreground transition"
+                >
+                  Terms
+                </Link>
+                <Link
+                  href="#"
+                  className="text-muted-foreground hover:text-foreground transition"
+                >
+                  Support
+                </Link>
                 <a
                   href="https://instagram.com/notqwerty.co"
                   target="_blank"

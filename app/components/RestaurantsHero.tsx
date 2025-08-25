@@ -1,4 +1,4 @@
-'use client'
+"use client";
 import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
 
@@ -55,43 +55,52 @@ export default function RestaurantsHero() {
             </div>
 
             <div className="space-y-5">
-              <h1 
+              <h1
                 className={`text-5xl lg:text-7xl font-extrabold leading-[1.05] tracking-tight text-foreground transition-all duration-1000 ${
-                  isVisible ? 'translate-y-0 opacity-100' : 'translate-y-8 opacity-0'
+                  isVisible
+                    ? "translate-y-0 opacity-100"
+                    : "translate-y-8 opacity-0"
                 }`}
-                style={{ transitionDelay: '200ms' }}
+                style={{ transitionDelay: "200ms" }}
               >
                 Grow Your
                 <span className="block bg-gradient-to-r from-[hsl(var(--primary))] to-[hsl(var(--accent))] bg-clip-text text-transparent">
                   Restaurant
                 </span>
               </h1>
-              <p 
+              <p
                 className={`text-2xl lg:text-3xl text-muted-foreground font-light transition-all duration-1000 ${
-                  isVisible ? 'translate-y-0 opacity-100' : 'translate-y-8 opacity-0'
+                  isVisible
+                    ? "translate-y-0 opacity-100"
+                    : "translate-y-8 opacity-0"
                 }`}
-                style={{ transitionDelay: '400ms' }}
+                style={{ transitionDelay: "400ms" }}
               >
                 Fill tables, boost revenue, delight guests
               </p>
-              <p 
+              <p
                 className={`text-base lg:text-lg text-muted-foreground max-w-xl leading-relaxed transition-all duration-1000 ${
-                  isVisible ? 'translate-y-0 opacity-100' : 'translate-y-8 opacity-0'
+                  isVisible
+                    ? "translate-y-0 opacity-100"
+                    : "translate-y-8 opacity-0"
                 }`}
-                style={{ transitionDelay: '600ms' }}
+                style={{ transitionDelay: "600ms" }}
               >
-                Plate helps you fill off-peak hours with smart points boosts, reduce no-shows, 
-                and run a smoother floor with AI-powered table management. 
-                Built specifically for Lebanon's vibrant restaurant scene.
+                Plate helps you fill off-peak hours with smart points boosts,
+                reduce no-shows, and run a smoother floor with AI-powered table
+                management. Built specifically for Lebanon&apos;s vibrant
+                restaurant scene.
               </p>
             </div>
 
             {/* CTAs */}
-            <div 
+            <div
               className={`flex flex-col sm:flex-row gap-4 transition-all duration-1000 ${
-                isVisible ? 'translate-y-0 opacity-100' : 'translate-y-8 opacity-0'
+                isVisible
+                  ? "translate-y-0 opacity-100"
+                  : "translate-y-8 opacity-0"
               }`}
-              style={{ transitionDelay: '800ms' }}
+              style={{ transitionDelay: "800ms" }}
             >
               <button className="bg-primary text-primary-foreground px-8 py-4 rounded-xl text-lg font-semibold hover:bg-primary/90 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:scale-105">
                 Start Free Trial
@@ -102,23 +111,31 @@ export default function RestaurantsHero() {
             </div>
 
             {/* Trust indicators */}
-            <div 
+            <div
               className={`flex items-center gap-6 pt-4 transition-all duration-1000 ${
-                isVisible ? 'translate-y-0 opacity-100' : 'translate-y-8 opacity-0'
+                isVisible
+                  ? "translate-y-0 opacity-100"
+                  : "translate-y-8 opacity-0"
               }`}
-              style={{ transitionDelay: '1000ms' }}
+              style={{ transitionDelay: "1000ms" }}
             >
               <div className="flex items-center gap-2">
                 <CheckIcon />
-                <span className="text-sm text-muted-foreground">No credit card required</span>
+                <span className="text-sm text-muted-foreground">
+                  No credit card required
+                </span>
               </div>
               <div className="flex items-center gap-2">
                 <CheckIcon />
-                <span className="text-sm text-muted-foreground">Setup in 15 minutes</span>
+                <span className="text-sm text-muted-foreground">
+                  Setup in 15 minutes
+                </span>
               </div>
               <div className="flex items-center gap-2">
                 <CheckIcon />
-                <span className="text-sm text-muted-foreground">Local support</span>
+                <span className="text-sm text-muted-foreground">
+                  Local support
+                </span>
               </div>
             </div>
           </div>
