@@ -73,7 +73,7 @@ export default function HowPoints() {
         {/* Refactored Cards Section */}
         <div className="mt-12 grid lg:grid-cols-2 gap-6">
           {/* Off-Peak Multipliers Card */}
-          <article className="glass p-6 reveal">
+          <article className="glass p-6 reveal flex flex-col justify-between">
             <div className="flex items-center justify-between">
               <h3 className="text-lg font-semibold">Off-Peak Multipliers</h3>
               <Badge>Boost</Badge>
