@@ -1,42 +1,50 @@
 import Navbar from "../components/Navbar";
-import RestaurantsHero from "../components/RestaurantsHero";
-import RestaurantsFeatures from "../components/RestaurantsFeatures";
-import RestaurantsPricing from "../components/RestaurantsPricing";
-import RestaurantsTestimonials from "../components/RestaurantsTestimonials";
-import RestaurantsCTA from "../components/RestaurantsCTA";
-import RestaurantsFooter from "../components/RestaurantsFooter";
+import RestaurantHero from "../components/RestaurantHero";
+import RestaurantChallenges from "../components/RestaurantChallenges";
+import RestaurantSolution from "../components/RestaurantSolution";
+import RestaurantManagerApp from "../components/RestaurantManagerApp";
+import RestaurantLoyaltyProgram from "../components/RestaurantLoyaltyProgram";
+import RestaurantLocalAdvantage from "../components/RestaurantLocalAdvantage";
+import RestaurantPricing from "../components/RestaurantPricing";
+import RestaurantVision from "../components/RestaurantVision";
+import RestaurantOffer from "../components/RestaurantOffer";
+import RestaurantFooter from "../components/RestaurantFooter";
 
-export default function RestaurantsPage() {
+export default function RestaurantPage() {
   return (
     <main id="main" className="relative min-h-screen text-foreground">
       {/* Sticky, glassy navbar (client component) */}
       <Navbar />
 
       {/* Hero Section */}
-      <RestaurantsHero />
+      <RestaurantHero />
 
-      {/* Features Section */}
-      <section id="features">
-        <RestaurantsFeatures />
-      </section>
+      {/* Challenges Section */}
+      <RestaurantChallenges />
+
+      {/* Solution Section */}
+      <RestaurantSolution />
+
+      {/* Manager App Section */}
+      <RestaurantManagerApp />
+
+      {/* Loyalty Program Section */}
+      <RestaurantLoyaltyProgram />
+
+      {/* Local Advantage Section */}
+      <RestaurantLocalAdvantage />
 
       {/* Pricing Section */}
-      <section id="pricing">
-        <RestaurantsPricing />
-      </section>
+      <RestaurantPricing />
 
-      {/* Testimonials Section */}
-      <section id="testimonials">
-        <RestaurantsTestimonials />
-      </section>
+      {/* Vision Section */}
+      <RestaurantVision />
 
-      {/* CTA Section */}
-      <section id="cta">
-        <RestaurantsCTA />
-      </section>
+      {/* Offer Section */}
+      <RestaurantOffer />
 
       {/* Footer */}
-      <RestaurantsFooter />
+      <RestaurantFooter />
     </main>
   );
 }
