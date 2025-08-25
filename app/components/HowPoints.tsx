@@ -151,19 +151,33 @@ export default function HowPoints() {
                 </p>
               </div>
             </div>
-            <div className="mt-5 flex flex-wrap gap-3">
-              <a
-                href="#"
-                className="inline-flex items-center rounded-full border px-4 py-2 text-sm font-medium hover:bg-accent/10 transition"
-              >
-                Find Boosted Times
-              </a>
-              <a
-                href="#"
-                className="inline-flex items-center rounded-full bg-[hsl(var(--primary))] text-[hsl(var(--primary-foreground))] px-4 py-2 text-sm font-medium shadow-sm hover:opacity-90 transition"
-              >
-                Download App
-              </a>
+
+            {/* Redesigned Action Section */}
+            <div className="mt-6">
+              <div className="flex flex-col sm:flex-row gap-3">
+                {/* Primary Action */}
+                <a
+                  href="#"
+                  className="group flex-1 flex items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-[hsl(var(--primary))] to-[hsl(var(--primary)/.8)] text-[hsl(var(--primary-foreground))] px-6 py-3 text-sm font-semibold shadow-lg hover:shadow-xl hover:scale-[1.02] transition-all duration-300"
+                >
+                  <DownloadIcon className="h-4 w-4" />
+                  Download App
+                </a>
+
+                {/* Secondary Action */}
+                <a
+                  href="#"
+                  className="group flex-1 flex items-center justify-center gap-2 rounded-xl border-2 border-[hsl(var(--accent)/.3)] bg-white/20 backdrop-blur-sm px-6 py-3 text-sm font-medium text-foreground hover:bg-[hsl(var(--accent)/.1)] hover:border-[hsl(var(--accent)/.5)] hover:scale-[1.02] transition-all duration-300"
+                >
+                  <SearchIcon className="h-4 w-4" />
+                  Find Boosted Times
+                </a>
+              </div>
+
+              {/* Subtle hint text */}
+              <p className="mt-3 text-center text-xs text-muted-foreground/70">
+                Get started in minutes • No credit card required
+              </p>
             </div>
           </article>
         </div>
@@ -424,5 +438,42 @@ function ArrowRightIcon({ className }: { className?: string }) {
       <div className="flex-1 h-0.5 bg-current opacity-60"></div>
       <div className="w-0 h-0 border-l-6 border-l-current border-t-3 border-t-transparent border-b-3 border-b-transparent ml-0"></div>
     </div>
+  );
+}
+
+function DownloadIcon({ className }: { className?: string }) {
+  return (
+    <svg
+      viewBox="0 0 24 24"
+      className={className}
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      aria-hidden="true"
+    >
+      <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
+      <polyline points="7,10 12,15 17,10" />
+      <line x1="12" y1="15" x2="12" y2="3" />
+    </svg>
+  );
+}
+
+function SearchIcon({ className }: { className?: string }) {
+  return (
+    <svg
+      viewBox="0 0 24 24"
+      className={className}
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      aria-hidden="true"
+    >
+      <circle cx="11" cy="11" r="8" />
+      <path d="m21 21-4.35-4.35" />
+    </svg>
   );
 }
