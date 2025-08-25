@@ -82,33 +82,27 @@ export default function HowPoints() {
               Dine during quieter hours and earn 1.5×–3× points. Restaurants set
               the boost; Plate makes it easy to find and book.
             </p>
-            <div className="mt-4 grid sm:grid-cols-3 gap-3 text-center">
-              <div className="rounded-lg bg-white/50 border border-black/10 p-3 flex flex-col items-center justify-center">
+            <div className="mt-4 grid grid-cols-1 sm:grid-cols-3 gap-3 text-center">
+              <div className="rounded-lg bg-white/50 border border-black/10 p-3 flex flex-row sm:flex-col items-center justify-center gap-3 sm:gap-0">
                 <SunIcon />
-                <span className="text-xs mt-1 text-muted-foreground">
+                <span className="text-xs text-muted-foreground">
                   Lunch (Mon–Thu)
                 </span>
-                <span className="font-bold text-lg text-foreground mt-0.5">
-                  1.5×
-                </span>
+                <span className="font-bold text-lg text-foreground">1.5×</span>
               </div>
-              <div className="rounded-lg bg-white/50 border border-black/10 p-3 flex flex-col items-center justify-center">
+              <div className="rounded-lg bg-white/50 border border-black/10 p-3 flex flex-row sm:flex-col items-center justify-center gap-3 sm:gap-0">
                 <SunsetIcon />
-                <span className="text-xs mt-1 text-muted-foreground">
+                <span className="text-xs text-muted-foreground">
                   Early Dinner
                 </span>
-                <span className="font-bold text-lg text-foreground mt-0.5">
-                  2×
-                </span>
+                <span className="font-bold text-lg text-foreground">2×</span>
               </div>
-              <div className="rounded-lg bg-white/50 border border-black/10 p-3 flex flex-col items-center justify-center">
+              <div className="rounded-lg bg-white/50 border border-black/10 p-3 flex flex-row sm:flex-col items-center justify-center gap-3 sm:gap-0">
                 <MoonIcon />
-                <span className="text-xs mt-1 text-muted-foreground">
+                <span className="text-xs text-muted-foreground">
                   Late Seating
                 </span>
-                <span className="font-bold text-lg text-foreground mt-0.5">
-                  3×
-                </span>
+                <span className="font-bold text-lg text-foreground">3×</span>
               </div>
             </div>
           </article>
