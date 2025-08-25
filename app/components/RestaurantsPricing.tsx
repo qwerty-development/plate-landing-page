@@ -3,9 +3,7 @@ import { useEffect, useRef, useState } from "react";
 
 export default function RestaurantsPricing() {
   const [isVisible, setIsVisible] = useState(false);
-  const [selectedPlan, setSelectedPlan] = useState<"monthly" | "yearly">(
-    "monthly"
-  );
+  const [selectedPlan] = useState<"monthly" | "yearly">("monthly");
   const pricingRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -27,31 +25,31 @@ export default function RestaurantsPricing() {
 
   const plans = [
     {
-      name: "Starter",
+      name: "Basic",
       description: "Perfect for small restaurants and cafes",
-      monthlyPrice: 49,
-      yearlyPrice: 39,
+      monthlyPrice: 50,
+      yearlyPrice: 50,
       features: [
-        "Up to 50 bookings/month",
-        "Basic points boost system",
-        "Table management",
+        "$50 base fee",
+        "$1 per cover",
+        "$0.5 per widget booking",
+        "Basic table management",
         "Email support",
         "Mobile app access",
-        "Basic analytics",
       ],
       popular: false,
       delay: 200,
     },
     {
-      name: "Professional",
+      name: "Pro",
       description: "Ideal for growing restaurants",
-      monthlyPrice: 99,
-      yearlyPrice: 79,
+      monthlyPrice: 150,
+      yearlyPrice: 150,
       features: [
-        "Up to 200 bookings/month",
-        "Advanced points boost (1.5×–3×)",
-        "AI SmartAssign™",
-        "No-show protection",
+        "$150 base fee",
+        "$0.7 per cover",
+        "Free widget bookings",
+        "Advanced table management",
         "Priority support",
         "Advanced analytics",
         "Staff training",
@@ -60,27 +58,7 @@ export default function RestaurantsPricing() {
       popular: true,
       delay: 400,
     },
-    {
-      name: "Enterprise",
-      description: "For restaurant groups and chains",
-      monthlyPrice: 199,
-      yearlyPrice: 159,
-      features: [
-        "Unlimited bookings",
-        "Multi-location management",
-        "Advanced AI features",
-        "White-label solution",
-        "Dedicated account manager",
-        "Custom integrations",
-        "On-site setup",
-        "24/7 phone support",
-      ],
-      popular: false,
-      delay: 600,
-    },
   ];
-
-  const savings = selectedPlan === "yearly" ? 20 : 0;
 
   return (
     <section
@@ -126,63 +104,12 @@ export default function RestaurantsPricing() {
             }`}
             style={{ transitionDelay: "200ms" }}
           >
-            Choose the plan that fits your restaurant&apos;s needs. All plans
-            include a 14-day free trial.
+            Choose the plan that fits your restaurant&apos;s needs.
           </p>
-
-          {/* Billing toggle */}
-          <div
-            className={`mt-8 flex items-center justify-center gap-4 transition-all duration-1000 ${
-              isVisible
-                ? "translate-y-0 opacity-100"
-                : "translate-y-8 opacity-0"
-            }`}
-            style={{ transitionDelay: "400ms" }}
-          >
-            <span
-              className={`text-sm ${
-                selectedPlan === "monthly" ? "text-white" : "text-white/60"
-              }`}
-            >
-              Monthly
-            </span>
-            <button
-              onClick={() =>
-                setSelectedPlan(
-                  selectedPlan === "monthly" ? "yearly" : "monthly"
-                )
-              }
-              className="relative inline-flex h-6 w-11 items-center rounded-full transition-colors focus:outline-none focus:ring-2 focus:ring-white/20 focus:ring-offset-2 focus:ring-offset-primary"
-              style={{
-                backgroundColor:
-                  selectedPlan === "yearly"
-                    ? "rgba(255,255,255,0.2)"
-                    : "rgba(255,255,255,0.1)",
-              }}
-            >
-              <span
-                className={`inline-block h-4 w-4 transform rounded-full bg-white transition-transform ${
-                  selectedPlan === "yearly" ? "translate-x-6" : "translate-x-1"
-                }`}
-              />
-            </button>
-            <span
-              className={`text-sm ${
-                selectedPlan === "yearly" ? "text-white" : "text-white/60"
-              }`}
-            >
-              Yearly
-              {savings > 0 && (
-                <span className="ml-2 inline-flex items-center rounded-full bg-green-500 px-2 py-0.5 text-xs font-medium text-white">
-                  Save {savings}%
-                </span>
-              )}
-            </span>
-          </div>
         </header>
 
         {/* Pricing Cards */}
-        <div className="grid lg:grid-cols-3 gap-8">
+        <div className="grid lg:grid-cols-2 gap-8 max-w-4xl mx-auto">
           {plans.map((plan, index) => (
             <PricingCard
               key={index}
@@ -269,7 +196,7 @@ function PricingCard({
   delay: number;
   selectedPlan: "monthly" | "yearly";
 }) {
-  const price = selectedPlan === "monthly" ? monthlyPrice : yearlyPrice;
+  const price = monthlyPrice;
 
   return (
     <article
@@ -312,27 +239,60 @@ function PricingCard({
           </p>
 
           <div className="mt-6">
-            <div className="flex items-baseline justify-center">
-              <span
-                className={`text-4xl font-bold ${
-                  popular ? "text-gray-900" : "text-white"
-                }`}
-              >
-                ${price}
-              </span>
-              <span
-                className={`ml-1 text-sm ${
-                  popular ? "text-gray-600" : "text-white/80"
-                }`}
-              >
-                /month
-              </span>
+            <div className="flex flex-col items-center">
+              <div className="flex items-baseline justify-center">
+                <span
+                  className={`text-4xl font-bold ${
+                    popular ? "text-gray-900" : "text-white"
+                  }`}
+                >
+                  ${price}
+                </span>
+                <span
+                  className={`ml-1 text-sm ${
+                    popular ? "text-gray-600" : "text-white/80"
+                  }`}
+                >
+                  base
+                </span>
+              </div>
+              {name === "Basic" && (
+                <div className="mt-2 text-center">
+                  <p
+                    className={`text-sm ${
+                      popular ? "text-gray-600" : "text-white/80"
+                    }`}
+                  >
+                    + $1 per cover
+                  </p>
+                  <p
+                    className={`text-sm ${
+                      popular ? "text-gray-600" : "text-white/80"
+                    }`}
+                  >
+                    + $0.5 per widget
+                  </p>
+                </div>
+              )}
+              {name === "Pro" && (
+                <div className="mt-2 text-center">
+                  <p
+                    className={`text-sm ${
+                      popular ? "text-gray-600" : "text-white/80"
+                    }`}
+                  >
+                    + $0.7 per cover
+                  </p>
+                  <p
+                    className={`text-sm ${
+                      popular ? "text-gray-600" : "text-white/80"
+                    }`}
+                  >
+                    Free widget bookings
+                  </p>
+                </div>
+              )}
             </div>
-            {selectedPlan === "yearly" && (
-              <p className="mt-1 text-sm text-green-500 font-medium">
-                Billed annually
-              </p>
-            )}
           </div>
         </div>
 
