@@ -74,16 +74,14 @@ export default function HowPoints() {
         <div className="mt-12 grid lg:grid-cols-2 gap-6">
           {/* Off-Peak Multipliers Card */}
           <article className="glass p-6 reveal">
-            <div className="flex items-start gap-3">
+            <div className="flex items-center justify-between">
+              <h3 className="text-lg font-semibold">Off-Peak Multipliers</h3>
               <Badge>Boost</Badge>
-              <div className="min-w-0">
-                <h3 className="text-lg font-semibold">Off-Peak Multipliers</h3>
-                <p className="mt-1 text-muted-foreground">
-                  Dine during quieter hours and earn 1.5×–3× points. Restaurants
-                  set the boost; Plate makes it easy to find and book.
-                </p>
-              </div>
             </div>
+            <p className="mt-1 text-muted-foreground">
+              Dine during quieter hours and earn 1.5×–3× points. Restaurants set
+              the boost; Plate makes it easy to find and book.
+            </p>
             <div className="mt-4 grid sm:grid-cols-3 gap-3 text-center">
               <div className="rounded-lg bg-white/50 border border-black/10 p-3 flex flex-col items-center justify-center">
                 <SunIcon />
@@ -117,34 +115,31 @@ export default function HowPoints() {
 
           {/* Simple & Transparent Card */}
           <article
-            className="glass p-6 reveal"
+            className="glass p-6 reveal flex flex-col justify-between"
             style={{ animationDelay: "80ms" }}
           >
-            <div className="flex items-start gap-3">
+            <div className="flex items-center justify-between">
+              <h3 className="text-lg font-semibold">Simple & transparent</h3>
               <Badge>Good to know</Badge>
-              <div className="min-w-0">
-                <h3 className="text-lg font-semibold">Simple & transparent</h3>
-                <div className="mt-3 space-y-3">
-                  <div className="flex items-start gap-3">
-                    <CheckmarkIcon />
-                    <p className="text-muted-foreground text-sm -mt-0.5">
-                      Points appear after the restaurant confirms your visit.
-                    </p>
-                  </div>
-                  <div className="flex items-start gap-3">
-                    <CheckmarkIcon />
-                    <p className="text-muted-foreground text-sm -mt-0.5">
-                      Boosts are applied automatically when you book boosted
-                      slots.
-                    </p>
-                  </div>
-                  <div className="flex items-start gap-3">
-                    <CheckmarkIcon />
-                    <p className="text-muted-foreground text-sm -mt-0.5">
-                      Redeem right in checkout—no codes, no hassle.
-                    </p>
-                  </div>
-                </div>
+            </div>
+            <div className="mt-3 space-y-3">
+              <div className="flex items-start gap-3">
+                <CheckmarkIcon />
+                <p className="text-muted-foreground text-sm -mt-0.5">
+                  Points appear after the restaurant confirms your visit.
+                </p>
+              </div>
+              <div className="flex items-start gap-3">
+                <CheckmarkIcon />
+                <p className="text-muted-foreground text-sm -mt-0.5">
+                  Boosts are applied automatically when you book boosted slots.
+                </p>
+              </div>
+              <div className="flex items-start gap-3">
+                <CheckmarkIcon />
+                <p className="text-muted-foreground text-sm -mt-0.5">
+                  Redeem right in checkout—no codes, no hassle.
+                </p>
               </div>
             </div>
             <div className="mt-5 flex flex-wrap gap-3">
