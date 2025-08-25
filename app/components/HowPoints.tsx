@@ -41,7 +41,8 @@ export default function HowPoints() {
           {/* Timeline container with centered line */}
           <div className="relative">
             {/* Timeline connector line - full height background */}
-            <div className="absolute left-1/2 top-0 bottom-0 w-0.5 bg-gradient-to-b from-[hsl(var(--accent)/.3)] to-transparent transform -translate-x-1/2" />
+            {/* On mobile, the line is on the left. On desktop (lg), it's in the center. */}
+            <div className="absolute left-6 top-0 bottom-0 w-0.5 bg-[hsl(var(--accent))] transform -translate-x-1/2 lg:left-1/2" />
 
             {/* Timeline steps */}
             <ol className="relative">
@@ -214,6 +215,9 @@ export default function HowPoints() {
   );
 }
 
+// --- RESPONSIVE REFACTOR ---
+// This component now defaults to a single-column layout for mobile.
+// On large screens (lg), it switches to a two-column grid for the alternating effect.
 function Step({
   number,
   title,
@@ -227,31 +231,44 @@ function Step({
   icon: React.ReactNode;
   delay?: number;
 }) {
+  // Determine alignment for desktop: odd numbers (1, 3) go left, even numbers (2) go right.
+  const isLeft = number % 2 !== 0;
+
   return (
-    <li className="relative mb-8 last:mb-0">
-      {/* Timeline dot - centered on the line */}
-      <div className="absolute left-1/2 top-6 w-12 h-12 rounded-full bg-[hsl(var(--accent))] border-4 border-white shadow-lg flex items-center justify-center transform -translate-x-1/2 z-10">
+    // MOBILE: A flex container to push the content card to the right.
+    // DESKTOP (lg): A two-column grid for the alternating layout.
+    <li className="relative mb-8 last:mb-0 flex justify-end lg:grid lg:grid-cols-2">
+      {/* Timeline dot - position is responsive */}
+      <div className="absolute left-6 top-6 w-12 h-12 rounded-full bg-[hsl(var(--accent))] border-4 border-white shadow-lg flex items-center justify-center transform -translate-x-1/2 z-10 lg:left-1/2">
         <span className="text-white font-bold text-sm">{number}</span>
       </div>
 
-      {/* Content container - positioned to the right of the timeline */}
+      {/* Content container */}
       <div
-        className="glass p-6 reveal ml-16"
+        className={`
+          glass p-6 pl-0 lg:pl-6 reveal 
+          w-[calc(100%-4rem)] lg:w-auto  // MOBILE: Card takes up width minus margin. DESKTOP: auto width.
+          ${
+            isLeft
+              ? "lg:col-start-1 lg:mr-8 lg:justify-self-end lg:text-right" // DESKTOP LEFT: Position in 1st column, align right.
+              : "lg:col-start-2 lg:ml-8 lg:justify-self-start" // DESKTOP RIGHT: Position in 2nd column, align left.
+          }
+        `}
         style={{ animationDelay: `${delay}ms` }}
       >
-        <div className="flex items-start gap-3">
+        {/* Refactored icon/title group */}
+        <div className={`flex items-center gap-3 ${isLeft ? "lg:inline-flex" : ""}`}>
           <span className="inline-flex h-6 w-6 shrink-0 items-center justify-center rounded-md bg-[hsl(var(--accent)/.15)] border border-white/50">
             {icon}
           </span>
-          <div className="min-w-0">
-            <h3 className="text-base font-semibold">{title}</h3>
-            <p className="mt-2 text-sm text-muted-foreground">{text}</p>
-          </div>
+          <h3 className="text-base font-semibold">{title}</h3>
         </div>
+        <p className="mt-2 text-sm text-muted-foreground">{text}</p>
       </div>
     </li>
   );
 }
+
 
 /** Small inline icons (no extra deps) */
 function BookingIcon() {
