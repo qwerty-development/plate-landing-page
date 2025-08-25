@@ -1,4 +1,4 @@
-'use client'
+"use client";
 import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
 
@@ -9,11 +9,15 @@ type Shot = {
 };
 
 const SHOTS: Shot[] = [
-  { src: "/screenshots/home.PNG",    alt: "Home screen",        label: "Home" },
-  { src: "/screenshots/discover.PNG",  alt: "Map view",   label: "Map View" },
-  { src: "/screenshots/book.PNG", alt: "Booking flow",       label: "Booking" },
-  { src: "/screenshots/loyalty.PNG",  alt: "Points & boosts",    label: "Points" },
-  { src: "/screenshots/insights.PNG", alt: "Profile & history",  label: "Profile" },
+  { src: "/screenshots/home.PNG", alt: "Home screen", label: "Home" },
+  { src: "/screenshots/discover.PNG", alt: "Map view", label: "Map View" },
+  { src: "/screenshots/book.PNG", alt: "Booking flow", label: "Booking" },
+  { src: "/screenshots/loyalty.PNG", alt: "Points & boosts", label: "Points" },
+  {
+    src: "/screenshots/insights.PNG",
+    alt: "Profile & history",
+    label: "Profile",
+  },
 ];
 
 export default function AppScreens() {
@@ -38,50 +42,61 @@ export default function AppScreens() {
   }, []);
 
   return (
-    <section 
+    <section
       ref={appScreensRef}
-      className="relative overflow-hidden text-white" 
-      style={{ backgroundColor: 'hsl(345 55% 31%)' }}
+      className="relative overflow-hidden text-white"
+      style={{ backgroundColor: "hsl(345 55% 31%)" }}
       aria-label="Plate App Screenshots"
     >
       {/* Shared floating background (matches Hero / HowPoints) */}
       <div aria-hidden="true" className="absolute inset-0">
-        <div 
-          className="absolute inset-0" 
-          style={{ backgroundColor: 'hsl(345 55% 31%)' }}
+        <div
+          className="absolute inset-0"
+          style={{ backgroundColor: "hsl(345 55% 31%)" }}
         />
         <div
           className="absolute -top-28 -left-24 h-[30rem] w-[30rem] rounded-full blur-3xl opacity-25 animate-blob-slow"
-          style={{ background: "radial-gradient(40% 40% at 50% 50%, rgba(255,255,255,0.15), transparent 70%)" }}
+          style={{
+            background:
+              "radial-gradient(40% 40% at 50% 50%, rgba(255,255,255,0.15), transparent 70%)",
+          }}
         />
         <div
           className="absolute -bottom-24 -right-28 h-[30rem] w-[30rem] rounded-full blur-3xl opacity-25 animate-blob"
-          style={{ background: "radial-gradient(45% 45% at 50% 50%, rgba(255,255,255,0.15), transparent 70%)" }}
+          style={{
+            background:
+              "radial-gradient(45% 45% at 50% 50%, rgba(255,255,255,0.15), transparent 70%)",
+          }}
         />
       </div>
 
       <div className="relative z-10 max-w-7xl mx-auto px-6 py-20 lg:py-24">
         <header className="text-center max-w-2xl mx-auto">
-          <h2 
+          <h2
             className={`text-3xl lg:text-4xl font-bold tracking-tight text-white transition-all duration-1000 ${
-              isVisible ? 'translate-y-0 opacity-100' : 'translate-y-8 opacity-0'
+              isVisible
+                ? "translate-y-0 opacity-100"
+                : "translate-y-8 opacity-0"
             }`}
           >
             See the App
           </h2>
-          <p 
+          <p
             className={`mt-3 text-white/80 transition-all duration-1000 ${
-              isVisible ? 'translate-y-0 opacity-100' : 'translate-y-8 opacity-0'
+              isVisible
+                ? "translate-y-0 opacity-100"
+                : "translate-y-8 opacity-0"
             }`}
-            style={{ transitionDelay: '200ms' }}
+            style={{ transitionDelay: "200ms" }}
           >
-            A quick look at the Plate experience—from discovery to booking to points.
+            A quick look at the Plate experience—from discovery to booking to
+            points.
           </p>
         </header>
 
         {/* Mobile: horizontal snap carousel */}
         <div className="mt-10 sm:hidden -mx-6 px-6">
-          <div className="flex gap-4 overflow-x-auto snap-x snap-mandatory pb-4">
+          <div className="flex gap-4 overflow-x-auto snap-x snap-mandatory pb-4 min-h-[20rem]">
             {SHOTS.map((s, i) => (
               <PhoneFrame key={i} className="snap-center shrink-0 w-[14rem]">
                 <Screenshot {...s} />
@@ -100,11 +115,11 @@ export default function AppScreens() {
         </div>
 
         {/* Optional CTA row */}
-        <div 
+        <div
           className={`mt-12 flex items-center justify-center gap-4 transition-all duration-1000 ${
-            isVisible ? 'translate-y-0 opacity-100' : 'translate-y-8 opacity-0'
+            isVisible ? "translate-y-0 opacity-100" : "translate-y-8 opacity-0"
           }`}
-          style={{ transitionDelay: '800ms' }}
+          style={{ transitionDelay: "800ms" }}
         >
           <a
             href="#"
@@ -123,37 +138,68 @@ export default function AppScreens() {
 
       {/* Local animations reused */}
       <style jsx>{`
-        .animate-blob { animation: blob 18s ease-in-out infinite; }
-        .animate-blob-slow { animation: blob 26s ease-in-out infinite; }
+        .animate-blob {
+          animation: blob 18s ease-in-out infinite;
+        }
+        .animate-blob-slow {
+          animation: blob 26s ease-in-out infinite;
+        }
 
         @keyframes blob {
-          0%, 100% { transform: translate(0px, 0px) scale(1); }
-          33% { transform: translate(28px, -18px) scale(1.06); }
-          66% { transform: translate(-22px, 22px) scale(0.96); }
+          0%,
+          100% {
+            transform: translate(0px, 0px) scale(1);
+          }
+          33% {
+            transform: translate(28px, -18px) scale(1.06);
+          }
+          66% {
+            transform: translate(-22px, 22px) scale(0.96);
+          }
         }
 
         /* Frame slides in from the bottom */
         @keyframes slideIn {
-          0%   { opacity: 0; transform: translateY(6rem) rotate(1.5deg); }
-          60%  { opacity: 1; transform: translateY(0.5rem) rotate(0.3deg); }
-          100% { opacity: 1; transform: translateY(0) rotate(0); }
+          0% {
+            opacity: 0;
+            transform: translateY(6rem) rotate(1.5deg);
+          }
+          60% {
+            opacity: 1;
+            transform: translateY(0.5rem) rotate(0.3deg);
+          }
+          100% {
+            opacity: 1;
+            transform: translateY(0) rotate(0);
+          }
         }
         .animate-slideIn {
-          animation: slideIn 900ms cubic-bezier(.2,.7,.2,1) both;
+          animation: slideIn 900ms cubic-bezier(0.2, 0.7, 0.2, 1) both;
         }
 
         /* Image pans from bottom to centered inside the frame */
         @keyframes panIn {
-          0%   { object-position: 50% 90%; transform: scale(1.04); }
-          100% { object-position: 50% 50%; transform: scale(1); }
+          0% {
+            object-position: 50% 90%;
+            transform: scale(1.04);
+          }
+          100% {
+            object-position: 50% 50%;
+            transform: scale(1);
+          }
         }
         .animate-panIn {
-          animation: panIn 1600ms cubic-bezier(.2,.8,.2,1) 200ms both;
+          animation: panIn 1600ms cubic-bezier(0.2, 0.8, 0.2, 1) 200ms both;
         }
 
         /* Respect reduced motion */
         @media (prefers-reduced-motion: reduce) {
-          .animate-slideIn, .animate-panIn, .animate-blob, .animate-blob-slow { animation: none !important; }
+          .animate-slideIn,
+          .animate-panIn,
+          .animate-blob,
+          .animate-blob-slow {
+            animation: none !important;
+          }
         }
       `}</style>
     </section>
@@ -163,23 +209,29 @@ export default function AppScreens() {
 function PhoneFrame({
   children,
   className = "",
-  isVisible = false,
-  delay = 0
+  isVisible = undefined,
+  delay = 0,
 }: {
   children: React.ReactNode;
   className?: string;
-  isVisible?: boolean;
+  isVisible?: boolean | undefined;
   delay?: number;
 }) {
+  // For mobile carousel (no isVisible prop), always show the frame
+  // For desktop grid (with isVisible prop), use the animation state
+  const shouldShow = isVisible === undefined ? true : isVisible;
+
   return (
     <figure
-      className={`relative rounded-[2rem] border border-border bg-card/60 backdrop-blur shadow-sm p-3 transition-all duration-1000 transform ${
-        isVisible ? 'translate-y-0 opacity-100 scale-100' : 'translate-y-8 opacity-0 scale-95'
+      className={`relative rounded-[2rem] border border-gray-300 bg-white/60 backdrop-blur shadow-sm p-3 transition-all duration-1000 transform ${
+        shouldShow
+          ? "translate-y-0 opacity-100 scale-100"
+          : "translate-y-8 opacity-0 scale-95"
       } ${className}`}
       style={{ transitionDelay: `${delay}ms` }}
     >
       {/* "phone" bezel */}
-      <div className="relative rounded-[1.75rem] bg-black/10 border border-border/60 overflow-hidden">
+      <div className="relative rounded-[1.75rem] bg-black/10 border border-gray-400/60 overflow-hidden">
         {/* top notch */}
         <div className="absolute left-1/2 -translate-x-1/2 top-2 h-4 w-24 rounded-full bg-black/30" />
         {children}
@@ -206,8 +258,11 @@ function Screenshot({ src, alt, label }: Shot) {
         height={2796}
         className="w-full h-auto select-none"
         priority
+        style={{ minHeight: "200px" }}
       />
-      <figcaption className="mt-3 text-center text-sm text-white">{label}</figcaption>
+      <figcaption className="mt-3 text-center text-sm text-white">
+        {label}
+      </figcaption>
     </div>
   );
 }
