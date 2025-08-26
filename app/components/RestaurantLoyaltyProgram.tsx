@@ -52,7 +52,7 @@ export default function RestaurantLoyaltyProgram() {
   return (
     <section
       ref={loyaltyRef}
-      className="relative overflow-hidden py-20 lg:py-24 bg-[hsl(var(--background))]"
+      className="relative overflow-show pt-20 lg:pt-24 bg-[hsl(var(--background))]"
       aria-label="Plate Points Loyalty Program"
     >
       {/* Background with subtle patterns */}
@@ -193,7 +193,7 @@ export default function RestaurantLoyaltyProgram() {
 
         {/* Bottom CTA */}
         <div
-          className={`mt-16 text-center transition-all duration-1000 ${
+          className={`mt-16 hidden text-center transition-all duration-1000 ${
             isVisible ? "translate-y-0 opacity-100" : "translate-y-8 opacity-0"
           }`}
           style={{ transitionDelay: "1000ms" }}
@@ -356,7 +356,7 @@ function LoyaltyStep({
   const isLeft = step % 2 !== 0;
 
   return (
-    <li className="relative mb-12 last:mb-0 flex justify-end lg:grid lg:grid-cols-2">
+    <li className="relative mb-0 last:mb-0 flex justify-end lg:grid lg:grid-cols-2">
       <div
         className={`absolute left-6 top-6 w-14 h-14 rounded-full bg-gradient-to-br from-[hsl(var(--accent))] to-[hsl(var(--primary))] border-4 border-white shadow-2xl flex items-center justify-center transform -translate-x-1/2 z-10 lg:left-1/2 transition-all duration-700 ${
           isVisible ? "scale-100 opacity-100" : "scale-75 opacity-0"

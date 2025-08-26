@@ -8,7 +8,7 @@ import RestaurantLocalAdvantage from "../components/RestaurantLocalAdvantage";
 import RestaurantPricing from "../components/RestaurantPricing";
 import RestaurantVision from "../components/RestaurantVision";
 import RestaurantOffer from "../components/RestaurantOffer";
-import RestaurantFooter from "../components/RestaurantFooter";
+import SiteFooter from "../components/SiteFooter";
 
 export default function RestaurantPage() {
   return (
@@ -24,7 +24,7 @@ export default function RestaurantPage() {
 
       {/* Solution Section */}
       <RestaurantSolution />
-      
+
       {/* Pricing Section */}
       <RestaurantPricing />
 
@@ -37,7 +37,6 @@ export default function RestaurantPage() {
       {/* Local Advantage Section */}
       {/* <RestaurantLocalAdvantage /> */}
 
-
       {/* Vision Section */}
       {/* <RestaurantVision /> */}
 
@@ -45,7 +44,7 @@ export default function RestaurantPage() {
       {/* <RestaurantOffer /> */}
 
       {/* Footer */}
-      {/* <RestaurantFooter /> */}
+      <SiteFooter />
     </main>
   );
 }
