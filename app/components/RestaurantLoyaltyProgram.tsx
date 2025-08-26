@@ -109,7 +109,15 @@ export default function RestaurantLoyaltyProgram() {
         <div className="mb-16">
           <div className="relative">
             {/* Timeline connector line */}
-            <div className="absolute left-6 top-0 bottom-0 w-1 bg-gradient-to-b from-[hsl(var(--accent))] to-[hsl(var(--primary))] opacity-60 transform -translate-x-1/2 lg:left-1/2" />
+            <div
+              className={`absolute left-6 top-0 bottom-0 w-1 bg-gradient-to-b from-[hsl(var(--accent))] to-[hsl(var(--primary))] transform -translate-x-1/2 lg:left-1/2 transition-all duration-1500 ${
+                isVisible ? "opacity-60 scale-y-100" : "opacity-0 scale-y-0"
+              }`}
+              style={{
+                transitionDelay: "300ms",
+                transformOrigin: "top",
+              }}
+            />
 
             {/* Timeline steps */}
             <ol className="relative">
@@ -140,19 +148,40 @@ export default function RestaurantLoyaltyProgram() {
               .
             </p>
             <div className="grid sm:grid-cols-3 gap-8 text-center">
-              <div className="space-y-3">
+              <div
+                className={`space-y-3 transition-all duration-700 ${
+                  isVisible
+                    ? "translate-y-0 opacity-100"
+                    : "translate-y-4 opacity-0"
+                }`}
+                style={{ transitionDelay: "900ms" }}
+              >
                 <div className="text-4xl font-bold text-primary">$0.015</div>
                 <div className="text-sm text-muted-foreground font-medium">
                   Cost per point
                 </div>
               </div>
-              <div className="space-y-3">
+              <div
+                className={`space-y-3 transition-all duration-700 ${
+                  isVisible
+                    ? "translate-y-0 opacity-100"
+                    : "translate-y-4 opacity-0"
+                }`}
+                style={{ transitionDelay: "1000ms" }}
+              >
                 <div className="text-4xl font-bold text-primary">3-5x</div>
                 <div className="text-sm text-muted-foreground font-medium">
                   Return on investment
                 </div>
               </div>
-              <div className="space-y-3">
+              <div
+                className={`space-y-3 transition-all duration-700 ${
+                  isVisible
+                    ? "translate-y-0 opacity-100"
+                    : "translate-y-4 opacity-0"
+                }`}
+                style={{ transitionDelay: "1100ms" }}
+              >
                 <div className="text-4xl font-bold text-primary">85%</div>
                 <div className="text-sm text-muted-foreground font-medium">
                   Customer retention
@@ -172,8 +201,25 @@ export default function RestaurantLoyaltyProgram() {
           <p className="text-muted-foreground mb-8 text-lg">
             Ready to build a loyal customer base that keeps coming back?
           </p>
-          <button className="bg-primary text-primary-foreground px-10 py-4 rounded-xl font-bold text-lg hover:bg-primary/90 transition-all duration-300 shadow-2xl hover:shadow-primary/20 transform hover:scale-105 border-0">
-            Start Your Loyalty Program
+          <button
+            className={`bg-primary text-primary-foreground px-10 py-4 rounded-xl font-bold text-lg shadow-2xl border-0 relative overflow-hidden group ${
+              isVisible
+                ? "translate-y-0 opacity-100 scale-100"
+                : "translate-y-8 opacity-0 scale-95"
+            }`}
+            style={{
+              transitionDelay: "1200ms",
+              transition: "all 0.6s cubic-bezier(0.2, 0.7, 0.2, 1)",
+            }}
+          >
+            {/* Shimmer effect */}
+            <div className="absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-white/20 to-transparent group-hover:translate-x-full transition-transform duration-1000 ease-out" />
+
+            {/* Button content */}
+            <span className="relative z-10">Start Your Loyalty Program</span>
+
+            {/* Hover animations */}
+            <div className="absolute inset-0 bg-gradient-to-r from-primary/80 to-primary rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
           </button>
         </div>
       </div>
@@ -243,10 +289,48 @@ export default function RestaurantLoyaltyProgram() {
           border-color: rgba(255, 255, 255, 0.3);
         }
 
+        @keyframes fadeUp {
+          0% {
+            opacity: 0;
+            transform: translateY(20px) scale(0.98);
+          }
+          60% {
+            opacity: 1;
+            transform: translateY(0) scale(1);
+          }
+          100% {
+            opacity: 1;
+            transform: translateY(0) scale(1);
+          }
+        }
+
+        .reveal {
+          animation: fadeUp 800ms cubic-bezier(0.2, 0.7, 0.2, 1) both;
+        }
+
+        /* Button hover effects */
+        .group:hover {
+          transform: translateY(-2px) scale(1.02);
+          box-shadow: 0 25px 50px rgba(0, 0, 0, 0.3);
+        }
+
+        .group:active {
+          transform: translateY(0) scale(0.98);
+        }
+
         @media (prefers-reduced-motion: reduce) {
           .animate-blob,
           .animate-blob-slow {
             animation: none !important;
+          }
+          .reveal {
+            animation: none !important;
+          }
+          .glass {
+            transition: none !important;
+          }
+          .group:hover {
+            transform: none !important;
           }
         }
       `}</style>
@@ -273,7 +357,12 @@ function LoyaltyStep({
 
   return (
     <li className="relative mb-12 last:mb-0 flex justify-end lg:grid lg:grid-cols-2">
-      <div className="absolute left-6 top-6 w-14 h-14 rounded-full bg-gradient-to-br from-[hsl(var(--accent))] to-[hsl(var(--primary))] border-4 border-white shadow-2xl flex items-center justify-center transform -translate-x-1/2 z-10 lg:left-1/2">
+      <div
+        className={`absolute left-6 top-6 w-14 h-14 rounded-full bg-gradient-to-br from-[hsl(var(--accent))] to-[hsl(var(--primary))] border-4 border-white shadow-2xl flex items-center justify-center transform -translate-x-1/2 z-10 lg:left-1/2 transition-all duration-700 ${
+          isVisible ? "scale-100 opacity-100" : "scale-75 opacity-0"
+        }`}
+        style={{ transitionDelay: `${delay + 200}ms` }}
+      >
         <span className="text-white font-bold text-lg">{step}</span>
       </div>
       <div
@@ -289,12 +378,31 @@ function LoyaltyStep({
             isLeft ? "lg:justify-end" : ""
           }`}
         >
-          <span className="inline-flex h-8 w-8 shrink-0 items-center justify-center rounded-xl bg-gradient-to-br from-[hsl(var(--accent)/.15)] to-[hsl(var(--primary)/.15)] border border-[hsl(var(--accent)/.3)]">
+          <span
+            className={`inline-flex h-8 w-8 shrink-0 items-center justify-center rounded-xl bg-gradient-to-br from-[hsl(var(--accent)/.15)] to-[hsl(var(--primary)/.15)] border border-[hsl(var(--accent)/.3)] transition-all duration-500 ${
+              isVisible ? "scale-100 opacity-100" : "scale-90 opacity-0"
+            }`}
+            style={{ transitionDelay: `${delay + 400}ms` }}
+          >
             {icon}
           </span>
-          <h3 className="text-lg font-bold text-foreground">{title}</h3>
+          <h3
+            className={`text-lg font-bold text-foreground transition-all duration-600 ${
+              isVisible
+                ? "translate-y-0 opacity-100"
+                : "translate-y-2 opacity-0"
+            }`}
+            style={{ transitionDelay: `${delay + 500}ms` }}
+          >
+            {title}
+          </h3>
         </div>
-        <p className="mt-3 text-base text-muted-foreground leading-relaxed">
+        <p
+          className={`mt-3 text-base text-muted-foreground leading-relaxed transition-all duration-600 ${
+            isVisible ? "translate-y-0 opacity-100" : "translate-y-3 opacity-0"
+          }`}
+          style={{ transitionDelay: `${delay + 600}ms` }}
+        >
           {description}
         </p>
       </div>
