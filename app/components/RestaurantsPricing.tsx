@@ -110,11 +110,7 @@ export default function RestaurantsPricing() {
         {/* Pricing Cards */}
         <div className="grid lg:grid-cols-2 gap-8 max-w-4xl mx-auto">
           {plans.map((plan, index) => (
-            <PricingCard
-              key={index}
-              {...plan}
-              isVisible={isVisible}
-            />
+            <PricingCard key={index} {...plan} isVisible={isVisible} />
           ))}
         </div>
 

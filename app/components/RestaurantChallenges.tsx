@@ -191,7 +191,9 @@ export default function RestaurantChallenges() {
           style={{ transitionDelay: "1000ms" }}
         >
           <p className="text-muted-foreground mb-6">
-            Sound familiar? You&apos;re not alone.<br />But there&apos;s a better way.
+            Sound familiar? You&apos;re not alone.
+            <br />
+            But there&apos;s a better way.
           </p>
           <button
             className={`bg-primary text-primary-foreground px-10 py-4 rounded-xl font-bold text-lg shadow-2xl border-0 relative overflow-hidden group ${

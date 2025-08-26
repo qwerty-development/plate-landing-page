@@ -102,8 +102,8 @@ export default function RestaurantVision() {
             }`}
             style={{ transitionDelay: "200ms" }}
           >
-            This isn&apos;t just about today&apos;s challenges. It&apos;s about building the
-            future of the restaurant industry in Lebanon.
+            This isn&apos;t just about today&apos;s challenges. It&apos;s about
+            building the future of the restaurant industry in Lebanon.
           </p>
         </header>
 
@@ -142,9 +142,9 @@ export default function RestaurantVision() {
               The Future is Bright for Early Adopters
             </h3>
             <p className="text-lg text-white/80 mb-8 leading-relaxed">
-              By joining Plate now, you&apos;re not just solving today&apos;s problems.
-              You&apos;re positioning yourself at the forefront of the digital
-              transformation of Lebanon&apos;s restaurant industry.
+              By joining Plate now, you&apos;re not just solving today&apos;s
+              problems. You&apos;re positioning yourself at the forefront of the
+              digital transformation of Lebanon&apos;s restaurant industry.
             </p>
             <div className="grid sm:grid-cols-3 gap-8 text-center">
               <div
