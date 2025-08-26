@@ -4,10 +4,7 @@ import RestaurantChallenges from "../components/RestaurantChallenges";
 import RestaurantSolution from "../components/RestaurantSolution";
 import RestaurantManagerApp from "../components/RestaurantManagerApp";
 import RestaurantLoyaltyProgram from "../components/RestaurantLoyaltyProgram";
-import RestaurantLocalAdvantage from "../components/RestaurantLocalAdvantage";
 import RestaurantPricing from "../components/RestaurantPricing";
-import RestaurantVision from "../components/RestaurantVision";
-import RestaurantOffer from "../components/RestaurantOffer";
 import SiteFooter from "../components/SiteFooter";
 
 export default function RestaurantPage() {

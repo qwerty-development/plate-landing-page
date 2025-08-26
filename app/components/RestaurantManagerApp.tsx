@@ -1,5 +1,6 @@
 "use client";
 import { useEffect, useRef, useState } from "react";
+import Image from "next/image";
 
 export default function RestaurantManagerApp() {
   const [isVisible, setIsVisible] = useState(false);
@@ -182,9 +183,11 @@ export default function RestaurantManagerApp() {
                   <div className="absolute inset-0 rounded-3xl bg-gradient-to-r from-white/20 via-transparent to-white/20 opacity-50 animate-pulse z-10"></div>
 
                   {/* Actual app mockup image */}
-                  <img
+                  <Image
                     src="/manager-app-mockup.png"
                     alt="Plate Restaurant Manager App Interface"
+                    width={800}
+                    height={600}
                     className="w-full h-auto rounded-3xl relative z-0 p-3 cursor-pointer hover:scale-105 transition-transform duration-300"
                     onClick={() => setIsLightboxOpen(true)}
                   />
@@ -273,9 +276,11 @@ export default function RestaurantManagerApp() {
             </button>
 
             {/* Image */}
-            <img
+            <Image
               src="/manager-app-mockup.png"
               alt="Plate Restaurant Manager App Interface - Full Size"
+              width={1200}
+              height={800}
               className="w-full h-auto max-h-[90vh] object-contain rounded-lg shadow-2xl"
               onClick={(e) => e.stopPropagation()}
             />
