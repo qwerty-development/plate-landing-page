@@ -38,10 +38,10 @@ export default function RestaurantSolution() {
       delay: 400,
     },
     {
-      name: "Integrated Marketing Tools",
+      name: "Universal Loyalty Program",
       benefit:
-        "Reach the right customers with targeted in-app banners, push notifications, and email/WhatsApp campaigns.",
-      icon: <MegaphoneIcon />,
+        "Turn first-time visitors into loyal regulars with a program that benefits everyone.",
+      icon: <StarIcon />,
       delay: 600,
     },
     {
@@ -52,10 +52,10 @@ export default function RestaurantSolution() {
       delay: 800,
     },
     {
-      name: "Universal Loyalty Program",
+      name: "Integrated Marketing Tools",
       benefit:
-        "Turn first-time visitors into loyal regulars with a program that benefits everyone.",
-      icon: <StarIcon />,
+        "Reach the right customers with targeted in-app banners, push notifications, and email/WhatsApp campaigns.",
+      icon: <MegaphoneIcon />,
       delay: 1000,
     },
   ];
@@ -105,16 +105,26 @@ export default function RestaurantSolution() {
             }`}
             style={{ transitionDelay: "200ms" }}
           >
-            We&apos;ve built the complete platform that addresses every challenge you
-            just read about.
+            We&apos;ve built the complete platform that addresses every
+            challenge you just read about.
           </p>
         </header>
 
         {/* Core Features Grid */}
-        <div className="grid lg:grid-cols-2 xl:grid-cols-3 gap-6">
-          {coreFeatures.map((feature, index) => (
-            <FeatureCard key={index} {...feature} isVisible={isVisible} />
-          ))}
+        <div className="space-y-6">
+          {/* First 3 cards in 3-column grid */}
+          <div className="grid lg:grid-cols-2 xl:grid-cols-3 gap-6">
+            {coreFeatures.slice(0, 3).map((feature, index) => (
+              <FeatureCard key={index} {...feature} isVisible={isVisible} />
+            ))}
+          </div>
+
+          {/* Bottom 2 cards each taking half width */}
+          <div className="grid lg:grid-cols-2 gap-6">
+            {coreFeatures.slice(3).map((feature, index) => (
+              <FeatureCard key={index + 3} {...feature} isVisible={isVisible} />
+            ))}
+          </div>
         </div>
 
         {/* Bottom CTA */}

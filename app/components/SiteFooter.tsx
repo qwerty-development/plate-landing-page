@@ -3,7 +3,7 @@ import Link from "next/link";
 
 export default function SiteFooter() {
   return (
-    <footer className="relative mt-20">
+    <footer className="relative mt-0">
       {/* CTA band */}
       <div className="relative">
         <div className="mx-auto max-w-7xl px-6 py-12 lg:py-16">

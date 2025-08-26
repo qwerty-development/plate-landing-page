@@ -52,7 +52,7 @@ export default function RestaurantLoyaltyProgram() {
   return (
     <section
       ref={loyaltyRef}
-      className="relative overflow-show pt-20 lg:pt-24 bg-[hsl(var(--background))]"
+      className="relative overflow-hidden pb-20 pt-20 lg:pt-24 bg-[hsl(var(--background))]"
       aria-label="Plate Points Loyalty Program"
     >
       {/* Background with subtle patterns */}
