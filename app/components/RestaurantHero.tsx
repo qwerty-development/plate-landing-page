@@ -4,6 +4,7 @@ import { useEffect, useRef, useState } from "react";
 export default function RestaurantHero() {
   const [isVisible, setIsVisible] = useState(false);
   const [currentHeadline, setCurrentHeadline] = useState(0);
+  const [isChanging, setIsChanging] = useState(false);
   const heroRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -26,7 +27,11 @@ export default function RestaurantHero() {
   // Rotate through headline options
   useEffect(() => {
     const interval = setInterval(() => {
-      setCurrentHeadline((prev) => (prev + 1) % 3);
+      setIsChanging(true);
+      setTimeout(() => {
+        setCurrentHeadline((prev) => (prev + 1) % 3);
+        setIsChanging(false);
+      }, 350);
     }, 4000);
 
     return () => clearInterval(interval);
@@ -44,6 +49,20 @@ export default function RestaurantHero() {
       className="relative overflow-hidden min-h-[90vh] flex items-center pt-0 bg-gradient-to-b from-[hsl(var(--primary)/.08)] via-[hsl(var(--accent)/.12)] to-transparent"
       aria-label="Plate — The Future of Dining in Lebanon"
     >
+      {/* CSS Animations */}
+      <style jsx>{`
+        @keyframes slideIn {
+          0% {
+            transform: translateY(1.5rem);
+            opacity: 0;
+          }
+          100% {
+            transform: translateY(0);
+            opacity: 1;
+          }
+        }
+      `}</style>
+
       {/* Decorative background sprinkles */}
       <div
         aria-hidden="true"
@@ -71,10 +90,11 @@ export default function RestaurantHero() {
 
             <div className="space-y-5">
               {/* Fixed height container for headlines to prevent layout shift */}
-              <div className="h-[280px] lg:h-[320px] flex items-center">
+              <div className="h-[280px] lg:h-[320px] flex items-center relative overflow-hidden">
+                {/* Current headline */}
                 <h1
-                  className={`text-5xl lg:text-7xl font-extrabold leading-[1.05] tracking-tight text-foreground transition-all duration-1000 ${
-                    isVisible
+                  className={`text-5xl lg:text-7xl font-extrabold leading-[1.05] tracking-tight text-foreground absolute inset-0 flex items-center transition-all duration-1000 ease-out ${
+                    isVisible && !isChanging
                       ? "translate-y-0 opacity-100"
                       : "translate-y-8 opacity-0"
                   }`}
@@ -84,6 +104,21 @@ export default function RestaurantHero() {
                     {headlines[currentHeadline]}
                   </span>
                 </h1>
+
+                {/* Next headline (appears during transition) */}
+                {isChanging && (
+                  <h1
+                    className="text-5xl lg:text-7xl font-extrabold leading-[1.05] tracking-tight text-foreground absolute inset-0 flex items-center transition-all duration-1000 ease-out translate-y-8 opacity-0"
+                    style={{
+                      animation: "slideIn 1s ease-out forwards",
+                      animationDelay: "0.5s",
+                    }}
+                  >
+                    <span className="block bg-gradient-to-r from-[hsl(var(--primary))] to-[hsl(var(--accent))] bg-clip-text text-transparent">
+                      {headlines[(currentHeadline + 1) % 3]}
+                    </span>
+                  </h1>
+                )}
               </div>
               <p
                 className={`text-xl lg:text-2xl text-muted-foreground font-light transition-all duration-1000 ${
