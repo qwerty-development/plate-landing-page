@@ -112,7 +112,7 @@ export default function RestaurantChallenges() {
         </header>
 
         {/* Pain Points Grid */}
-        <div className="grid lg:grid-cols-2 gap- mb-16">
+        <div className="grid lg:grid-cols-2 gap- mb-0">
           {painPoints.map((point, index) => (
             <PainPointCard
               key={index}
@@ -130,7 +130,7 @@ export default function RestaurantChallenges() {
           }`}
           style={{ transitionDelay: "900ms" }}
         >
-          <div className="glass p-8 lg:p-12 max-w-4xl mx-auto">
+          <div className="glass  max-w-4xl mx-auto">
             <h3 className="text-2xl lg:text-3xl font-bold text-foreground mb-6">
               These Challenges Cost Lebanese Restaurants{" "}
               <span className="text-primary">$2.3M+</span> Annually
