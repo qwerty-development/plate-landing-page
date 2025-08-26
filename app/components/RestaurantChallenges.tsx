@@ -196,7 +196,7 @@ export default function RestaurantChallenges() {
             But there&apos;s a better way.
           </p>
           <button
-            className={`bg-primary text-primary-foreground px-10 py-4 rounded-xl font-bold text-lg shadow-2xl border-0 relative overflow-hidden group ${
+            className={`bg-primary hidden text-primary-foreground px-10 py-4 rounded-xl font-bold text-lg shadow-2xl border-0 relative overflow-hidden group ${
               isVisible
                 ? "translate-y-0 opacity-100 scale-100"
                 : "translate-y-8 opacity-0 scale-95"

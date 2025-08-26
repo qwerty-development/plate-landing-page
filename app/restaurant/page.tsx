@@ -24,6 +24,9 @@ export default function RestaurantPage() {
 
       {/* Solution Section */}
       <RestaurantSolution />
+      
+      {/* Pricing Section */}
+      <RestaurantPricing />
 
       {/* Manager App Section */}
       <RestaurantManagerApp />
@@ -32,19 +35,17 @@ export default function RestaurantPage() {
       <RestaurantLoyaltyProgram />
 
       {/* Local Advantage Section */}
-      <RestaurantLocalAdvantage />
+      {/* <RestaurantLocalAdvantage /> */}
 
-      {/* Pricing Section */}
-      <RestaurantPricing />
 
       {/* Vision Section */}
-      <RestaurantVision />
+      {/* <RestaurantVision /> */}
 
       {/* Offer Section */}
-      <RestaurantOffer />
+      {/* <RestaurantOffer /> */}
 
       {/* Footer */}
-      <RestaurantFooter />
+      {/* <RestaurantFooter /> */}
     </main>
   );
 }

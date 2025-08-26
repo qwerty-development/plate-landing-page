@@ -119,7 +119,7 @@ export default function RestaurantSolution() {
 
         {/* Bottom CTA */}
         <div
-          className={`mt-16 text-center transition-all duration-1000 ${
+          className={`mt-16 hidden text-center transition-all duration-1000 ${
             isVisible ? "translate-y-0 opacity-100" : "translate-y-8 opacity-0"
           }`}
           style={{ transitionDelay: "1200ms" }}
