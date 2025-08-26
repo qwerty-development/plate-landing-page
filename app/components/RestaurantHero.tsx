@@ -1,4 +1,5 @@
 "use client";
+import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
 
 export default function RestaurantHero() {
@@ -186,15 +187,14 @@ export default function RestaurantHero() {
               className="relative mx-auto mt-6 sm:mt-10 w-[22rem] sm:w-[26rem] md:w-[28rem] lg:w-[30rem] motion-safe:animate-fadeUp"
               style={{ animationDelay: "200ms" }}
             >
-              <div className="relative w-full h-[500px] bg-gradient-to-br from-[hsl(var(--primary)/.1)] to-[hsl(var(--accent)/.1)] rounded-3xl border border-border/30 backdrop-blur-sm flex items-center justify-center">
-                <div className="text-center space-y-4">
-                  <div className="text-6xl">🍽️</div>
-                  <div className="text-2xl font-bold text-foreground">
-                    Plate Restaurant Dashboard
-                  </div>
-                  <div className="text-muted-foreground">Coming Soon</div>
-                </div>
-              </div>
+              <Image
+                src="/restaurant.png"
+                alt="Plate Restaurant Dashboard"
+                width={1400}
+                height={2800}
+                className="w-full h-auto select-none drop-shadow-2xl"
+                priority
+              />
             </div>
           </div>
         </div>
