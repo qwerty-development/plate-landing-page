@@ -139,7 +139,7 @@ export default function RestaurantChallenges() {
               From lost revenue to wasted marketing spend, the numbers add up
               fast. But with Plate, you can turn these losses into gains.
             </p>
-            <div className="grid sm:grid-cols-3 gap-8 text-center">
+            <div className="grid grid-cols-2 sm:grid-cols-3 gap-4 sm:gap-8 text-center">
               <div
                 className={`space-y-3 transition-all duration-700 ${
                   isVisible
@@ -167,7 +167,7 @@ export default function RestaurantChallenges() {
                 </div>
               </div>
               <div
-                className={`space-y-3 transition-all duration-700 ${
+                className={`col-span-2 sm:col-span-1 space-y-3 transition-all duration-700 ${
                   isVisible
                     ? "translate-y-0 opacity-100"
                     : "translate-y-4 opacity-0"
@@ -191,7 +191,7 @@ export default function RestaurantChallenges() {
           style={{ transitionDelay: "1000ms" }}
         >
           <p className="text-muted-foreground mb-6">
-            Sound familiar? You're not alone. But there's a better way.
+            Sound familiar? You're not alone.<br />But there's a better way.
           </p>
           <button
             className={`bg-primary text-primary-foreground px-10 py-4 rounded-xl font-bold text-lg shadow-2xl border-0 relative overflow-hidden group ${
