@@ -144,7 +144,7 @@ export default function Highlights() {
               Local support • Affordable pricing • Restaurant-first features
             </p>
           </div>
-          <div className="flex items-center gap-4">
+          <div className="flex items-center hidden gap-4">
             <a
               href="#"
               className="inline-flex items-center rounded-full border px-5 py-2.5 text-sm font-medium hover:bg-accent/10 transition-all duration-300 transform hover:scale-105"
@@ -155,7 +155,7 @@ export default function Highlights() {
               href="#"
               className="inline-flex items-center rounded-full bg-[hsl(var(--primary))] text-[hsl(var(--primary-foreground))] px-5 py-2.5 text-sm font-medium shadow-sm hover:opacity-90 transition-all duration-300 transform hover:scale-105"
             >
-              Download App
+              Book Demo
             </a>
           </div>
         </div>

@@ -124,10 +124,10 @@ export default function HowPoints() {
 
           {/* Simple & Transparent Card */}
           <article
-            className="glass p-6 reveal flex flex-col justify-between"
+            className="glass p-6 reveal flex flex-col justify-start"
             style={{ animationDelay: "80ms" }}
           >
-            <div className="flex items-center justify-between">
+            <div className="flex items-center mb-5 justify-between">
               <h3 className="text-lg font-semibold">Simple & transparent</h3>
               <Badge>Good to know</Badge>
             </div>
@@ -153,7 +153,7 @@ export default function HowPoints() {
             </div>
 
             {/* Redesigned Action Section */}
-            <div className="mt-6">
+            <div className="mt-6 hidden">
               <div className="flex flex-col sm:flex-row gap-3">
                 {/* Primary Action */}
                 <a
@@ -161,7 +161,7 @@ export default function HowPoints() {
                   className="group flex-1 flex items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-[hsl(var(--primary))] to-[hsl(var(--primary)/.8)] text-[hsl(var(--primary-foreground))] px-6 py-3 text-sm font-semibold shadow-lg hover:shadow-xl hover:scale-[1.02] transition-all duration-300"
                 >
                   <DownloadIcon className="h-4 w-4" />
-                  Download App
+                  Book Demo
                 </a>
 
                 {/* Secondary Action */}

@@ -1,4 +1,4 @@
-'use client'
+"use client";
 import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
 
@@ -55,45 +55,54 @@ export default function Hero() {
             </div>
 
             <div className="space-y-5">
-              <h1 
+              <h1
                 className={`text-5xl lg:text-7xl font-extrabold leading-[1.05] tracking-tight text-foreground transition-all duration-1000 ${
-                  isVisible ? 'translate-y-0 opacity-100' : 'translate-y-8 opacity-0'
+                  isVisible
+                    ? "translate-y-0 opacity-100"
+                    : "translate-y-8 opacity-0"
                 }`}
-                style={{ transitionDelay: '200ms' }}
+                style={{ transitionDelay: "200ms" }}
               >
                 Plate
               </h1>
-              <p 
+              <p
                 className={`text-2xl lg:text-3xl text-muted-foreground font-light transition-all duration-1000 ${
-                  isVisible ? 'translate-y-0 opacity-100' : 'translate-y-8 opacity-0'
+                  isVisible
+                    ? "translate-y-0 opacity-100"
+                    : "translate-y-8 opacity-0"
                 }`}
-                style={{ transitionDelay: '400ms' }}
+                style={{ transitionDelay: "400ms" }}
               >
                 Quick Bookings, Big Flavors
               </p>
-              <p 
+              <p
                 className={`text-base lg:text-lg text-muted-foreground max-w-xl leading-relaxed transition-all duration-1000 ${
-                  isVisible ? 'translate-y-0 opacity-100' : 'translate-y-8 opacity-0'
+                  isVisible
+                    ? "translate-y-0 opacity-100"
+                    : "translate-y-8 opacity-0"
                 }`}
-                style={{ transitionDelay: '600ms' }}
+                style={{ transitionDelay: "600ms" }}
               >
-                Discover and book the best restaurants around you—from cozy brunch
-                spots to chef-driven kitchens. Plate makes dining plans effortless and delicious.
+                Discover and book the best restaurants around you—from cozy
+                brunch spots to chef-driven kitchens. Plate makes dining plans
+                effortless and delicious.
               </p>
             </div>
 
             {/* CTAs */}
-            <div 
+            <div
               className={`flex flex-col sm:flex-row gap-4 transition-all duration-1000 ${
-                isVisible ? 'translate-y-0 opacity-100' : 'translate-y-8 opacity-0'
+                isVisible
+                  ? "translate-y-0 opacity-100"
+                  : "translate-y-8 opacity-0"
               }`}
-              style={{ transitionDelay: '800ms' }}
+              style={{ transitionDelay: "800ms" }}
             >
-              <button className="bg-primary text-primary-foreground px-8 py-4 rounded-xl text-lg font-semibold hover:bg-primary/90 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:scale-105">
-                Download App
-              </button>
-              <button className="border-2 border-border text-foreground px-8 py-4 rounded-xl text-lg font-semibold hover:bg-secondary/20 hover:border-secondary/50 transition-all duration-300 transform hover:scale-105">
+              {/* <button className="bg-primary text-primary-foreground px-8 py-4 rounded-xl text-lg font-semibold hover:bg-primary/90 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:scale-105">
                 Learn More
+              </button> */}
+              <button className="border-2 border-border text-foreground px-8 py-4 rounded-xl text-lg font-semibold hover:bg-secondary/20 hover:border-secondary/50 transition-all duration-300 transform hover:scale-105">
+                Book a Demo
               </button>
             </div>
           </div>

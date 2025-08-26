@@ -100,7 +100,7 @@ export default function RestaurantsCTA() {
                 style={{ transitionDelay: "1000ms" }}
               >
                 <a
-                  href="#"
+                  href="/restaurant"
                   className="inline-flex items-center rounded-full bg-[hsl(var(--primary))] text-[hsl(var(--primary-foreground))] px-5 py-2.5 text-sm font-medium shadow-sm hover:opacity-90 transition-all duration-300 transform hover:scale-105"
                 >
                   Get Plate for Restaurants
@@ -112,7 +112,7 @@ export default function RestaurantsCTA() {
                   Talk to us
                 </a>
               </div>
-              <span className="text-sm font-medium text-foreground">
+              <span className="text-sm font-medium text-foreground mr-2">
                 Local Support
               </span>
               <span className="text-xs text-muted-foreground text-center">

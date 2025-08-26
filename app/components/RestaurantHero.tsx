@@ -85,7 +85,7 @@ export default function RestaurantHero() {
             <div className="inline-flex items-center gap-2 rounded-full border border-border/60 bg-background/60 backdrop-blur px-3 py-1 w-max">
               <span className="h-2 w-2 rounded-full bg-[#f1c20d]" />
               <span className="text-xs font-medium text-muted-foreground">
-                For Lebanese Restaurants • Early Adopter Program
+                For Lebanese Restaurants
               </span>
             </div>
 
@@ -136,7 +136,7 @@ export default function RestaurantHero() {
 
             {/* CTAs */}
             <div
-              className={`flex flex-col sm:flex-row gap-4 transition-all duration-1000 ${
+              className={`flex flex-col hidden sm:flex-row gap-4 transition-all duration-1000 ${
                 isVisible
                   ? "translate-y-0 opacity-100"
                   : "translate-y-8 opacity-0"
