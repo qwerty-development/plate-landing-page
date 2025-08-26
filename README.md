@@ -1,4 +1,8 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Plate - Restaurant Management Platform
+
+Plate is a comprehensive restaurant management platform that streamlines bookings, enhances customer loyalty, and boosts your restaurant's success.
+
+This is a [Next.js](https://nextjs.org) project built for the Plate platform.
 
 ## Getting Started
 
@@ -19,6 +23,15 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
 You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
 
 This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+
+## About Plate
+
+Plate is designed to help restaurants:
+
+- Streamline booking management
+- Enhance customer loyalty programs
+- Provide powerful insights and analytics
+- Offer seamless mobile experiences for both customers and staff
 
 ## Learn More
 
