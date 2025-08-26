@@ -56,24 +56,39 @@ export default function RestaurantManagerApp() {
   return (
     <section
       ref={appRef}
-      className="relative overflow-hidden py-20 lg:py-24 bg-[hsl(var(--background))]"
+      className="relative overflow-hidden py-20 lg:py-24"
+      style={{ backgroundColor: "hsl(var(--primary))" }}
       aria-label="Plate Restaurant Manager App"
     >
-      {/* Background with subtle patterns */}
+      {/* Background with floating elements */}
       <div aria-hidden="true" className="absolute inset-0">
-        <div className="absolute inset-0 bg-[hsl(var(--background))]" />
         <div
-          className="absolute -top-24 -right-28 h-[30rem] w-[30rem] rounded-full blur-3xl opacity-20 animate-blob-slow"
+          className="absolute -top-28 -left-24 h-[30rem] w-[30rem] rounded-full blur-3xl opacity-25 animate-blob-slow"
           style={{
             background:
-              "radial-gradient(45% 45% at 50% 50%, hsl(var(--accent)/.25), transparent 70%)",
+              "radial-gradient(40% 40% at 50% 50%, rgba(255,255,255,0.15), transparent 70%)",
           }}
         />
         <div
-          className="absolute -bottom-24 -left-28 h-[28rem] w-[28rem] rounded-full blur-3xl opacity-20 animate-blob"
+          className="absolute -bottom-24 -right-28 h-[30rem] w-[30rem] rounded-full blur-3xl opacity-25 animate-blob"
           style={{
             background:
-              "radial-gradient(45% 45% at 50% 50%, hsl(var(--secondary)/.25), transparent 70%)",
+              "radial-gradient(45% 45% at 50% 50%, rgba(255,255,255,0.15), transparent 70%)",
+          }}
+        />
+        {/* Additional floating elements for more flair */}
+        <div
+          className="absolute top-1/2 left-1/4 h-16 w-16 rounded-full blur-xl opacity-30 animate-pulse"
+          style={{
+            background:
+              "radial-gradient(circle, rgba(255,255,255,0.3), transparent)",
+          }}
+        />
+        <div
+          className="absolute top-1/3 right-1/3 h-12 w-12 rounded-full blur-lg opacity-40 animate-bounce"
+          style={{
+            background:
+              "radial-gradient(circle, rgba(255,255,255,0.25), transparent)",
           }}
         />
       </div>
@@ -83,7 +98,7 @@ export default function RestaurantManagerApp() {
           {/* Left — Content */}
           <div className="space-y-8">
             <h2
-              className={`text-3xl lg:text-4xl font-bold tracking-tight transition-all duration-1000 ${
+              className={`text-3xl lg:text-4xl font-bold tracking-tight text-white transition-all duration-1000 ${
                 isVisible
                   ? "translate-y-0 opacity-100"
                   : "translate-y-8 opacity-0"
@@ -93,7 +108,7 @@ export default function RestaurantManagerApp() {
               Hand.
             </h2>
             <p
-              className={`text-lg text-muted-foreground transition-all duration-1000 ${
+              className={`text-lg text-white/80 transition-all duration-1000 ${
                 isVisible
                   ? "translate-y-0 opacity-100"
                   : "translate-y-8 opacity-0"
@@ -125,7 +140,7 @@ export default function RestaurantManagerApp() {
               }`}
               style={{ transitionDelay: "1000ms" }}
             >
-              <button className="bg-primary text-primary-foreground px-8 py-3 rounded-xl font-semibold hover:bg-primary/90 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:scale-105">
+              <button className="bg-white text-primary px-8 py-3 rounded-xl font-semibold hover:bg-white/90 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:scale-105">
                 See the App in Action
               </button>
             </div>
@@ -141,17 +156,39 @@ export default function RestaurantManagerApp() {
               }`}
               style={{ transitionDelay: "400ms" }}
             >
-              <div className="relative w-full h-[600px] bg-gradient-to-br from-[hsl(var(--primary)/.1)] to-[hsl(var(--accent)/.1)] rounded-3xl border border-border/30 backdrop-blur-sm flex items-center justify-center">
-                <div className="text-center space-y-4">
-                  <div className="text-6xl">📱</div>
-                  <div className="text-2xl font-bold text-foreground">
+              <div className="relative w-full h-[600px] bg-gradient-to-br from-white/20 to-white/10 rounded-3xl border border-white/30 backdrop-blur-sm flex items-center justify-center shadow-2xl">
+                {/* Glowing border effect */}
+                <div className="absolute inset-0 rounded-3xl bg-gradient-to-r from-white/20 via-transparent to-white/20 opacity-50 animate-pulse"></div>
+
+                <div className="text-center space-y-4 relative z-10">
+                  <div className="text-6xl animate-bounce">📱</div>
+                  <div className="text-2xl font-bold text-white">
                     Plate Manager App
                   </div>
-                  <div className="text-muted-foreground">
+                  <div className="text-white/90">
                     Real-time dashboard • Guest CRM • Analytics
                   </div>
-                  <div className="text-sm text-muted-foreground">
+                  <div className="text-sm text-white/80">
                     Available on iOS & Android
+                  </div>
+
+                  {/* Floating app icons */}
+                  <div className="flex justify-center space-x-4 mt-6">
+                    <div className="w-12 h-12 bg-white/20 rounded-xl flex items-center justify-center backdrop-blur-sm border border-white/30 animate-pulse">
+                      <span className="text-2xl">📊</span>
+                    </div>
+                    <div
+                      className="w-12 h-12 bg-white/20 rounded-xl flex items-center justify-center backdrop-blur-sm border border-white/30 animate-pulse"
+                      style={{ animationDelay: "0.5s" }}
+                    >
+                      <span className="text-2xl">👥</span>
+                    </div>
+                    <div
+                      className="w-12 h-12 bg-white/20 rounded-xl flex items-center justify-center backdrop-blur-sm border border-white/30 animate-pulse"
+                      style={{ animationDelay: "1s" }}
+                    >
+                      <span className="text-2xl">📈</span>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -213,14 +250,12 @@ function AppFeatureCard({
       }`}
       style={{ transitionDelay: `${delay}ms` }}
     >
-      <div className="shrink-0 inline-flex h-12 w-12 rounded-xl bg-[hsl(var(--primary)/.15)] items-center justify-center transform hover:scale-110 transition-all duration-300">
+      <div className="shrink-0 inline-flex h-12 w-12 rounded-xl bg-white/20 items-center justify-center transform hover:scale-110 transition-all duration-300 border border-white/30">
         {icon}
       </div>
       <div className="min-w-0 flex-1">
-        <h3 className="text-lg font-semibold text-foreground mb-2">{name}</h3>
-        <p className="text-muted-foreground text-sm leading-relaxed">
-          {description}
-        </p>
+        <h3 className="text-lg font-semibold text-white mb-2">{name}</h3>
+        <p className="text-white/90 text-sm leading-relaxed">{description}</p>
       </div>
     </div>
   );
@@ -231,7 +266,7 @@ function MonitorIcon() {
   return (
     <svg
       viewBox="0 0 24 24"
-      className="h-6 w-6 text-primary"
+      className="h-6 w-6 text-white"
       fill="none"
       stroke="currentColor"
       strokeWidth="1.5"
@@ -247,7 +282,7 @@ function UsersIcon() {
   return (
     <svg
       viewBox="0 0 24 24"
-      className="h-6 w-6 text-primary"
+      className="h-6 w-6 text-white"
       fill="none"
       stroke="currentColor"
       strokeWidth="1.5"
@@ -263,7 +298,7 @@ function BarChartIcon() {
   return (
     <svg
       viewBox="0 0 24 24"
-      className="h-6 w-6 text-primary"
+      className="h-6 w-6 text-white"
       fill="none"
       stroke="currentColor"
       strokeWidth="1.5"
@@ -277,7 +312,7 @@ function MegaphoneIcon() {
   return (
     <svg
       viewBox="0 0 24 24"
-      className="h-6 w-6 text-primary"
+      className="h-6 w-6 text-white"
       fill="none"
       stroke="currentColor"
       strokeWidth="1.5"
