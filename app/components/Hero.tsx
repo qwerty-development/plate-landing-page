@@ -26,7 +26,7 @@ export default function Hero() {
   return (
     <section
       ref={heroRef}
-      className="relative overflow-hidden min-h-[90vh] flex items-center pt-20 bg-gradient-to-b from-[#154c76]/10 via-[#add8e6]/20 to-transparent"
+      className="relative overflow-hidden min-h-[90vh] flex items-center pt-0 bg-gradient-to-b from-[#154c76]/10 via-[#add8e6]/20 to-transparent"
       aria-label="Plate — Book restaurants easily"
     >
       {/* Decorative background sprinkles */}

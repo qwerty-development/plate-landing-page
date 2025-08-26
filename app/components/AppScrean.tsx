@@ -122,7 +122,7 @@ export default function AppScreens() {
           style={{ transitionDelay: "800ms" }}
         >
           <a
-            href="#"
+            href="/restaurant"
             className="inline-flex items-center rounded-full border border-white/30 px-5 py-2.5 text-sm font-medium text-white hover:bg-white/10 transition-all duration-300 transform hover:scale-105"
           >
             For Restaurants

@@ -41,7 +41,7 @@ export default function RestaurantHero() {
   return (
     <section
       ref={heroRef}
-      className="relative overflow-hidden min-h-[90vh] flex items-center pt-20 bg-gradient-to-b from-[hsl(var(--primary)/.08)] via-[hsl(var(--accent)/.12)] to-transparent"
+      className="relative overflow-hidden min-h-[90vh] flex items-center pt-0 bg-gradient-to-b from-[hsl(var(--primary)/.08)] via-[hsl(var(--accent)/.12)] to-transparent"
       aria-label="Plate — The Future of Dining in Lebanon"
     >
       {/* Decorative background sprinkles */}
