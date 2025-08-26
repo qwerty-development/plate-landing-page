@@ -114,7 +114,12 @@ export default function RestaurantChallenges() {
         {/* Pain Points Grid */}
         <div className="grid lg:grid-cols-2 gap-8 mb-16">
           {painPoints.map((point, index) => (
-            <PainPointCard key={index} {...point} isVisible={isVisible} />
+            <PainPointCard
+              key={index}
+              {...point}
+              isVisible={isVisible}
+              index={index}
+            />
           ))}
         </div>
 
@@ -269,12 +274,14 @@ function PainPointCard({
   icon,
   isVisible,
   delay,
+  index,
 }: {
   title: string;
   description: string;
   icon: React.ReactNode;
   isVisible: boolean;
   delay: number;
+  index: number;
 }) {
   return (
     <article
@@ -307,7 +314,12 @@ function PainPointCard({
             >
               <div className="w-2 h-2 bg-white rounded-full animate-pulse" />
               <span className="text-sm text-white font-semibold">
-                Plate solves this
+                {index === 0 && "Plate solves this"}
+                {index === 1 && "Plate solves this too"}
+                {index === 2 && "Plate solves this as well"}
+                {index === 3 && "Plate solves this perfectly"}
+                {index === 4 && "Plate solves this completely"}
+                {index === 5 && "Plate solves this entirely"}
               </span>
             </div>
           </div>
