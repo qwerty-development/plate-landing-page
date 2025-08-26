@@ -105,7 +105,7 @@ export default function RestaurantSolution() {
             }`}
             style={{ transitionDelay: "200ms" }}
           >
-            We've built the complete platform that addresses every challenge you
+            We&apos;ve built the complete platform that addresses every challenge you
             just read about.
           </p>
         </header>

@@ -83,7 +83,7 @@ export default function RestaurantOffer() {
           >
             An Exclusive Offer for Our First Partners.
             <span className="block text-red-600 mt-2">
-              (This Won't Last Long!)
+              (This Won&apos;t Last Long!)
             </span>
           </h2>
 
@@ -96,7 +96,7 @@ export default function RestaurantOffer() {
             }`}
             style={{ transitionDelay: "600ms" }}
           >
-            We're offering an unprecedented deal to our first 100 restaurant
+            We&apos;re offering an unprecedented deal to our first 100 restaurant
             partners. This is your chance to get ahead of the competition and
             secure your spot in the future of dining.
           </p>
@@ -134,7 +134,7 @@ export default function RestaurantOffer() {
             </h3>
             <p className="text-muted-foreground">
               This exclusive offer gives you everything you need to succeed with
-              Plate, at absolutely no cost to you. It's our way of saying thank
+              Plate, at absolutely no cost to you. It&apos;s our way of saying thank
               you for being an early believer.
             </p>
           </div>

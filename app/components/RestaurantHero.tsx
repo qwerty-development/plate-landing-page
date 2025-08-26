@@ -130,7 +130,7 @@ export default function RestaurantHero() {
                 style={{ transitionDelay: "400ms" }}
               >
                 Join the platform designed to solve the biggest challenges for
-                Lebanese restaurants. Let's fill every table, together.
+                Lebanese restaurants. Let&apos;s fill every table, together.
               </p>
             </div>
 

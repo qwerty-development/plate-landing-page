@@ -82,7 +82,7 @@ export default function RestaurantFooter() {
             <div className="lg:col-span-2">
               <h4 className="text-2xl font-bold mb-4">Plate</h4>
               <p className="text-white/80 mb-6 max-w-md">
-                The future of dining in Lebanon. We're building the platform
+                The future of dining in Lebanon. We&apos;re building the platform
                 that connects restaurants with diners, creating a thriving
                 ecosystem for everyone.
               </p>

@@ -235,7 +235,7 @@ export default function RestaurantsCTA() {
   );
 }
 
-function CheckIcon({ className }: { className?: string }) {
+function CheckIcon() {
   return (
     <svg
       viewBox="0 0 24 24"

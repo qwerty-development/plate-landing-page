@@ -97,7 +97,7 @@ export default function RestaurantLocalAdvantage() {
             }`}
             style={{ transitionDelay: "200ms" }}
           >
-            We're not just another international platform. We're built
+            We&apos;re not just another international platform. We&apos;re built
             specifically for your market, your challenges, and your success.
           </p>
         </header>

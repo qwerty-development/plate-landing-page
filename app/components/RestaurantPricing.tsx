@@ -99,7 +99,7 @@ export default function RestaurantPricing() {
             }`}
             style={{ transitionDelay: "200ms" }}
           >
-            Start with what you need today, upgrade when you're ready for more
+            Start with what you need today, upgrade when you&apos;re ready for more
             power.
           </p>
         </header>

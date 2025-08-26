@@ -191,7 +191,7 @@ export default function RestaurantChallenges() {
           style={{ transitionDelay: "1000ms" }}
         >
           <p className="text-muted-foreground mb-6">
-            Sound familiar? You're not alone.<br />But there's a better way.
+            Sound familiar? You&apos;re not alone.<br />But there&apos;s a better way.
           </p>
           <button
             className={`bg-primary text-primary-foreground px-10 py-4 rounded-xl font-bold text-lg shadow-2xl border-0 relative overflow-hidden group ${
@@ -367,7 +367,8 @@ function PainPointCard({
   );
 }
 
-// Glass morphism styles
+// Glass morphism styles - commented out as not currently used
+/*
 const glassStyles = `
           .glass {
           position: relative;
@@ -441,6 +442,7 @@ const glassStyles = `
     }
   }
 `;
+*/
 
 // Icons
 function CalendarIcon() {

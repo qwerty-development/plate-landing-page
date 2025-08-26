@@ -410,7 +410,8 @@ function LoyaltyStep({
   );
 }
 
-// Glass morphism styles
+// Glass morphism styles - commented out as not currently used
+/*
 const glassStyles = `
           .glass {
           position: relative;
@@ -482,6 +483,7 @@ const glassStyles = `
     }
   }
 `;
+*/
 
 // Icons
 function DollarIcon() {
