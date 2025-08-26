@@ -292,7 +292,8 @@ function PainPointCard({
       }`}
       style={{ transitionDelay: `${delay}ms` }}
     >
-      <div className="flex items-start gap-6">
+      {/* Desktop Layout - EXACTLY the same as before */}
+      <div className="hidden lg:flex items-start gap-6">
         <div className="shrink-0 inline-flex h-16 w-16 rounded-2xl bg-gradient-to-br from-red-50 to-red-100 items-center justify-center transform group-hover:scale-110 transition-all duration-300 shadow-lg group-hover:shadow-xl">
           {icon}
         </div>
@@ -300,6 +301,43 @@ function PainPointCard({
           <h3 className="text-xl font-bold text-foreground mb-3 group-hover:text-primary transition-colors duration-300">
             {title}
           </h3>
+          <p className="text-muted-foreground text-base leading-relaxed">
+            {description}
+          </p>
+          {/* Hover indicator */}
+          <div className="mt-4 flex items-center gap-3 opacity-0 group-hover:opacity-100 transition-all duration-500 transform group-hover:translate-x-0 -translate-x-2">
+            <div
+              className="flex items-center gap-2 px-3 py-1.5 rounded-full"
+              style={{
+                background:
+                  "linear-gradient(to right, hsl(var(--primary)), hsl(var(--primary)/0.8))",
+              }}
+            >
+              <div className="w-2 h-2 bg-white rounded-full animate-pulse" />
+              <span className="text-sm text-white font-semibold">
+                {index === 0 && "Plate solves this"}
+                {index === 1 && "Plate solves this too"}
+                {index === 2 && "Plate solves this as well"}
+                {index === 3 && "Plate solves this perfectly"}
+                {index === 4 && "Plate solves this completely"}
+                {index === 5 && "Plate solves this entirely"}
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* Mobile Layout - Only visible on mobile */}
+      <div className="lg:hidden p-0">
+        <div className="flex items-center justify-center gap-4 mb-4">
+          <div className="shrink-0 inline-flex h-12 w-12 rounded-2xl bg-gradient-to-br from-red-50 to-red-100 items-center justify-center transform group-hover:scale-110 transition-all duration-300 shadow-lg group-hover:shadow-xl">
+            {icon}
+          </div>
+          <h3 className="text-xl font-bold text-foreground group-hover:text-primary transition-colors duration-300">
+            {title}
+          </h3>
+        </div>
+        <div className="min-w-0 flex-1">
           <p className="text-muted-foreground text-base leading-relaxed">
             {description}
           </p>
