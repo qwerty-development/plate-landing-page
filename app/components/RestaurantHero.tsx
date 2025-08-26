@@ -34,7 +34,7 @@ export default function RestaurantHero() {
 
   const headlines = [
     "Stop Waiting for Calls. Start Filling Tables.",
-    "The Future of Dining in Lebanon is Here. Don't Get Left Behind.",
+    "The Future of Dining in Lebanon is Here.",
     "Plate: Quick Bookings, Big Flavors, and a Full Restaurant.",
   ];
 
