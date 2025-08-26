@@ -59,38 +59,46 @@ export default function RestaurantChallenges() {
       className="relative overflow-hidden py-20 lg:py-24 bg-[hsl(var(--background))]"
       aria-label="Restaurant Challenges in Lebanon"
     >
-      {/* Background with subtle patterns */}
+      {/* Background with dynamic patterns */}
       <div aria-hidden="true" className="absolute inset-0">
         <div className="absolute inset-0 bg-[hsl(var(--background))]" />
         <div
-          className="absolute -top-24 -right-28 h-[30rem] w-[30rem] rounded-full blur-3xl opacity-20 animate-blob-slow"
+          className="absolute -top-24 -right-28 h-[30rem] w-[30rem] rounded-full blur-3xl opacity-25 animate-blob-slow"
           style={{
             background:
               "radial-gradient(45% 45% at 50% 50%, hsl(var(--primary)/.25), transparent 70%)",
           }}
         />
         <div
-          className="absolute -bottom-24 -left-28 h-[28rem] w-[28rem] rounded-full blur-3xl opacity-20 animate-blob"
+          className="absolute -bottom-24 -left-28 h-[28rem] w-[28rem] rounded-full blur-3xl opacity-25 animate-blob"
           style={{
             background:
               "radial-gradient(45% 45% at 50% 50%, hsl(var(--accent)/.25), transparent 70%)",
           }}
         />
+        <div
+          className="absolute top-1/2 left-1/2 h-[20rem] w-[20rem] rounded-full blur-3xl opacity-20 animate-blob-slow"
+          style={{
+            background:
+              "radial-gradient(50% 50% at 50% 50%, hsl(var(--primary)/.15), transparent 70%)",
+          }}
+        />
       </div>
 
       <div className="relative z-10 max-w-7xl mx-auto px-6">
-        <header className="text-center max-w-4xl mx-auto mb-16">
+        <header className="text-center max-w-4xl mx-auto mb-20">
           <h2
-            className={`text-3xl lg:text-4xl font-bold tracking-tight transition-all duration-1000 ${
+            className={`text-4xl lg:text-5xl font-bold tracking-tight transition-all duration-1000 ${
               isVisible
                 ? "translate-y-0 opacity-100"
                 : "translate-y-8 opacity-0"
             }`}
           >
-            Running a Restaurant in Lebanon is Tough. We Get It.
+            Running a Restaurant in Lebanon is{" "}
+            <span className="text-primary font-bold">Tough</span>. We Get It.
           </h2>
           <p
-            className={`mt-4 text-lg text-muted-foreground transition-all duration-1000 ${
+            className={`mt-6 text-xl text-muted-foreground transition-all duration-1000 ${
               isVisible
                 ? "translate-y-0 opacity-100"
                 : "translate-y-8 opacity-0"
@@ -98,15 +106,76 @@ export default function RestaurantChallenges() {
             style={{ transitionDelay: "200ms" }}
           >
             Every day brings new challenges. But what if there was a way to turn
-            these problems into opportunities?
+            these problems into{" "}
+            <span className="font-semibold text-primary">opportunities</span>?
           </p>
         </header>
 
         {/* Pain Points Grid */}
-        <div className="grid lg:grid-cols-2 gap-8">
+        <div className="grid lg:grid-cols-2 gap-8 mb-16">
           {painPoints.map((point, index) => (
             <PainPointCard key={index} {...point} isVisible={isVisible} />
           ))}
+        </div>
+
+        {/* Challenge Highlight */}
+        <div
+          className={`text-center transition-all duration-1000 ${
+            isVisible ? "translate-y-0 opacity-100" : "translate-y-8 opacity-0"
+          }`}
+          style={{ transitionDelay: "900ms" }}
+        >
+          <div className="glass p-8 lg:p-12 max-w-4xl mx-auto">
+            <h3 className="text-2xl lg:text-3xl font-bold text-foreground mb-6">
+              These Challenges Cost Lebanese Restaurants{" "}
+              <span className="text-primary">$2.3M+</span> Annually
+            </h3>
+            <p className="text-lg text-muted-foreground mb-8 leading-relaxed">
+              From lost revenue to wasted marketing spend, the numbers add up
+              fast. But with Plate, you can turn these losses into gains.
+            </p>
+            <div className="grid sm:grid-cols-3 gap-8 text-center">
+              <div
+                className={`space-y-3 transition-all duration-700 ${
+                  isVisible
+                    ? "translate-y-0 opacity-100"
+                    : "translate-y-4 opacity-0"
+                }`}
+                style={{ transitionDelay: "1000ms" }}
+              >
+                <div className="text-4xl font-bold text-primary">$850K</div>
+                <div className="text-sm text-muted-foreground font-medium">
+                  Lost from no-shows
+                </div>
+              </div>
+              <div
+                className={`space-y-3 transition-all duration-700 ${
+                  isVisible
+                    ? "translate-y-0 opacity-100"
+                    : "translate-y-4 opacity-0"
+                }`}
+                style={{ transitionDelay: "1100ms" }}
+              >
+                <div className="text-4xl font-bold text-primary">$1.2M</div>
+                <div className="text-sm text-muted-foreground font-medium">
+                  Wasted marketing
+                </div>
+              </div>
+              <div
+                className={`space-y-3 transition-all duration-700 ${
+                  isVisible
+                    ? "translate-y-0 opacity-100"
+                    : "translate-y-4 opacity-0"
+                }`}
+                style={{ transitionDelay: "1200ms" }}
+              >
+                <div className="text-4xl font-bold text-primary">$250K</div>
+                <div className="text-sm text-muted-foreground font-medium">
+                  Empty table revenue
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
 
         {/* Bottom CTA */}
@@ -119,8 +188,25 @@ export default function RestaurantChallenges() {
           <p className="text-muted-foreground mb-6">
             Sound familiar? You're not alone. But there's a better way.
           </p>
-          <button className="bg-primary text-primary-foreground px-8 py-3 rounded-xl font-semibold hover:bg-primary/90 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:scale-105">
-            See How Plate Solves These
+          <button
+            className={`bg-primary text-primary-foreground px-10 py-4 rounded-xl font-bold text-lg shadow-2xl border-0 relative overflow-hidden group ${
+              isVisible
+                ? "translate-y-0 opacity-100 scale-100"
+                : "translate-y-8 opacity-0 scale-95"
+            }`}
+            style={{
+              transitionDelay: "1200ms",
+              transition: "all 0.6s cubic-bezier(0.2, 0.7, 0.2, 1)",
+            }}
+          >
+            {/* Shimmer effect */}
+            <div className="absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-white/20 to-transparent group-hover:translate-x-full transition-transform duration-1000 ease-out" />
+
+            {/* Button content */}
+            <span className="relative z-10">See How Plate Solves These</span>
+
+            {/* Hover animations */}
+            <div className="absolute inset-0 bg-gradient-to-r from-primary/80 to-primary rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
           </button>
         </div>
       </div>
@@ -147,10 +233,29 @@ export default function RestaurantChallenges() {
           }
         }
 
+        /* Button hover effects */
+        .group:hover {
+          transform: translateY(-2px) scale(1.02);
+          box-shadow: 0 25px 50px rgba(0, 0, 0, 0.3);
+        }
+
+        .group:active {
+          transform: translateY(0) scale(0.98);
+        }
+
         @media (prefers-reduced-motion: reduce) {
           .animate-blob,
           .animate-blob-slow {
             animation: none !important;
+          }
+          .reveal {
+            animation: none !important;
+          }
+          .glass {
+            transition: none !important;
+          }
+          .group:hover {
+            transform: none !important;
           }
         }
       `}</style>
@@ -173,24 +278,39 @@ function PainPointCard({
 }) {
   return (
     <article
-      className={`glass p-6 reveal transition-all duration-1000 transform ${
+      className={`glass p-8 reveal transition-all duration-1000 transform group ${
         isVisible
           ? "translate-y-0 opacity-100 scale-100"
           : "translate-y-8 opacity-0 scale-95"
       }`}
       style={{ transitionDelay: `${delay}ms` }}
     >
-      <div className="flex items-start gap-4">
-        <div className="shrink-0 inline-flex h-12 w-12 rounded-xl bg-red-100 items-center justify-center transform hover:scale-110 transition-all duration-300">
+      <div className="flex items-start gap-6">
+        <div className="shrink-0 inline-flex h-16 w-16 rounded-2xl bg-gradient-to-br from-red-50 to-red-100 items-center justify-center transform group-hover:scale-110 transition-all duration-300 shadow-lg group-hover:shadow-xl">
           {icon}
         </div>
         <div className="min-w-0 flex-1">
-          <h3 className="text-lg font-semibold text-foreground mb-2">
+          <h3 className="text-xl font-bold text-foreground mb-3 group-hover:text-primary transition-colors duration-300">
             {title}
           </h3>
-          <p className="text-muted-foreground text-sm leading-relaxed">
+          <p className="text-muted-foreground text-base leading-relaxed">
             {description}
           </p>
+          {/* Hover indicator */}
+          <div className="mt-4 flex items-center gap-3 opacity-0 group-hover:opacity-100 transition-all duration-500 transform group-hover:translate-x-0 -translate-x-2">
+            <div
+              className="flex items-center gap-2 px-3 py-1.5 rounded-full"
+              style={{
+                background:
+                  "linear-gradient(to right, hsl(var(--primary)), hsl(var(--primary)/0.8))",
+              }}
+            >
+              <div className="w-2 h-2 bg-white rounded-full animate-pulse" />
+              <span className="text-sm text-white font-semibold">
+                Plate solves this
+              </span>
+            </div>
+          </div>
         </div>
       </div>
     </article>
@@ -199,47 +319,50 @@ function PainPointCard({
 
 // Glass morphism styles
 const glassStyles = `
-  .glass {
-    position: relative;
-    border-radius: 1.25rem;
-    background: linear-gradient(
-      180deg,
-      rgba(255, 255, 255, 0.4),
-      rgba(255, 255, 255, 0.22)
-    );
-    -webkit-backdrop-filter: saturate(180%) blur(22px);
-    backdrop-filter: saturate(180%) blur(22px);
-    border: 1px solid rgba(255, 255, 255, 0.55);
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
-    overflow: hidden;
-    transition: transform 0.35s cubic-bezier(0.2, 0.7, 0.2, 1),
-      box-shadow 0.35s, border-color 0.35s;
-  }
-  .glass::before {
-    content: "";
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(
-      180deg,
-      rgba(255, 255, 255, 0.55),
-      rgba(255, 255, 255, 0) 35%
-    );
-    pointer-events: none;
-    mix-blend-mode: screen;
-  }
-  .glass::after {
-    content: "";
-    position: absolute;
-    inset: 0;
-    border-radius: inherit;
-    pointer-events: none;
-    box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.06);
-  }
-  .glass:hover {
-    transform: translateY(-6px);
-    box-shadow: 0 18px 40px rgba(0, 0, 0, 0.12);
-    border-color: rgba(255, 255, 255, 0.7);
-  }
+          .glass {
+          position: relative;
+          border-radius: 2rem;
+          background: linear-gradient(
+            135deg,
+            rgba(255, 255, 255, 0.15),
+            rgba(255, 255, 255, 0.05)
+          );
+          -webkit-backdrop-filter: saturate(180%) blur(25px);
+          backdrop-filter: saturate(180%) blur(25px);
+          border: 1px solid rgba(255, 255, 255, 0.2);
+          box-shadow: 
+            0 25px 50px rgba(0, 0, 0, 0.15),
+            inset 0 1px 0 rgba(255, 255, 255, 0.1);
+          overflow: hidden;
+          transition: all 0.4s cubic-bezier(0.2, 0.7, 0.2, 1);
+        }
+        .glass::before {
+          content: "";
+          position: absolute;
+          inset: 0;
+          background: linear-gradient(
+            135deg,
+            rgba(255, 255, 255, 0.1),
+            rgba(255, 255, 255, 0) 50%
+          );
+          pointer-events: none;
+          mix-blend-mode: screen;
+        }
+        .glass::after {
+          content: "";
+          position: absolute;
+          inset: 0;
+          border-radius: inherit;
+          pointer-events: none;
+          box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.1);
+        }
+        .glass:hover {
+          transform: translateY(-8px);
+          box-shadow: 
+            0 35px 70px rgba(0, 0, 0, 0.2),
+            inset 0 1px 0 rgba(255, 255, 255, 0.15);
+          border-color: rgba(255, 255, 255, 0.3);
+        }
 
   @keyframes fadeUp {
     0% {
