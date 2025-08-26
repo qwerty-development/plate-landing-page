@@ -144,7 +144,7 @@ export default function RestaurantHero() {
               style={{ transitionDelay: "600ms" }}
             >
               <button className="bg-primary text-primary-foreground px-8 py-4 rounded-xl text-lg font-semibold hover:bg-primary/90 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:scale-105">
-                Become an Early Adopter
+                Get Started Now
               </button>
               <button className="border-2 border-border text-foreground px-8 py-4 rounded-xl text-lg font-semibold hover:bg-secondary/20 hover:border-secondary/50 transition-all duration-300 transform hover:scale-105">
                 Learn More

@@ -34,7 +34,7 @@ export default function RestaurantOffer() {
     <section
       ref={offerRef}
       className="relative overflow-hidden py-20 lg:py-24 bg-[hsl(var(--background))]"
-      aria-label="Early Adopter Offer"
+      aria-label="Exclusive Launch Offer"
     >
       {/* Background with subtle patterns */}
       <div aria-hidden="true" className="absolute inset-0">
@@ -96,9 +96,9 @@ export default function RestaurantOffer() {
             }`}
             style={{ transitionDelay: "600ms" }}
           >
-            We&apos;re offering an unprecedented deal to our first 100 restaurant
-            partners. This is your chance to get ahead of the competition and
-            secure your spot in the future of dining.
+            We&apos;re offering an unprecedented deal to our first 100
+            restaurant partners. This is your chance to get ahead of the
+            competition and secure your spot in the future of dining.
           </p>
 
           {/* Benefits List */}
@@ -134,8 +134,8 @@ export default function RestaurantOffer() {
             </h3>
             <p className="text-muted-foreground">
               This exclusive offer gives you everything you need to succeed with
-              Plate, at absolutely no cost to you. It&apos;s our way of saying thank
-              you for being an early believer.
+              Plate, at absolutely no cost to you. It&apos;s our way of saying
+              thank you for being an early believer.
             </p>
           </div>
 
@@ -149,7 +149,7 @@ export default function RestaurantOffer() {
             style={{ transitionDelay: "1700ms" }}
           >
             <button className="bg-gradient-to-r from-red-600 to-red-700 text-white px-12 py-6 rounded-2xl text-2xl font-bold hover:from-red-700 hover:to-red-800 transition-all duration-300 shadow-2xl hover:shadow-red-500/25 transform hover:scale-105 animate-pulse">
-              Claim Your Early Adopter Offer Now
+              Claim Your Exclusive Offer Now
             </button>
             <p className="text-sm text-muted-foreground mt-4">
               ⚡ Limited to first 100 restaurants • No credit card required •

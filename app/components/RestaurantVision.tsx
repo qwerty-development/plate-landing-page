@@ -139,7 +139,7 @@ export default function RestaurantVision() {
         >
           <div className="glass p-8 lg:p-12 max-w-4xl mx-auto">
             <h3 className="text-2xl lg:text-3xl font-bold text-white mb-6">
-              The Future is Bright for Early Adopters
+              The Future is Bright for Our Partners
             </h3>
             <p className="text-lg text-white/80 mb-8 leading-relaxed">
               By joining Plate now, you&apos;re not just solving today&apos;s
@@ -221,7 +221,7 @@ export default function RestaurantVision() {
             <div className="absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-white/20 to-transparent group-hover:translate-x-full transition-transform duration-1000 ease-out" />
 
             {/* Button content */}
-            <span className="relative z-10">Become an Early Adopter</span>
+            <span className="relative z-10">Join Us Now</span>
 
             {/* Hover animations */}
             <div className="absolute inset-0 bg-gradient-to-r from-white/80 to-white rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
