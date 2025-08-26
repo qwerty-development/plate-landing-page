@@ -86,7 +86,7 @@ export default function RestaurantChallenges() {
       </div>
 
       <div className="relative z-10 max-w-7xl mx-auto px-6">
-        <header className="text-center max-w-4xl mx-auto mb-10 md:mb-20">
+        <header className="text-center max-w-4xl mx-auto mb-20">
           <h2
             className={`text-4xl lg:text-5xl font-bold tracking-tight transition-all duration-1000 ${
               isVisible
@@ -112,7 +112,7 @@ export default function RestaurantChallenges() {
         </header>
 
         {/* Pain Points Grid */}
-        <div className="grid lg:grid-cols-2 gap-8 mb-16">
+        <div className="grid lg:grid-cols-2 gap- mb-16">
           {painPoints.map((point, index) => (
             <PainPointCard
               key={index}
@@ -285,7 +285,7 @@ function PainPointCard({
 }) {
   return (
     <article
-      className={`glass p-8 reveal transition-all duration-1000 transform group ${
+      className={`glass px-4 lg:p-8 reveal transition-all duration-1000 transform group ${
         isVisible
           ? "translate-y-0 opacity-100 scale-100"
           : "translate-y-8 opacity-0 scale-95"
@@ -329,8 +329,8 @@ function PainPointCard({
 
       {/* Mobile Layout - Only visible on mobile */}
       <div className="lg:hidden p-0">
-        <div className="flex items-center justify-center gap-4 mb-4">
-          <div className="shrink-0 inline-flex h-12 w-12 rounded-2xl bg-gradient-to-br from-red-50 to-red-100 items-center justify-center transform group-hover:scale-110 transition-all duration-300 shadow-lg group-hover:shadow-xl">
+        <div className="flex items-center justify-start gap-4 mb-4">
+          <div className="shrink-0 inline-flex h-10 w-10 rounded-2xl bg-gradient-to-br from-red-50 to-red-100 items-center justify-center transform group-hover:scale-110 transition-all duration-300 shadow-lg group-hover:shadow-xl">
             {icon}
           </div>
           <h3 className="text-xl font-bold text-foreground group-hover:text-primary transition-colors duration-300">
