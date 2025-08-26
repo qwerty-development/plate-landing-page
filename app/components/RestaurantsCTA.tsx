@@ -4,7 +4,7 @@ import { useEffect, useRef, useState } from "react";
 
 export default function RestaurantsCTA() {
   const [isVisible, setIsVisible] = useState(false);
-  const restaurantsRef = useRef<HTMLDivElement>(null);
+  const ctaRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -16,8 +16,8 @@ export default function RestaurantsCTA() {
       { threshold: 0.1 }
     );
 
-    if (restaurantsRef.current) {
-      observer.observe(restaurantsRef.current);
+    if (ctaRef.current) {
+      observer.observe(ctaRef.current);
     }
 
     return () => observer.disconnect();
@@ -25,9 +25,9 @@ export default function RestaurantsCTA() {
 
   return (
     <section
-      ref={restaurantsRef}
-      className="relative overflow-hidden bg-[hsl(45,29%,97%)]"
-      aria-label="Plate for Restaurants"
+      ref={ctaRef}
+      className="relative overflow-hidden py-20 lg:py-24"
+      aria-label="Get Started with Plate"
     >
       {/* Inner white background */}
       <div className="relative z-10 max-w-7xl mx-auto px-6 py-20 lg:py-28">
@@ -112,6 +112,12 @@ export default function RestaurantsCTA() {
                   Talk to us
                 </a>
               </div>
+              <span className="text-sm font-medium text-foreground">
+                Local Support
+              </span>
+              <span className="text-xs text-muted-foreground text-center">
+                Arabic & English support
+              </span>
             </div>
 
             {/* Right — iPad photo (slides in + pans from edge to center) */}
@@ -151,8 +157,24 @@ export default function RestaurantsCTA() {
         .animate-blob-slow {
           animation: blob 26s ease-in-out infinite;
         }
+        .animate-blob {
+          animation: blob 18s ease-in-out infinite;
+        }
+        .animate-blob-slow {
+          animation: blob 26s ease-in-out infinite;
+        }
 
         @keyframes blob {
+          0%,
+          100% {
+            transform: translate(0px, 0px) scale(1);
+          }
+          33% {
+            transform: translate(28px, -18px) scale(1.06);
+          }
+          66% {
+            transform: translate(-22px, 22px) scale(0.96);
+          }
           0%,
           100% {
             transform: translate(0px, 0px) scale(1);
@@ -213,8 +235,7 @@ export default function RestaurantsCTA() {
   );
 }
 
-/** tiny inline icon (no extra deps) */
-function CheckIcon() {
+function CheckIcon({ className }: { className?: string }) {
   return (
     <svg
       viewBox="0 0 24 24"
