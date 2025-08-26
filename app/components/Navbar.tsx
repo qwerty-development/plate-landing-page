@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
+import { usePathname } from "next/navigation";
 
 type NavItem = { href: string; label: string };
 
@@ -17,6 +18,7 @@ export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [active, setActive] = useState<string>(""); // '#how-points', etc.
   const navRef = useRef<HTMLDivElement>(null);
+  const pathname = usePathname();
 
   // Add background + shadow when scrolling
   useEffect(() => {
@@ -68,6 +70,15 @@ export default function Navbar() {
   // smooth scroll with offset for sticky nav
   const handleAnchor = (href: string) => (e: React.MouseEvent) => {
     const id = href.replace("#", "");
+
+    // If we're not on the homepage, redirect to homepage with hash
+    if (pathname !== "/") {
+      e.preventDefault();
+      window.location.href = `/${href}`;
+      return;
+    }
+
+    // If we're on the homepage, handle smooth scrolling
     const el = document.getElementById(id);
     if (!el) return;
     e.preventDefault();
@@ -115,7 +126,7 @@ export default function Navbar() {
               {NAV_ITEMS.map((item) => (
                 <Link
                   key={item.href}
-                  href={item.href}
+                  href={pathname === "/" ? item.href : `/${item.href}`}
                   onClick={handleAnchor(item.href)}
                   className={[
                     "px-3 py-2 text-sm rounded-full transition",
@@ -133,13 +144,12 @@ export default function Navbar() {
             <div className="hidden md:flex items-center gap-2">
               <Link
                 href="/restaurant"
-                onClick={handleAnchor("/restaurant")}
                 className="inline-flex items-center rounded-full border px-4 py-2 text-sm font-medium hover:bg-accent/10 transition"
               >
                 For Restaurants
               </Link>
               <Link
-                href="#download"
+                href={pathname === "/" ? "#download" : "/#download"}
                 className="inline-flex items-center rounded-full bg-[hsl(var(--primary))] text-[hsl(var(--primary-foreground))] px-4 py-2 text-sm font-medium shadow-sm hover:opacity-90 transition"
               >
                 Book Demo
@@ -173,7 +183,7 @@ export default function Navbar() {
                 {NAV_ITEMS.map((item) => (
                   <Link
                     key={item.href}
-                    href={item.href}
+                    href={pathname === "/" ? item.href : `/${item.href}`}
                     onClick={handleAnchor(item.href)}
                     className={[
                       "px-3 py-2 rounded-lg text-base transition",
@@ -189,13 +199,12 @@ export default function Navbar() {
               <div className="mt-3 flex flex-col gap-2">
                 <Link
                   href="/restaurant"
-                  onClick={handleAnchor("/restaurant")}
                   className="inline-flex items-center justify-center rounded-full border px-4 py-2 text-sm font-medium hover:bg-accent/10 transition"
                 >
                   For Restaurants
                 </Link>
                 <Link
-                  href="#download"
+                  href={pathname === "/" ? "#download" : "/#download"}
                   className="inline-flex items-center justify-center rounded-full bg-[hsl(var(--primary))] text-[hsl(var(--primary-foreground))] px-4 py-2 text-sm font-medium shadow-sm hover:opacity-90 transition"
                 >
                   Book Demo
