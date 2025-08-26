@@ -70,18 +70,21 @@ export default function RestaurantHero() {
             </div>
 
             <div className="space-y-5">
-              <h1
-                className={`text-5xl lg:text-7xl font-extrabold leading-[1.05] tracking-tight text-foreground transition-all duration-1000 ${
-                  isVisible
-                    ? "translate-y-0 opacity-100"
-                    : "translate-y-8 opacity-0"
-                }`}
-                style={{ transitionDelay: "200ms" }}
-              >
-                <span className="block bg-gradient-to-r from-[hsl(var(--primary))] to-[hsl(var(--accent))] bg-clip-text text-transparent">
-                  {headlines[currentHeadline]}
-                </span>
-              </h1>
+              {/* Fixed height container for headlines to prevent layout shift */}
+              <div className="h-[280px] lg:h-[320px] flex items-center">
+                <h1
+                  className={`text-5xl lg:text-7xl font-extrabold leading-[1.05] tracking-tight text-foreground transition-all duration-1000 ${
+                    isVisible
+                      ? "translate-y-0 opacity-100"
+                      : "translate-y-8 opacity-0"
+                  }`}
+                  style={{ transitionDelay: "200ms" }}
+                >
+                  <span className="block bg-gradient-to-r from-[hsl(var(--primary))] to-[hsl(var(--accent))] bg-clip-text text-transparent">
+                    {headlines[currentHeadline]}
+                  </span>
+                </h1>
+              </div>
               <p
                 className={`text-xl lg:text-2xl text-muted-foreground font-light transition-all duration-1000 ${
                   isVisible
