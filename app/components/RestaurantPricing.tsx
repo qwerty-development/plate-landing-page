@@ -99,8 +99,8 @@ export default function RestaurantPricing() {
             }`}
             style={{ transitionDelay: "200ms" }}
           >
-            Start with what you need today, upgrade when you&apos;re ready for more
-            power.
+            Start with what you need today, upgrade when you&apos;re ready for
+            more power.
           </p>
         </header>
 
@@ -123,10 +123,10 @@ export default function RestaurantPricing() {
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <button className="bg-primary text-primary-foreground px-8 py-3 rounded-xl font-semibold hover:bg-primary/90 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:scale-105">
-              Start Free Trial
+              Book a Call
             </button>
             <button className="border-2 border-border text-foreground px-8 py-3 rounded-xl font-semibold hover:bg-secondary/20 hover:border-secondary/50 transition-all duration-300 transform hover:scale-105">
-              Schedule Demo
+              Book a Call
             </button>
           </div>
         </div>
@@ -300,7 +300,7 @@ function PricingCard({
                 : "border-2 border-border text-foreground hover:bg-secondary/20 hover:border-secondary/50"
             }`}
           >
-            {isPro ? "Start Free Trial" : "Get Started"}
+            {isPro ? "Book a Call" : "Book a Call"}
           </button>
         </div>
       </div>
