@@ -122,12 +122,22 @@ export default function RestaurantPricing() {
             All plans include a 14-day free trial. No credit card required.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <button className="bg-primary text-primary-foreground px-8 py-3 rounded-xl font-semibold hover:bg-primary/90 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:scale-105">
+            <a
+              href="https://calendly.com/callryanforhelp/plate-demo"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="bg-primary text-primary-foreground px-8 py-3 rounded-xl font-semibold hover:bg-primary/90 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:scale-105"
+            >
               Book a Call
-            </button>
-            <button className="border-2 border-border text-foreground px-8 py-3 rounded-xl font-semibold hover:bg-secondary/20 hover:border-secondary/50 transition-all duration-300 transform hover:scale-105">
+            </a>
+            <a
+              href="https://calendly.com/callryanforhelp/plate-demo"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="border-2 border-border text-foreground px-8 py-3 rounded-xl font-semibold hover:bg-secondary/20 hover:border-secondary/50 transition-all duration-300 transform hover:scale-105"
+            >
               Book a Call
-            </button>
+            </a>
           </div>
         </div>
       </div>
@@ -293,7 +303,10 @@ function PricingCard({
         </div>
 
         <div className="mt-8">
-          <button
+          <a
+            href="https://calendly.com/callryanforhelp/plate-demo"
+            target="_blank"
+            rel="noopener noreferrer"
             className={`w-full rounded-xl px-6 py-3 text-sm font-semibold transition-all duration-300 transform hover:scale-105 ${
               isPro
                 ? "bg-primary text-primary-foreground hover:bg-primary/90 shadow-lg hover:shadow-xl"
@@ -301,7 +314,7 @@ function PricingCard({
             }`}
           >
             {isPro ? "Book a Call" : "Book a Call"}
-          </button>
+          </a>
         </div>
       </div>
     </article>

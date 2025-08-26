@@ -25,12 +25,14 @@ export default function SiteFooter() {
                 </p>
               </div>
               <div className="flex flex-wrap gap-3">
-                <Link
-                  href="#"
+                <a
+                  href="https://calendly.com/callryanforhelp/plate-demo"
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="inline-flex items-center rounded-full bg-[hsl(var(--primary))] text-[hsl(var(--primary-foreground))] px-5 py-2.5 text-sm font-medium shadow-sm hover:opacity-90 transition"
                 >
                   Book Demo
-                </Link>
+                </a>
                 {!isRestaurantPage && (
                   <Link
                     href="/restaurant"

@@ -128,7 +128,9 @@ export default function AppScreens() {
             For Restaurants
           </a>
           <a
-            href="#"
+            href="https://calendly.com/callryanforhelp/plate-demo"
+            target="_blank"
+            rel="noopener noreferrer"
             className="inline-flex items-center rounded-full bg-white text-[hsl(345,55%,31%)] px-5 py-2.5 text-sm font-medium shadow-sm hover:opacity-90 transition-all duration-300 transform hover:scale-105"
           >
             Book Demo

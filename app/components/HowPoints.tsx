@@ -157,7 +157,9 @@ export default function HowPoints() {
               <div className="flex flex-col sm:flex-row gap-3">
                 {/* Primary Action */}
                 <a
-                  href="#"
+                  href="https://calendly.com/callryanforhelp/plate-demo"
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="group flex-1 flex items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-[hsl(var(--primary))] to-[hsl(var(--primary)/.8)] text-[hsl(var(--primary-foreground))] px-6 py-3 text-sm font-semibold shadow-lg hover:shadow-xl hover:scale-[1.02] transition-all duration-300"
                 >
                   <DownloadIcon className="h-4 w-4" />
