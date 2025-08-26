@@ -1,7 +1,11 @@
 "use client";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 
 export default function SiteFooter() {
+  const pathname = usePathname();
+  const isRestaurantPage = pathname === "/restaurant";
+
   return (
     <footer className="relative mt-0">
       {/* CTA band */}
@@ -27,12 +31,14 @@ export default function SiteFooter() {
                 >
                   Book Demo
                 </Link>
-                <Link
-                  href="/restaurant"
-                  className="inline-flex items-center rounded-full border px-5 py-2.5 text-sm font-medium hover:bg-accent/10 transition"
-                >
-                  Plate for Restaurants
-                </Link>
+                {!isRestaurantPage && (
+                  <Link
+                    href="/restaurant"
+                    className="inline-flex items-center rounded-full border px-5 py-2.5 text-sm font-medium hover:bg-accent/10 transition"
+                  >
+                    Plate for Restaurants
+                  </Link>
+                )}
               </div>
             </div>
           </div>
