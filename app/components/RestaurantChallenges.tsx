@@ -79,7 +79,7 @@ export default function RestaurantChallenges() {
       </div>
 
       <div className="relative z-10 max-w-7xl mx-auto px-6">
-        <header className="text-center max-w-3xl mx-auto mb-16">
+        <header className="text-center max-w-4xl mx-auto mb-16">
           <h2
             className={`text-3xl lg:text-4xl font-bold tracking-tight transition-all duration-1000 ${
               isVisible
