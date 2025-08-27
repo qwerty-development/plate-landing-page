@@ -262,7 +262,7 @@ function Screenshot({ src, alt, label }: Shot) {
         priority
         style={{ minHeight: "200px" }}
       />
-      <figcaption className="mt-3 text-center text-sm text-white">
+      <figcaption className="mt-3 text-center text-sm text-white pb-2">
         {label}
       </figcaption>
     </div>
