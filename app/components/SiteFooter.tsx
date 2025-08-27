@@ -69,7 +69,7 @@ export default function SiteFooter() {
             {/* links */}
             <div className="flex items-center gap-5 text-sm">
               <Link
-                href="#"
+                href={isRestaurantPage ? "#pricing" : "/restaurant#pricing"}
                 className="text-muted-foreground hover:text-foreground transition"
               >
                 Pricing

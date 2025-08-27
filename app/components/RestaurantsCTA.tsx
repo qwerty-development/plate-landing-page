@@ -108,7 +108,9 @@ export default function RestaurantsCTA() {
                   Get Plate for Restaurants
                 </a>
                 <a
-                  href="#"
+                  href="https://calendly.com/callryanforhelp/plate-demo"
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="inline-flex items-center rounded-full border px-5 py-2.5 text-sm font-medium hover:bg-accent/10 transition-all duration-300 transform hover:scale-105"
                 >
                   Talk to us

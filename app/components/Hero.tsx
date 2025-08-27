@@ -101,9 +101,14 @@ export default function Hero() {
               {/* <button className="bg-primary text-primary-foreground px-8 py-4 rounded-xl text-lg font-semibold hover:bg-primary/90 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:scale-105">
                 Learn More
               </button> */}
-              <button className="border-2 border-border text-foreground px-8 py-4 rounded-xl text-lg font-semibold hover:bg-secondary/20 hover:border-secondary/50 transition-all duration-300 transform hover:scale-105">
+              <a
+                href="https://calendly.com/callryanforhelp/plate-demo"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="border-2 border-border text-foreground px-8 py-4 rounded-xl text-lg font-semibold hover:bg-secondary/20 hover:border-secondary/50 transition-all duration-300 transform hover:scale-105 inline-block"
+              >
                 Book a Demo
-              </button>
+              </a>
             </div>
           </div>
 

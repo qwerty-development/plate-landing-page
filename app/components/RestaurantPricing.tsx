@@ -57,6 +57,7 @@ export default function RestaurantPricing() {
 
   return (
     <section
+      id="pricing"
       ref={pricingRef}
       className="relative overflow-hidden py-20 lg:py-24 bg-[hsl(var(--background))]"
       aria-label="Pricing Plans"
