@@ -93,8 +93,33 @@ body {
 }
 
 .nav-link {
-  will-change: transform, background-color;
+  will-change: transform, background-color, box-shadow;
   transform: translate3d(0, 0, 0);
+}
+
+/* Desktop navbar specific animations */
+@keyframes shimmer {
+  0% {
+    transform: translateX(-100%) skewX(-12deg);
+  }
+  100% {
+    transform: translateX(200%) skewX(-12deg);
+  }
+}
+
+.shimmer-effect {
+  animation: shimmer 1.5s ease-in-out;
+}
+
+/* Premium glow effects */
+.glow-primary {
+  box-shadow: 0 0 20px hsla(var(--primary), 0.3),
+    0 0 40px hsla(var(--primary), 0.1);
+}
+
+.glow-accent {
+  box-shadow: 0 0 15px hsla(var(--accent), 0.25),
+    0 0 30px hsla(var(--accent), 0.1);
 }
 
 /* Smooth backdrop blur enhancement */

@@ -103,16 +103,20 @@ export default function Navbar() {
         ref={navRef}
         className={[
           "sticky top-0 z-50",
-          "border-b transition-all",
+          "border-b transition-all duration-500 ease-out",
           scrolled
-            ? "bg-white/70 backdrop-blur border-border/60 shadow-sm"
+            ? "bg-white/80 backdrop-blur-xl border-border/40 shadow-xl shadow-primary/5"
             : "bg-transparent border-transparent",
         ].join(" ")}
         aria-label="Main navigation"
       >
-        <div className="mx-auto max-w-7xl px-4 sm:px-6">
+        {/* Enhanced glassmorphism overlay */}
+        {scrolled && (
+          <div className="absolute inset-0 bg-gradient-to-r from-white/20 via-white/10 to-white/20 pointer-events-none" />
+        )}
+        <div className="relative mx-auto max-w-7xl px-4 sm:px-6">
           <div className="flex items-center justify-between h-16">
-            {/* Brand */}
+            {/* Brand - Clean and elegant */}
             <Link href="/" className="flex items-center gap-2">
               {/* If you have a logo image, drop it here */}
               {/* <img src="/logo.svg" alt="Plate" className="h-6 w-6" /> */}
@@ -121,45 +125,68 @@ export default function Navbar() {
               </span>
             </Link>
 
-            {/* Desktop nav - Enhanced typography and spacing */}
-            <nav className="hidden md:flex items-center gap-2">
+            {/* Desktop nav - Subtle and elegant hover effects */}
+            <nav className="hidden md:flex items-center gap-1">
               {NAV_ITEMS.map((item) => (
                 <Link
                   key={item.href}
                   href={pathname === "/" ? item.href : `/${item.href}`}
                   onClick={handleAnchor(item.href)}
                   className={[
-                    "px-4 py-2.5 text-sm font-medium rounded-full transition-all duration-200 relative overflow-hidden group nav-link",
+                    "relative px-5 py-3 text-sm font-semibold rounded-2xl transition-all duration-300 group nav-link",
                     active === item.href
-                      ? "text-foreground bg-gradient-to-r from-[hsl(var(--accent)/.15)] to-[hsl(var(--primary)/.10)] shadow-sm"
-                      : "text-muted-foreground hover:text-foreground hover:bg-gradient-to-r hover:from-[hsl(var(--accent)/.08)] hover:to-[hsl(var(--primary)/.05)] hover:shadow-sm",
+                      ? "text-foreground bg-gradient-to-br from-[hsl(var(--accent)/.15)] via-[hsl(var(--primary)/.10)] to-[hsl(var(--accent)/.05)] shadow-sm border border-primary/15"
+                      : "text-muted-foreground hover:text-foreground hover:bg-[hsl(var(--accent)/.05)]",
                   ].join(" ")}
                 >
-                  {/* Subtle hover glow */}
-                  <div className="absolute inset-0 bg-gradient-to-r from-primary/10 to-accent/10 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300 -z-10" />
-                  <span className="relative z-10">{item.label}</span>
+                  {/* Active state indicator */}
+                  {active === item.href && (
+                    <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-8 h-0.5 bg-gradient-to-br from-primary to-accent rounded-full" />
+                  )}
+
+                  {/* Subtle hover background */}
+                  <div className="absolute inset-0 bg-[hsl(var(--accent)/.03)] rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300 -z-10" />
+
+                  <span className="relative z-10 tracking-wide">
+                    {item.label}
+                  </span>
                 </Link>
               ))}
             </nav>
 
-            {/* Desktop CTAs - Enhanced with better typography and effects */}
-            <div className="hidden md:flex items-center gap-3">
+            {/* Desktop CTAs - Premium styling with advanced effects */}
+            <div className="hidden md:flex items-center gap-4">
               <Link
                 href="/restaurant"
-                className="relative inline-flex items-center rounded-full border border-border/40 bg-white/40 backdrop-blur px-5 py-2.5 text-sm font-semibold transition-all duration-200 hover:bg-white/60 hover:border-border/60 hover:shadow-lg group overflow-hidden"
+                className="relative inline-flex items-center rounded-2xl border border-border/30 bg-white/50 backdrop-blur-md px-6 py-3 text-sm font-semibold transition-all duration-300 hover:bg-white/70 hover:border-border/50 hover:shadow-xl hover:shadow-primary/10 hover:scale-105 group overflow-hidden"
               >
-                <div className="absolute inset-0 bg-gradient-to-r from-secondary/20 to-accent/20 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                <span className="relative z-10">For Restaurants</span>
+                {/* Glassmorphism enhancement */}
+                <div className="absolute inset-0 bg-gradient-to-br from-white/30 via-secondary/10 to-accent/10 rounded-2xl opacity-0 group-hover:opacity-100 transition-all duration-400" />
+
+                {/* Shimmer effect */}
+                <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/30 to-transparent rounded-2xl transform -skew-x-12 -translate-x-full group-hover:translate-x-full transition-transform duration-700 -z-10" />
+
+                <span className="relative z-10 tracking-wide">
+                  For Restaurants
+                </span>
               </Link>
               <a
                 href="https://calendly.com/callryanforhelp/plate-demo"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="relative inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-[hsl(var(--primary))] to-[hsl(var(--primary)/.9)] text-[hsl(var(--primary-foreground))] px-5 py-2.5 text-sm font-semibold shadow-lg hover:shadow-xl hover:from-[hsl(var(--primary)/.95)] hover:to-[hsl(var(--primary)/.85)] transition-all duration-200 group overflow-hidden"
+                className="relative inline-flex items-center gap-2 rounded-2xl bg-gradient-to-br from-[hsl(var(--primary))] via-[hsl(var(--primary)/.95)] to-[hsl(var(--primary)/.9)] text-[hsl(var(--primary-foreground))] px-6 py-3 text-sm font-bold shadow-xl shadow-primary/25 hover:shadow-2xl hover:shadow-primary/35 hover:from-[hsl(var(--primary)/.98)] hover:to-[hsl(var(--primary)/.88)] hover:scale-105 transition-all duration-300 group overflow-hidden"
               >
-                <div className="absolute inset-0 bg-gradient-to-r from-white/20 to-transparent rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                <span className="relative z-10">Book Demo</span>
-                <ArrowRightIcon className="relative z-10 h-3.5 w-3.5 transition-transform group-hover:translate-x-0.5" />
+                {/* Premium gradient overlay */}
+                <div className="absolute inset-0 bg-gradient-to-br from-white/25 via-accent/15 to-transparent rounded-2xl opacity-0 group-hover:opacity-100 transition-all duration-400" />
+
+                {/* Animated shimmer */}
+                <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/40 to-transparent rounded-2xl transform -skew-x-12 -translate-x-full group-hover:translate-x-full transition-transform duration-800 -z-10" />
+
+                {/* Pulsing glow */}
+                <div className="absolute inset-0 rounded-2xl bg-primary/20 blur-xl opacity-0 group-hover:opacity-60 transition-all duration-500 animate-pulse" />
+
+                <span className="relative z-10 tracking-wide">Book Demo</span>
+                <ArrowRightIcon className="relative z-10 h-4 w-4 transition-transform duration-300 group-hover:translate-x-1 group-hover:scale-110" />
               </a>
             </div>
 
