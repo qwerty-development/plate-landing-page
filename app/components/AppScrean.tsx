@@ -225,13 +225,16 @@ function PhoneFrame({
 
   return (
     <figure
-      className={`relative rounded-[2rem] border border-gray-300 bg-white/60 backdrop-blur shadow-sm p-3 transition-all duration-1000 transform ${
+      className={`relative rounded-[2.5rem] overflow-hidden shadow-2xl bg-gradient-to-br from-white/20 to-white/10 border border-white/30 p-3 transition-all duration-1000 transform ${
         shouldShow
           ? "translate-y-0 opacity-100 scale-100"
           : "translate-y-8 opacity-0 scale-95"
       } ${className}`}
       style={{ transitionDelay: `${delay}ms` }}
     >
+      {/* Glowing border effect */}
+      <div className="absolute inset-0 rounded-[2.5rem] bg-gradient-to-r from-white/20 via-transparent to-white/20 opacity-50 animate-pulse z-10"></div>
+
       {/* "phone" bezel */}
       <div className="relative rounded-[1.75rem] bg-black/10 border border-gray-400/60 overflow-hidden">
         {/* top notch */}
