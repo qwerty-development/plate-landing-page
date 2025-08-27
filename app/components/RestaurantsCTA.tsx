@@ -26,7 +26,7 @@ export default function RestaurantsCTA() {
   return (
     <section
       ref={ctaRef}
-      className="relative overflow-hidden py-20 lg:py-24"
+      className="relative overflow-hidden "
       aria-label="Get Started with Plate"
     >
       {/* Inner frosted glass background */}
