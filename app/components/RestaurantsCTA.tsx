@@ -29,10 +29,12 @@ export default function RestaurantsCTA() {
       className="relative overflow-hidden py-20 lg:py-24"
       aria-label="Get Started with Plate"
     >
-      {/* Inner white background */}
+      {/* Inner frosted glass background */}
       <div className="relative z-10 max-w-7xl mx-auto px-6 py-20 lg:py-28">
-        <div className="bg-white rounded-3xl p-8 lg:p-12 shadow-lg">
-          <div className="grid lg:grid-cols-2 gap-12 items-center">
+        <div className="relative overflow-hidden rounded-[2.5rem] p-8 lg:p-12 shadow-2xl bg-gradient-to-br from-white/20 to-white/10 border border-white/30">
+          {/* Glowing border effect */}
+          <div className="absolute inset-0 rounded-[2.5rem] bg-gradient-to-r from-white/20 via-transparent to-white/20 opacity-50 animate-pulse z-10"></div>
+          <div className="grid lg:grid-cols-2 gap-12 items-center relative z-20">
             {/* Left — copy */}
             <div className="space-y-6">
               <p
@@ -112,12 +114,21 @@ export default function RestaurantsCTA() {
                   Talk to us
                 </a>
               </div>
-              <span className="text-sm font-medium text-foreground mr-2">
-                Local Support
-              </span>
-              <span className="text-xs text-muted-foreground text-center">
-                Arabic & English support
-              </span>
+              <div
+                className={`flex items-center gap-2 pt-2 transition-all duration-1000 ${
+                  isVisible
+                    ? "translate-y-0 opacity-100"
+                    : "translate-y-8 opacity-0"
+                }`}
+                style={{ transitionDelay: "1100ms" }}
+              >
+                <span className="text-sm font-medium text-foreground">
+                  Local Support
+                </span>
+                <span className="text-xs text-muted-foreground">
+                  Arabic & English support
+                </span>
+              </div>
             </div>
 
             {/* Right — iPad photo (slides in + pans from edge to center) */}
