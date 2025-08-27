@@ -155,14 +155,14 @@ export default function RestaurantManagerApp() {
 
               {/* CTA */}
               <div
-                className={`transition-all hidden duration-1000 ${
+                className={`transition-all duration-1000 ${
                   isVisible
                     ? "translate-y-0 opacity-100"
                     : "translate-y-8 opacity-0"
                 }`}
                 style={{ transitionDelay: "1000ms" }}
               >
-                <button className="bg-white text-primary px-8 py-3 rounded-xl font-semibold hover:bg-white/90 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:scale-105">
+                <button className="bg-white hidden text-primary px-8 py-3 rounded-xl font-semibold hover:bg-white/90 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:scale-105">
                   See the App in Action
                 </button>
               </div>
@@ -188,15 +188,18 @@ export default function RestaurantManagerApp() {
                     alt="Plate Restaurant Manager App Interface"
                     width={800}
                     height={600}
-                    className="w-full h-auto rounded-3xl relative z-0 p-3 cursor-pointer hover:scale-105 transition-transform duration-300"
-                    onClick={() => setIsLightboxOpen(true)}
+                    className="w-full h-auto rounded-3xl relative z-20 p-3 cursor-pointer hover:scale-[1.01] transition-transform duration-300"
+                    onClick={() => {
+                      console.log("Image clicked, opening lightbox");
+                      setIsLightboxOpen(true);
+                    }}
                   />
 
                   {/* Subtle overlay for better text readability if needed */}
-                  <div className="absolute inset-0 rounded-3xl bg-gradient-to-t from-black/10 via-transparent to-transparent z-5"></div>
+                  <div className="absolute inset-0 rounded-3xl bg-gradient-to-t from-black/10 via-transparent to-transparent z-15"></div>
 
                   {/* Click indicator */}
-                  <div className="absolute bottom-4 right-4 z-20 bg-white/20 backdrop-blur-sm rounded-full p-2 border border-white/30">
+                  <div className="absolute bottom-4 right-4 z-30 bg-white/20 backdrop-blur-sm rounded-full p-2 border border-white/30">
                     <svg
                       className="w-5 h-5 text-white"
                       fill="none"
@@ -251,8 +254,11 @@ export default function RestaurantManagerApp() {
       {/* Lightbox Modal */}
       {isLightboxOpen && (
         <div
-          className="fixed inset-0 z-50 flex items-center justify-center bg-black/80 backdrop-blur-sm"
-          onClick={() => setIsLightboxOpen(false)}
+          className="fixed inset-0 z-[9999] flex items-center justify-center bg-black/80 backdrop-blur-sm"
+          onClick={() => {
+            console.log("Closing lightbox");
+            setIsLightboxOpen(false);
+          }}
         >
           <div className="relative max-w-7xl max-h-[90vh] mx-4">
             {/* Close button */}
