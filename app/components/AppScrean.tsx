@@ -225,7 +225,7 @@ function PhoneFrame({
 
   return (
     <figure
-      className={`relative rounded-[2.5rem] overflow-hidden shadow-2xl bg-gradient-to-br from-white/20 to-white/10 border border-white/30 p-3 transition-all duration-1000 transform ${
+      className={`relative rounded-[2.5rem] overflow-hidden shadow-lg md:shadow-2xl bg-gradient-to-br from-white/20 to-white/10 border border-white/30 p-3 transition-all duration-1000 transform ${
         shouldShow
           ? "translate-y-0 opacity-100 scale-100"
           : "translate-y-8 opacity-0 scale-95"
