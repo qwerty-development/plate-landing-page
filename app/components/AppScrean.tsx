@@ -22,6 +22,8 @@ const SHOTS: Shot[] = [
 
 export default function AppScreens() {
   const [isVisible, setIsVisible] = useState(false);
+  const [isLightboxOpen, setIsLightboxOpen] = useState(false);
+  const [selectedImage, setSelectedImage] = useState<Shot | null>(null);
   const appScreensRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -40,6 +42,26 @@ export default function AppScreens() {
 
     return () => observer.disconnect();
   }, []);
+
+  // Close lightbox on escape key
+  useEffect(() => {
+    const handleEscape = (e: KeyboardEvent) => {
+      if (e.key === "Escape") {
+        setIsLightboxOpen(false);
+        setSelectedImage(null);
+      }
+    };
+
+    if (isLightboxOpen) {
+      document.addEventListener("keydown", handleEscape);
+      document.body.style.overflow = "hidden";
+    }
+
+    return () => {
+      document.removeEventListener("keydown", handleEscape);
+      document.body.style.overflow = "unset";
+    };
+  }, [isLightboxOpen]);
 
   return (
     <section
@@ -98,7 +120,14 @@ export default function AppScreens() {
         <div className="mt-10 sm:hidden -mx-6 px-6">
           <div className="flex gap-4 overflow-x-auto snap-x snap-mandatory pb-4 min-h-[20rem]">
             {SHOTS.map((s, i) => (
-              <PhoneFrame key={i} className="snap-center shrink-0 w-[14rem]">
+              <PhoneFrame
+                key={i}
+                className="snap-center shrink-0 w-[14rem] cursor-pointer"
+                onClick={() => {
+                  setSelectedImage(s);
+                  setIsLightboxOpen(true);
+                }}
+              >
                 <Screenshot {...s} />
               </PhoneFrame>
             ))}
@@ -108,7 +137,16 @@ export default function AppScreens() {
         {/* Tablet/Desktop: responsive grid */}
         <div className="mt-12 hidden sm:grid grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-6">
           {SHOTS.map((s, i) => (
-            <PhoneFrame key={i} isVisible={isVisible} delay={i * 200}>
+            <PhoneFrame
+              key={i}
+              isVisible={isVisible}
+              delay={i * 200}
+              className="cursor-pointer"
+              onClick={() => {
+                setSelectedImage(s);
+                setIsLightboxOpen(true);
+              }}
+            >
               <Screenshot {...s} />
             </PhoneFrame>
           ))}
@@ -137,6 +175,57 @@ export default function AppScreens() {
           </a>
         </div>
       </div>
+
+      {/* Lightbox Modal */}
+      {isLightboxOpen && selectedImage && (
+        <div
+          className="fixed inset-0 z-[9999] flex items-center justify-center bg-black/80 backdrop-blur-sm"
+          onClick={() => {
+            setIsLightboxOpen(false);
+            setSelectedImage(null);
+          }}
+        >
+          <div className="relative max-w-7xl max-h-[90vh] mx-4">
+            {/* Close button */}
+            <button
+              onClick={() => {
+                setIsLightboxOpen(false);
+                setSelectedImage(null);
+              }}
+              className="absolute -top-12 right-0 text-white hover:text-white/80 transition-colors duration-200 z-10"
+            >
+              <svg
+                className="w-8 h-8"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M6 18L18 6M6 6l12 12"
+                />
+              </svg>
+            </button>
+
+            {/* Image */}
+            <Image
+              src={selectedImage.src}
+              alt={selectedImage.alt}
+              width={1200}
+              height={800}
+              className="w-full h-auto max-h-[90vh] object-contain rounded-lg shadow-2xl"
+              onClick={(e) => e.stopPropagation()}
+            />
+
+            {/* Instructions */}
+            <p className="text-white/60 text-center mt-4 text-xs">
+              Click outside or press ESC to close
+            </p>
+          </div>
+        </div>
+      )}
 
       {/* Local animations reused */}
       <style jsx>{`
@@ -213,11 +302,13 @@ function PhoneFrame({
   className = "",
   isVisible = undefined,
   delay = 0,
+  onClick,
 }: {
   children: React.ReactNode;
   className?: string;
   isVisible?: boolean | undefined;
   delay?: number;
+  onClick?: () => void;
 }) {
   // For mobile carousel (no isVisible prop), always show the frame
   // For desktop grid (with isVisible prop), use the animation state
@@ -231,6 +322,7 @@ function PhoneFrame({
           : "translate-y-8 opacity-0 scale-95"
       } ${className}`}
       style={{ transitionDelay: `${delay}ms` }}
+      onClick={onClick}
     >
       {/* Glowing border effect */}
       <div className="absolute inset-0 rounded-[2.5rem] bg-gradient-to-r from-white/20 via-transparent to-white/20 opacity-50 animate-pulse z-10"></div>
