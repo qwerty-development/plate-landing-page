@@ -136,7 +136,7 @@ export default function Navbar() {
                     "relative px-5 py-3 text-sm font-semibold rounded-2xl transition-all duration-300 group nav-link",
                     active === item.href
                       ? "text-foreground bg-gradient-to-br from-[hsl(var(--accent)/.15)] via-[hsl(var(--primary)/.10)] to-[hsl(var(--accent)/.05)] shadow-sm border border-primary/15"
-                      : "text-muted-foreground hover:text-foreground hover:bg-[hsl(var(--accent)/.05)]",
+                      : "text-muted-foreground hover:text-foreground hover:bg-[hsl(var(--accent)/.09)]",
                   ].join(" ")}
                 >
                   {/* Active state indicator */}
