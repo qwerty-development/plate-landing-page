@@ -554,15 +554,26 @@ export default function RestaurantMenu({
               {categories
                 .sort((a, b) => a.display_order - b.display_order)
                 .map((category) => (
-                  <a
+                  <button
                     key={category.id}
-                    href={`#${category.name
-                      .toLowerCase()
-                      .replace(/\s+/g, "-")}`}
-                    className="px-4 py-2 bg-white text-slate-700 rounded-full border border-slate-200 hover:text-white hover:border-transparent transition-all duration-200 shadow-sm font-medium hover:bg-[#792339]"
+                    onClick={() => {
+                      const element = document.getElementById(
+                        category.name.toLowerCase().replace(/\s+/g, "-")
+                      );
+                      if (element) {
+                        const navbarHeight = 80; // Approximate navbar height
+                        const elementPosition =
+                          element.offsetTop - navbarHeight;
+                        window.scrollTo({
+                          top: elementPosition,
+                          behavior: "smooth",
+                        });
+                      }
+                    }}
+                    className="px-4 py-2 bg-white text-slate-700 rounded-full border border-slate-200 hover:text-white hover:border-transparent transition-all duration-200 shadow-sm font-medium hover:bg-[#792339] cursor-pointer"
                   >
                     {category.name}
-                  </a>
+                  </button>
                 ))}
             </div>
           </div>
