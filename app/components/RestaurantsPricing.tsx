@@ -3,7 +3,7 @@ import { useEffect, useRef, useState } from "react";
 
 export default function RestaurantsPricing() {
   const [isVisible, setIsVisible] = useState(false);
-  const [selectedPlan] = useState<"monthly" | "yearly">("monthly");
+
   const pricingRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -115,7 +115,6 @@ export default function RestaurantsPricing() {
               key={index}
               {...plan}
               isVisible={isVisible}
-              selectedPlan={selectedPlan}
             />
           ))}
         </div>
@@ -179,22 +178,18 @@ function PricingCard({
   name,
   description,
   monthlyPrice,
-  yearlyPrice,
   features,
   popular,
   isVisible,
   delay,
-  selectedPlan,
 }: {
   name: string;
   description: string;
   monthlyPrice: number;
-  yearlyPrice: number;
   features: string[];
   popular: boolean;
   isVisible: boolean;
   delay: number;
-  selectedPlan: "monthly" | "yearly";
 }) {
   const price = monthlyPrice;
 

@@ -1,10 +1,15 @@
 'use client'
 import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
+import { getBrowserSupabaseClient } from "@/app/supabaseClient";
 
 export default function Hero() {
   const [isVisible, setIsVisible] = useState(false);
   const heroRef = useRef<HTMLDivElement>(null);
+  useEffect(() => {
+    // Warm up client on mount
+    try { getBrowserSupabaseClient(); } catch {}
+  }, []);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
