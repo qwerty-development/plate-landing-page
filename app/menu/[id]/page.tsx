@@ -464,13 +464,13 @@ export default function RestaurantMenu({
         >
           {/* Search Bar */}
           <div className="relative max-w-2xl mx-auto mb-6">
-            <Search className="absolute left-4 top-1/2 transform -translate-y-1/2 text-slate-400 w-5 h-5" />
+            <Search className="absolute left-3 md:left-4 top-1/2 transform -translate-y-1/2 text-slate-400 w-4 h-4 md:w-5 md:h-5" />
             <input
               type="text"
-              placeholder="Search for dishes, ingredients, or flavors..."
+              placeholder="Search dishes, ingredients, flavors..."
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
-              className="w-full pl-12 pr-4 py-4 border border-slate-200 rounded-2xl bg-white shadow-sm focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all text-lg placeholder:text-slate-400"
+              className="w-full pl-10 md:pl-12 pr-4 py-3 md:py-4 border border-slate-200 rounded-2xl bg-white shadow-sm focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all text-base md:text-lg placeholder:text-slate-400 min-h-[48px] md:min-h-[56px]"
             />
           </div>
 
@@ -573,10 +573,10 @@ export default function RestaurantMenu({
         {/* Category Navigation */}
         {categories && categories.length > 0 && (
           <div className="mb-8">
-            <h3 className="text-lg font-semibold text-slate-800 mb-4 text-center">
-              Jump to Category
+            <h3 className="text-xl md:text-2xl font-bold text-slate-800 mb-6 md:mb-8 text-center">
+              🍽️ Jump to Category
             </h3>
-            <div className="flex flex-wrap justify-center gap-3">
+            <div className="grid grid-cols-2 sm:grid-cols-3 md:flex md:flex-wrap md:justify-center gap-3 md:gap-4">
               {categories
                 .sort((a, b) => a.display_order - b.display_order)
                 .map((category) => (
@@ -596,7 +596,7 @@ export default function RestaurantMenu({
                         });
                       }
                     }}
-                    className="px-4 py-2 bg-white text-slate-700 rounded-full border border-slate-200 hover:text-white hover:border-transparent transition-all duration-200 shadow-sm font-medium hover:bg-[#792339] cursor-pointer"
+                    className="px-4 py-2 md:px-6 md:py-3 bg-white text-slate-700 rounded-xl md:rounded-full border-2 border-slate-200 hover:text-white hover:border-transparent transition-all duration-200 shadow-sm hover:shadow-md font-medium hover:bg-[#792339] cursor-pointer min-h-[48px] md:min-h-[52px] text-sm md:text-base active:scale-95 touch-manipulation"
                   >
                     {category.name}
                   </button>
