@@ -713,7 +713,7 @@ export default function RestaurantMenu({
                             initial={{ opacity: 0, x: -20 }}
                             animate={{ opacity: 1, x: 0 }}
                             transition={{ duration: 0.3, delay: index * 0.05 }}
-                            className="flex items-start justify-start p-4 bg-slate-50 rounded-xl hover:bg-slate-100 transition-colors group border border-transparent hover:border-primary/90 relative"
+                            className="flex items-start justify-start p-4 bg-slate-100 rounded-xl hover:bg-slate-100 transition-colors group border border-transparent hover:border-primary/90 relative"
                           >
                             <div className="flex-1 ">
                               <div className="flex items-center justify-between ">
@@ -729,7 +729,7 @@ export default function RestaurantMenu({
                               </div>
 
                               {item.description && (
-                                <p className="text-slate-600 mb-4 leading-relaxed">
+                                <p className="text-slate-600  leading-relaxed">
                                   {item.description}
                                 </p>
                               )}
