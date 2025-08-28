@@ -406,7 +406,7 @@ export default function RestaurantMenu({
               {restaurant.description || "Delicious food awaits you!"}
             </p>
             {/* Mobile-only: Stacked layout */}
-            <div className="flex flex-col items-center gap-4 text-lg md:hidden">
+            <div className="flex flex-col items-center gap-4 text-sm md:hidden">
               {/* Top row: Cuisine and Price Range */}
               <div className="flex items-center gap-3">
                 <div className="flex items-center gap-2 bg-white/20 backdrop-blur-sm px-4 py-2 rounded-full">
