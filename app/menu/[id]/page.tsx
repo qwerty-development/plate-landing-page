@@ -479,28 +479,28 @@ export default function RestaurantMenu({
             {/* Dietary Preferences */}
             {availableDietaryTags.length > 0 && (
               <div>
-                <h4 className="font-semibold text-slate-800 mb-4 flex items-center gap-2 text-lg">
+                <h4 className="font-semibold text-slate-800 mb-4 flex items-center gap-2 text-lg md:text-xl">
                   🌿 Choose Your Dietary Preferences
                 </h4>
-                <p className="text-slate-600 mb-3 text-sm">
+                <p className="text-slate-600 mb-4 md:mb-3 text-sm md:text-base">
                   Select all that apply to see items that match your preferences
                 </p>
-                <div className="flex flex-wrap gap-3">
+                <div className="grid grid-cols-2 sm:grid-cols-3 md:flex md:flex-wrap gap-3 md:gap-3">
                   {availableDietaryTags.map((tag) => (
                     <button
                       key={tag}
                       onClick={() => toggleDietaryFilter(tag)}
-                      className={`px-4 py-3 rounded-full text-sm font-medium border-2 transition-all transform hover:scale-105 ${
+                      className={`px-3 py-3 md:px-4 md:py-3 rounded-full text-sm md:text-sm font-medium border-2 transition-all transform hover:scale-105 active:scale-95 touch-manipulation min-h-[44px] flex items-center justify-center ${
                         dietaryFilters.includes(tag)
                           ? getDietaryColor(tag) +
                             " shadow-lg scale-105 border-2"
                           : "bg-white text-slate-600 hover:bg-slate-50 border-slate-300 hover:border-slate-400"
                       }`}
                     >
-                      <span className="text-lg mr-2">
+                      <span className="text-base md:text-lg mr-1.5 md:mr-2">
                         {getDietaryIcon(tag)}
                       </span>
-                      <span className="capitalize">
+                      <span className="capitalize text-xs md:text-sm">
                         {tag.replace("-", " ")}
                       </span>
                     </button>
@@ -512,27 +512,27 @@ export default function RestaurantMenu({
             {/* Allergen Exclusions */}
             {availableAllergens.length > 0 && (
               <div>
-                <h4 className="font-semibold text-slate-800 mb-4 flex items-center gap-2 text-lg">
+                <h4 className="font-semibold text-slate-800 mb-4 flex items-center gap-2 text-lg md:text-xl">
                   ⚠️ Choose Allergens to Exclude
                 </h4>
-                <p className="text-slate-600 mb-3 text-sm">
+                <p className="text-slate-600 mb-4 md:mb-3 text-sm md:text-base">
                   Select allergens to hide items that contain them
                 </p>
-                <div className="flex flex-wrap gap-3">
+                <div className="grid grid-cols-2 sm:grid-cols-3 md:flex md:flex-wrap gap-3 md:gap-3">
                   {availableAllergens.map((allergen) => (
                     <button
                       key={allergen}
                       onClick={() => toggleAllergenFilter(allergen)}
-                      className={`px-4 py-3 rounded-full text-sm font-medium border-2 transition-all transform hover:scale-105 ${
+                      className={`px-3 py-3 md:px-4 md:py-3 rounded-full text-sm md:text-sm font-medium border-2 transition-all transform hover:scale-105 active:scale-95 touch-manipulation min-h-[44px] flex items-center justify-center ${
                         allergenFilters.includes(allergen)
                           ? "bg-red-100 text-red-800 border-red-400 shadow-lg scale-105 border-2"
                           : "bg-white text-slate-600 hover:bg-slate-50 border-slate-300 hover:border-red-300"
                       }`}
                     >
-                      <span className="text-lg mr-2">
+                      <span className="text-base md:text-lg mr-1.5 md:mr-2">
                         {getAllergenIcon(allergen)}
                       </span>
-                      <span className="capitalize">
+                      <span className="capitalize text-xs md:text-sm">
                         {allergen.replace("-", " ")}
                       </span>
                     </button>
