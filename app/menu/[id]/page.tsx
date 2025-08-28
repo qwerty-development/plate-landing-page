@@ -741,8 +741,8 @@ export default function RestaurantMenu({
                             transition={{ duration: 0.3, delay: index * 0.05 }}
                             className="flex items-start justify-start p-3 md:p-4 bg-slate-100 rounded-xl hover:bg-slate-100 transition-colors group border border-transparent hover:border-primary/90 relative"
                           >
-                            <div className="flex-1 w-full">
-                              <div className="flex items-start justify-between md:items-center flex-col md:flex-row gap-3 md:gap-4">
+                            <div className="flex-1">
+                              <div className="flex items-start justify-between md:items-center flex-col md:flex-row ">
                                 {/* Title and Description Container */}
                                 <div className="flex flex-col w-full md:w-auto">
                                   <h3 className="text-lg md:text-xl font-semibold text-slate-800 group-hover:text-primary transition-colors mb-1 md:mb-0">
