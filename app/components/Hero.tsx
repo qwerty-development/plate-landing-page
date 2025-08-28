@@ -8,7 +8,9 @@ export default function Hero() {
   const heroRef = useRef<HTMLDivElement>(null);
   useEffect(() => {
     // Warm up client on mount
-    try { getBrowserSupabaseClient(); } catch {}
+    try {
+      getBrowserSupabaseClient();
+    } catch {}
   }, []);
 
   useEffect(() => {
@@ -68,7 +70,19 @@ export default function Hero() {
                 }`}
                 style={{ transitionDelay: "200ms" }}
               >
-                Plate
+                <div className="flex items-center ">
+                  <div className="w-16 h-16 lg:w-20 lg:h-20 relative">
+                    <Image
+                      src="/icon.png"
+                      alt="Plate"
+                      width={80}
+                      height={80}
+                      className="w-full h-full object-contain"
+                      priority
+                    />
+                  </div>
+                  <span>Plate</span>
+                </div>
               </h1>
               <p
                 className={`text-2xl lg:text-3xl text-muted-foreground font-light transition-all duration-1000 ${
@@ -103,9 +117,6 @@ export default function Hero() {
               }`}
               style={{ transitionDelay: "800ms" }}
             >
-              {/* <button className="bg-primary text-primary-foreground px-8 py-4 rounded-xl text-lg font-semibold hover:bg-primary/90 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:scale-105">
-                Learn More
-              </button> */}
               <a
                 href="https://calendly.com/callryanforhelp/plate-demo"
                 target="_blank"

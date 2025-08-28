@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
 import { usePathname } from "next/navigation";
 
@@ -117,9 +118,16 @@ export default function Navbar() {
         <div className="relative mx-auto max-w-7xl px-4 sm:px-6">
           <div className="flex items-center justify-between h-16">
             {/* Brand - Clean and elegant */}
-            <Link href="/" className="flex items-center gap-2">
-              {/* If you have a logo image, drop it here */}
-              {/* <img src="/logo.svg" alt="Plate" className="h-6 w-6" /> */}
+            <Link href="/" className="flex items-center">
+              <div className="w-6 h-6 relative">
+                <Image
+                  src="/icon.png"
+                  alt="Plate"
+                  width={24}
+                  height={24}
+                  className="w-full h-full object-contain"
+                />
+              </div>
               <span className="text-xl font-extrabold tracking-tight bg-clip-text text-transparent bg-gradient-to-br from-[hsl(var(--foreground))] via-[hsl(var(--primary))] to-[hsl(var(--accent))]">
                 Plate
               </span>

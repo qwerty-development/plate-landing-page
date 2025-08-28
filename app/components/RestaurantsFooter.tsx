@@ -1,5 +1,6 @@
 "use client";
 import Link from "next/link";
+import Image from "next/image";
 
 export default function RestaurantsFooter() {
   return (
@@ -49,6 +50,15 @@ export default function RestaurantsFooter() {
             {/* Brand section */}
             <div className="lg:col-span-2">
               <Link href="/" className="flex items-center gap-2 mb-4">
+                <div className="w-6 h-6 relative">
+                  <Image
+                    src="/icon.png"
+                    alt="Plate"
+                    width={24}
+                    height={24}
+                    className="w-full h-full object-contain"
+                  />
+                </div>
                 <span className="text-xl font-extrabold tracking-tight bg-clip-text text-transparent bg-gradient-to-br from-[hsl(var(--foreground))] via-[hsl(var(--primary))] to-[hsl(var(--accent))]">
                   Plate
                 </span>
