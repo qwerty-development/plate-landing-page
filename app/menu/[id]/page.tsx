@@ -405,13 +405,39 @@ export default function RestaurantMenu({
             <p className="text-xl mb-6 opacity-90 max-w-2xl mx-auto">
               {restaurant.description || "Delicious food awaits you!"}
             </p>
-            <div className="flex items-center justify-center gap-8 text-sm">
+            {/* Mobile-only: Stacked layout */}
+            <div className="flex flex-col items-center gap-4 text-lg md:hidden">
+              {/* Top row: Cuisine and Price Range */}
+              <div className="flex items-center gap-3">
+                <div className="flex items-center gap-2 bg-white/20 backdrop-blur-sm px-4 py-2 rounded-full">
+                  <UtensilsCrossed className="w-4 h-4" />
+                  <span>{restaurant.cuisine_type || "Cuisine"}</span>
+                </div>
+                <div className="flex items-center gap-2 bg-white/20 backdrop-blur-sm px-4 py-2 rounded-full">
+                  <span className="">
+                    {getPriceRangeText(restaurant.price_range)}
+                  </span>
+                </div>
+              </div>
+
+              {/* Bottom row: Hours */}
+              <div className="flex items-center gap-2 bg-white/20 backdrop-blur-sm px-4 py-2 rounded-full">
+                <Clock className="w-4 h-4" />
+                <span>
+                  {restaurant.opening_time || "9:00 AM"} -{" "}
+                  {restaurant.closing_time || "10:00 PM"}
+                </span>
+              </div>
+            </div>
+
+            {/* Desktop/Tablet: Inline layout with justify-between */}
+            <div className="hidden md:flex items-center justify-between w-full max-w-2xl text-lg">
               <div className="flex items-center gap-2 bg-white/20 backdrop-blur-sm px-4 py-2 rounded-full">
                 <UtensilsCrossed className="w-4 h-4" />
                 <span>{restaurant.cuisine_type || "Cuisine"}</span>
               </div>
               <div className="flex items-center gap-2 bg-white/20 backdrop-blur-sm px-4 py-2 rounded-full">
-                <span className="text-lg">
+                <span className="">
                   {getPriceRangeText(restaurant.price_range)}
                 </span>
               </div>
