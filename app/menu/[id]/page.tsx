@@ -5,6 +5,8 @@ import { getBrowserSupabaseClient } from "@/app/supabaseClient";
 import { motion, AnimatePresence } from "framer-motion";
 import { Search, Clock, UtensilsCrossed, X } from "lucide-react";
 import Image from "next/image";
+import PlateMenuHeader from "@/app/components/menu/PlateMenuHeader";
+import PlateMenuFooter from "@/app/components/menu/PlateMenuFooter";
 
 interface Restaurant {
   id: string;
@@ -372,6 +374,9 @@ export default function RestaurantMenu({
 
   return (
     <div className="min-h-screen" style={{ backgroundColor: "#ffece2" }}>
+      {/* Plate Branded Header */}
+      <PlateMenuHeader />
+
       {/* Hero Section */}
       <motion.div
         className="relative h-80 overflow-hidden"
@@ -786,6 +791,9 @@ export default function RestaurantMenu({
           )}
         </AnimatePresence>
       </div>
+
+      {/* Plate Branded Footer */}
+      <PlateMenuFooter />
     </div>
   );
 }
