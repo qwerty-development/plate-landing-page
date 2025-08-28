@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import { getBrowserSupabaseClient } from "@/app/supabaseClient";
 import { motion, AnimatePresence } from "framer-motion";
 import { Search, Clock, UtensilsCrossed, X } from "lucide-react";
+import Image from "next/image";
 
 interface Restaurant {
   id: string;
@@ -31,7 +32,7 @@ interface MenuItem {
   description: string | null;
   price: number | null;
   dietary_tags: TagLike; // <- allow array or string
-  allergens: TagLike;    // <- allow array or string
+  allergens: TagLike; // <- allow array or string
   category_id: string | null;
 }
 
@@ -112,7 +113,7 @@ export default function RestaurantMenu({
         description: row.description ?? null,
         price: typeof row.price === "number" ? row.price : null,
         dietary_tags: row.dietary_tags ?? null, // can be jsonb/text[]/string
-        allergens: row.allergens ?? null,       // can be jsonb/text[]/string
+        allergens: row.allergens ?? null, // can be jsonb/text[]/string
         category_id: row.category_id ?? null,
       })) as MenuItem[];
 
@@ -141,7 +142,10 @@ export default function RestaurantMenu({
         if (!trimmed) return [];
         if (trimmed.toLowerCase() === "null") return [];
 
-        if ((trimmed.startsWith("[") && trimmed.endsWith("]")) || trimmed.startsWith("{")) {
+        if (
+          (trimmed.startsWith("[") && trimmed.endsWith("]")) ||
+          trimmed.startsWith("{")
+        ) {
           const maybe = JSON.parse(trimmed);
           if (Array.isArray(maybe)) {
             return maybe
@@ -328,9 +332,15 @@ export default function RestaurantMenu({
   if (loading) {
     return (
       <div className="min-h-screen bg-gradient-to-br from-slate-50 via-white to-slate-100 flex items-center justify-center">
-        <motion.div className="text-center" initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }}>
+        <motion.div
+          className="text-center"
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+        >
           <div className="animate-spin rounded-full h-16 w-16 border-4 border-primary border-t-transparent mx-auto mb-4"></div>
-          <p className="text-lg text-slate-600 font-medium">Loading delicious menu...</p>
+          <p className="text-lg text-slate-600 font-medium">
+            Loading delicious menu...
+          </p>
         </motion.div>
       </div>
     );
@@ -339,10 +349,18 @@ export default function RestaurantMenu({
   if (!restaurant) {
     return (
       <div className="min-h-screen bg-gradient-to-br from-slate-50 via-white to-slate-100 flex items-center justify-center">
-        <motion.div className="text-center" initial={{ opacity: 0 }} animate={{ opacity: 1 }}>
+        <motion.div
+          className="text-center"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+        >
           <div className="text-6xl mb-4">🍽️</div>
-          <h1 className="text-2xl font-bold text-slate-800 mb-2">Restaurant not found</h1>
-          <p className="text-slate-600">The restaurant you&apos;re looking for doesn&apos;t exist.</p>
+          <h1 className="text-2xl font-bold text-slate-800 mb-2">
+            Restaurant not found
+          </h1>
+          <p className="text-slate-600">
+            The restaurant you&apos;re looking for doesn&apos;t exist.
+          </p>
         </motion.div>
       </div>
     );
@@ -362,10 +380,12 @@ export default function RestaurantMenu({
         transition={{ duration: 0.8 }}
       >
         <div className="absolute inset-0 bg-gradient-to-r from-black/70 via-black/50 to-black/30 z-10" />
-        <img
+        <Image
           src={restaurant.main_image_url || "/restaurant.png"}
           alt={restaurant.name || "Restaurant"}
-          className="w-full h-full object-cover transform hover:scale-105 transition-transform duration-700"
+          fill
+          className="object-cover transform hover:scale-105 transition-transform duration-700"
+          sizes="100vw"
         />
         <div className="absolute inset-0 z-20 flex items-center justify-center">
           <motion.div
@@ -386,12 +406,15 @@ export default function RestaurantMenu({
                 <span>{restaurant.cuisine_type || "Cuisine"}</span>
               </div>
               <div className="flex items-center gap-2 bg-white/20 backdrop-blur-sm px-4 py-2 rounded-full">
-                <span className="text-lg">{getPriceRangeText(restaurant.price_range)}</span>
+                <span className="text-lg">
+                  {getPriceRangeText(restaurant.price_range)}
+                </span>
               </div>
               <div className="flex items-center gap-2 bg-white/20 backdrop-blur-sm px-4 py-2 rounded-full">
                 <Clock className="w-4 h-4" />
                 <span>
-                  {restaurant.opening_time || "9:00 AM"} - {restaurant.closing_time || "10:00 PM"}
+                  {restaurant.opening_time || "9:00 AM"} -{" "}
+                  {restaurant.closing_time || "10:00 PM"}
                 </span>
               </div>
             </div>
@@ -438,12 +461,17 @@ export default function RestaurantMenu({
                       onClick={() => toggleDietaryFilter(tag)}
                       className={`px-4 py-3 rounded-full text-sm font-medium border-2 transition-all transform hover:scale-105 ${
                         dietaryFilters.includes(tag)
-                          ? getDietaryColor(tag) + " shadow-lg scale-105 border-2"
+                          ? getDietaryColor(tag) +
+                            " shadow-lg scale-105 border-2"
                           : "bg-white text-slate-600 hover:bg-slate-50 border-slate-300 hover:border-slate-400"
                       }`}
                     >
-                      <span className="text-lg mr-2">{getDietaryIcon(tag)}</span>
-                      <span className="capitalize">{tag.replace("-", " ")}</span>
+                      <span className="text-lg mr-2">
+                        {getDietaryIcon(tag)}
+                      </span>
+                      <span className="capitalize">
+                        {tag.replace("-", " ")}
+                      </span>
                     </button>
                   ))}
                 </div>
@@ -470,8 +498,12 @@ export default function RestaurantMenu({
                           : "bg-white text-slate-600 hover:bg-slate-50 border-slate-300 hover:border-red-300"
                       }`}
                     >
-                      <span className="text-lg mr-2">{getAllergenIcon(allergen)}</span>
-                      <span className="capitalize">{allergen.replace("-", " ")}</span>
+                      <span className="text-lg mr-2">
+                        {getAllergenIcon(allergen)}
+                      </span>
+                      <span className="capitalize">
+                        {allergen.replace("-", " ")}
+                      </span>
                     </button>
                   ))}
                 </div>
@@ -479,17 +511,18 @@ export default function RestaurantMenu({
             )}
 
             {/* No data message */}
-            {availableDietaryTags.length === 0 && availableAllergens.length === 0 && (
-              <div className="text-center py-8">
-                <div className="text-4xl mb-3">🍽️</div>
-                <p className="text-slate-600 text-lg">
-                  No dietary or allergen information available for this menu.
-                </p>
-                <p className="text-slate-500 text-sm mt-2">
-                  Use the search bar above to find specific dishes.
-                </p>
-              </div>
-            )}
+            {availableDietaryTags.length === 0 &&
+              availableAllergens.length === 0 && (
+                <div className="text-center py-8">
+                  <div className="text-4xl mb-3">🍽️</div>
+                  <p className="text-slate-600 text-lg">
+                    No dietary or allergen information available for this menu.
+                  </p>
+                  <p className="text-slate-500 text-sm mt-2">
+                    Use the search bar above to find specific dishes.
+                  </p>
+                </div>
+              )}
 
             {/* Clear Filters */}
             {totalActiveFilters > 0 && (
@@ -509,14 +542,18 @@ export default function RestaurantMenu({
         {/* Category Navigation */}
         {categories && categories.length > 0 && (
           <div className="mb-8">
-            <h3 className="text-lg font-semibold text-slate-800 mb-4 text-center">Jump to Category</h3>
+            <h3 className="text-lg font-semibold text-slate-800 mb-4 text-center">
+              Jump to Category
+            </h3>
             <div className="flex flex-wrap justify-center gap-3">
               {categories
                 .sort((a, b) => a.display_order - b.display_order)
                 .map((category) => (
                   <a
                     key={category.id}
-                    href={`#${category.name.toLowerCase().replace(/\s+/g, "-")}`}
+                    href={`#${category.name
+                      .toLowerCase()
+                      .replace(/\s+/g, "-")}`}
                     className="px-4 py-2 bg-white text-slate-700 rounded-full border border-slate-200 hover:text-white hover:border-transparent transition-all duration-200 shadow-sm font-medium hover:bg-[#792339]"
                   >
                     {category.name}
@@ -529,9 +566,15 @@ export default function RestaurantMenu({
         {/* Results Count */}
         <div className="mb-6 text-center">
           <p className="text-slate-600">
-            <span className="font-semibold text-primary">{filteredItems?.length || 0}</span> delicious items found
+            <span className="font-semibold text-primary">
+              {filteredItems?.length || 0}
+            </span>{" "}
+            delicious items found
             {totalActiveFilters > 0 && (
-              <span className="text-slate-400"> (filtered from {menuItems?.length || 0} total)</span>
+              <span className="text-slate-400">
+                {" "}
+                (filtered from {menuItems?.length || 0} total)
+              </span>
             )}
           </p>
         </div>
@@ -539,16 +582,32 @@ export default function RestaurantMenu({
         {/* Menu Items Grouped by Category */}
         <AnimatePresence mode="wait">
           {!filteredItems || filteredItems.length === 0 ? (
-            <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} className="text-center py-16">
-              <motion.div initial={{ scale: 0.8 }} animate={{ scale: 1 }} transition={{ delay: 0.2 }} className="text-8xl mb-6">
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              className="text-center py-16"
+            >
+              <motion.div
+                initial={{ scale: 0.8 }}
+                animate={{ scale: 1 }}
+                transition={{ delay: 0.2 }}
+                className="text-8xl mb-6"
+              >
                 🔍
               </motion.div>
-              <h3 className="text-2xl font-bold text-slate-800 mb-3">No dishes found</h3>
+              <h3 className="text-2xl font-bold text-slate-800 mb-3">
+                No dishes found
+              </h3>
               <p className="text-slate-600 mb-6 max-w-md mx-auto">
-                Try adjusting your filters or search terms to discover more delicious options
+                Try adjusting your filters or search terms to discover more
+                delicious options
               </p>
               {totalActiveFilters > 0 && (
-                <button onClick={clearAllFilters} className="px-6 py-3 bg-primary text-white rounded-full hover:bg-primary/90 transition-colors">
+                <button
+                  onClick={clearAllFilters}
+                  className="px-6 py-3 bg-primary text-white rounded-full hover:bg-primary/90 transition-colors"
+                >
                   Clear All Filters
                 </button>
               )}
@@ -559,11 +618,18 @@ export default function RestaurantMenu({
                 const byId: Record<string, MenuCategory> = {};
                 categories.forEach((c) => (byId[c.id] = c));
                 // Build grouped structure by category (keep uncategorized at end)
-                const groups: Array<{ key: string; category: MenuCategory; items: MenuItem[] }> = [];
+                const groups: Array<{
+                  key: string;
+                  category: MenuCategory;
+                  items: MenuItem[];
+                }> = [];
 
                 const grouped: Record<string, MenuItem[]> = {};
                 filteredItems.forEach((item) => {
-                  const key = item.category_id && byId[item.category_id] ? item.category_id : "__uncat__";
+                  const key =
+                    item.category_id && byId[item.category_id]
+                      ? item.category_id
+                      : "__uncat__";
                   if (!grouped[key]) grouped[key] = [];
                   grouped[key].push(item);
                 });
@@ -574,7 +640,9 @@ export default function RestaurantMenu({
                 });
 
                 // Sort by display_order
-                groups.sort((a, b) => a.category.display_order - b.category.display_order);
+                groups.sort(
+                  (a, b) => a.category.display_order - b.category.display_order
+                );
 
                 // Handle uncategorized last
                 if (grouped["__uncat__"]) {
@@ -604,9 +672,17 @@ export default function RestaurantMenu({
                       className="text-white px-8 py-6"
                       style={{ backgroundColor: "#792339" }}
                     >
-                      <h2 className="text-3xl font-bold mb-2">{category.name}</h2>
-                      {category.description && <p className="text-white/90 text-lg">{category.description}</p>}
-                      <div className="text-sm text-white/70 mt-2">{items.length} {items.length === 1 ? "item" : "items"}</div>
+                      <h2 className="text-3xl font-bold mb-2">
+                        {category.name}
+                      </h2>
+                      {category.description && (
+                        <p className="text-white/90 text-lg">
+                          {category.description}
+                        </p>
+                      )}
+                      <div className="text-sm text-white/70 mt-2">
+                        {items.length} {items.length === 1 ? "item" : "items"}
+                      </div>
                     </div>
 
                     {/* Items */}
@@ -637,14 +713,18 @@ export default function RestaurantMenu({
                               </div>
 
                               {item.description && (
-                                <p className="text-slate-600 mb-4 leading-relaxed">{item.description}</p>
+                                <p className="text-slate-600 mb-4 leading-relaxed">
+                                  {item.description}
+                                </p>
                               )}
 
                               <div className="space-y-3">
                                 {/* Dietary Tags */}
                                 {dietaryTags.length > 0 && (
                                   <div>
-                                    <p className="text-sm font-semibold text-slate-700 mb-2">🌿 Dietary Options:</p>
+                                    <p className="text-sm font-semibold text-slate-700 mb-2">
+                                      🌿 Dietary Options:
+                                    </p>
                                     <div className="flex flex-wrap gap-2">
                                       {dietaryTags.map((tag) => (
                                         <span
@@ -653,8 +733,12 @@ export default function RestaurantMenu({
                                             tag
                                           )}`}
                                         >
-                                          <span className="mr-1">{getDietaryIcon(tag)}</span>
-                                          <span className="capitalize">{tag.replace("-", " ")}</span>
+                                          <span className="mr-1">
+                                            {getDietaryIcon(tag)}
+                                          </span>
+                                          <span className="capitalize">
+                                            {tag.replace("-", " ")}
+                                          </span>
                                         </span>
                                       ))}
                                     </div>
@@ -665,16 +749,22 @@ export default function RestaurantMenu({
                                 {allergens.length > 0 && (
                                   <div className="bg-red-50 border-2 border-red-200 rounded-lg p-4">
                                     <div className="flex items-start gap-3">
-                                      <span className="text-red-600 text-lg">⚠️</span>
+                                      <span className="text-red-600 text-lg">
+                                        ⚠️
+                                      </span>
                                       <div>
-                                        <p className="text-sm font-semibold text-red-800 mb-2">Contains Allergens:</p>
+                                        <p className="text-sm font-semibold text-red-800 mb-2">
+                                          Contains Allergens:
+                                        </p>
                                         <div className="flex flex-wrap gap-2">
                                           {allergens.map((allergen) => (
                                             <span
                                               key={allergen}
                                               className="px-3 py-1 bg-red-100 text-red-800 text-sm rounded-full font-medium border border-red-300 capitalize"
                                             >
-                                              <span className="mr-1">{getAllergenIcon(allergen)}</span>
+                                              <span className="mr-1">
+                                                {getAllergenIcon(allergen)}
+                                              </span>
                                               {allergen.replace("-", " ")}
                                             </span>
                                           ))}
