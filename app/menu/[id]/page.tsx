@@ -728,7 +728,7 @@ export default function RestaurantMenu({
                     </div>
 
                     {/* Items */}
-                    <div className="p-6 space-y-4">
+                    <div className="p-4 md:p-6 space-y-4 md:space-y-6">
                       {items.map((item, index) => {
                         const dietaryTags = parseDietaryTags(item.dietary_tags);
                         const allergens = parseAllergens(item.allergens);
@@ -739,17 +739,17 @@ export default function RestaurantMenu({
                             initial={{ opacity: 0, x: -20 }}
                             animate={{ opacity: 1, x: 0 }}
                             transition={{ duration: 0.3, delay: index * 0.05 }}
-                            className="flex items-start justify-start p-4 bg-slate-100 rounded-xl hover:bg-slate-100 transition-colors group border border-transparent hover:border-primary/90 relative"
+                            className="flex items-start justify-start p-3 md:p-4 bg-slate-100 rounded-xl hover:bg-slate-100 transition-colors group border border-transparent hover:border-primary/90 relative"
                           >
-                            <div className="flex-1 ">
-                              <div className="flex items-start justify-between md:items-center flex-col md:flex-row gap-4 md:gap-0">
+                            <div className="flex-1 w-full">
+                              <div className="flex items-start justify-between md:items-center flex-col md:flex-row gap-3 md:gap-4">
                                 {/* Title and Description Container */}
-                                <div className="flex flex-col">
-                                  <h3 className="text-xl font-semibold text-slate-800 group-hover:text-primary transition-colors">
+                                <div className="flex flex-col w-full md:w-auto">
+                                  <h3 className="text-lg md:text-xl font-semibold text-slate-800 group-hover:text-primary transition-colors mb-1 md:mb-0">
                                     {item.name}
                                   </h3>
                                   {item.description && (
-                                    <p className="text-slate-600 leading-relaxed mt-1">
+                                    <p className="text-sm md:text-base text-slate-600 leading-relaxed mt-1">
                                       {item.description}
                                     </p>
                                   )}
@@ -757,31 +757,33 @@ export default function RestaurantMenu({
 
                                 {/* Price Container */}
                                 {typeof item.price === "number" && (
-                                  <div className="flex justify-end w-full md:w-auto">
-                                    <div className="flex items-center gap-1 bg-gradient-to-br via-transparent to-slate-300 text-primary px-4 py-2 rounded-full font-bold text-xl">
-                                      <span className="text-sm">$</span>
+                                  <div className="flex justify-end w-full md:w-auto mt-2 md:mt-0">
+                                    <div className="flex items-center gap-1 bg-gradient-to-br via-transparent to-slate-300 text-primary px-3 py-2 md:px-4 md:py-2 rounded-full font-bold text-lg md:text-xl">
+                                      <span className="text-xs md:text-sm">
+                                        $
+                                      </span>
                                       {item.price.toFixed(2)}
                                     </div>
                                   </div>
                                 )}
                               </div>
 
-                              <div className="space-y-3">
+                              <div className="space-y-3 md:space-y-4 mt-3 md:mt-4">
                                 {/* Dietary Tags */}
                                 {dietaryTags.length > 0 && (
                                   <div>
-                                    <p className="text-sm font-semibold text-slate-700 mb-2">
+                                    <p className="text-xs md:text-sm font-semibold text-slate-700 mb-2 md:mb-3">
                                       🌿 Dietary Options:
                                     </p>
-                                    <div className="flex flex-wrap gap-2">
+                                    <div className="grid grid-cols-3 md:flex md:flex-wrap gap-2 md:gap-2">
                                       {dietaryTags.map((tag) => (
                                         <span
                                           key={tag}
-                                          className={`px-3 py-2 text-sm font-medium rounded-full border-2 transition-transform hover:scale-105 ${getDietaryColor(
+                                          className={`px-2 py-1.5 md:px-3 md:py-2 text-xs md:text-sm font-medium rounded-full border-2 transition-transform hover:scale-105 ${getDietaryColor(
                                             tag
-                                          )}`}
+                                          )} flex items-center justify-center min-h-[32px] md:min-h-[36px]`}
                                         >
-                                          <span className="mr-1">
+                                          <span className="mr-1 md:mr-1">
                                             {getDietaryIcon(tag)}
                                           </span>
                                           <span className="capitalize">
@@ -795,20 +797,20 @@ export default function RestaurantMenu({
 
                                 {/* Allergen Warning */}
                                 {allergens.length > 0 && (
-                                  <div className="bg-red-50 border-2 border-red-200 rounded-lg p-4">
-                                    <div className="flex items-start gap-3">
-                                      <span className="text-red-600 text-lg">
+                                  <div className="bg-red-50 border-2 border-red-200 rounded-lg p-3 md:p-4">
+                                    <div className="flex items-start gap-2 md:gap-3">
+                                      <span className="text-red-600 text-base md:text-lg">
                                         ⚠️
                                       </span>
                                       <div>
-                                        <p className="text-sm font-semibold text-red-800 mb-2">
+                                        <p className="text-xs md:text-sm font-semibold text-red-800 mb-2">
                                           Contains Allergens:
                                         </p>
-                                        <div className="flex flex-wrap gap-2">
+                                        <div className="grid grid-cols-2 sm:grid-cols-3 md:flex md:flex-wrap gap-2">
                                           {allergens.map((allergen) => (
                                             <span
                                               key={allergen}
-                                              className="px-3 py-1 bg-red-100 text-red-800 text-sm rounded-full font-medium border border-red-300 capitalize"
+                                              className="px-2 py-1 md:px-3 md:py-1 bg-red-100 text-red-800 text-xs md:text-sm rounded-full font-medium border border-red-300 capitalize flex items-center justify-center min-h-[28px] md:min-h-[32px]"
                                             >
                                               <span className="mr-1">
                                                 {getAllergenIcon(allergen)}
