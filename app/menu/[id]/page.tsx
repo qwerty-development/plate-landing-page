@@ -713,15 +713,15 @@ export default function RestaurantMenu({
                             initial={{ opacity: 0, x: -20 }}
                             animate={{ opacity: 1, x: 0 }}
                             transition={{ duration: 0.3, delay: index * 0.05 }}
-                            className="flex items-start justify-between p-6 bg-slate-50 rounded-xl hover:bg-slate-100 transition-colors group border border-transparent hover:border-primary/20 relative"
+                            className="flex items-start justify-start p-4 bg-slate-50 rounded-xl hover:bg-slate-100 transition-colors group border border-transparent hover:border-primary/90 relative"
                           >
-                            <div className="flex-1 pr-4">
-                              <div className="flex items-start justify-between mb-3">
+                            <div className="flex-1 ">
+                              <div className="flex items-center justify-between ">
                                 <h3 className="text-xl font-semibold text-slate-800 group-hover:text-primary transition-colors">
                                   {item.name}
                                 </h3>
                                 {typeof item.price === "number" && (
-                                  <div className="flex items-center gap-1 bg-primary/10 text-primary px-4 py-2 rounded-full font-bold text-xl ml-4">
+                                  <div className="flex items-center gap-1 bg-gradient-to-br via-transparent to-slate-300 text-primary px-4 py-2 rounded-full font-bold text-xl">
                                     <span className="text-sm">$</span>
                                     {item.price.toFixed(2)}
                                   </div>
