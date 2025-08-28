@@ -716,23 +716,29 @@ export default function RestaurantMenu({
                             className="flex items-start justify-start p-4 bg-slate-100 rounded-xl hover:bg-slate-100 transition-colors group border border-transparent hover:border-primary/90 relative"
                           >
                             <div className="flex-1 ">
-                              <div className="flex items-center justify-between ">
-                                <h3 className="text-xl font-semibold text-slate-800 group-hover:text-primary transition-colors">
-                                  {item.name}
-                                </h3>
+                              <div className="flex items-start justify-between md:items-center flex-col md:flex-row gap-4 md:gap-0">
+                                {/* Title and Description Container */}
+                                <div className="flex flex-col">
+                                  <h3 className="text-xl font-semibold text-slate-800 group-hover:text-primary transition-colors">
+                                    {item.name}
+                                  </h3>
+                                  {item.description && (
+                                    <p className="text-slate-600 leading-relaxed mt-1">
+                                      {item.description}
+                                    </p>
+                                  )}
+                                </div>
+
+                                {/* Price Container */}
                                 {typeof item.price === "number" && (
-                                  <div className="flex items-center gap-1 bg-gradient-to-br via-transparent to-slate-300 text-primary px-4 py-2 rounded-full font-bold text-xl">
-                                    <span className="text-sm">$</span>
-                                    {item.price.toFixed(2)}
+                                  <div className="flex justify-end w-full md:w-auto">
+                                    <div className="flex items-center gap-1 bg-gradient-to-br via-transparent to-slate-300 text-primary px-4 py-2 rounded-full font-bold text-xl">
+                                      <span className="text-sm">$</span>
+                                      {item.price.toFixed(2)}
+                                    </div>
                                   </div>
                                 )}
                               </div>
-
-                              {item.description && (
-                                <p className="text-slate-600  leading-relaxed">
-                                  {item.description}
-                                </p>
-                              )}
 
                               <div className="space-y-3">
                                 {/* Dietary Tags */}
