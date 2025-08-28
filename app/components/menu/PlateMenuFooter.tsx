@@ -59,26 +59,45 @@ export default function PlateMenuFooter() {
 
         {/* Bottom Bar */}
         <div className="mt-6 pt-6 border-t border-slate-200/50">
-          <div className="flex flex-col sm:flex-row items-center justify-between gap-4 text-sm text-slate-500">
-            <div className="flex items-center gap-4">
-              <span>© 2024 Plate. All rights reserved.</span>
-              <span>•</span>
-              <span>Made with ❤️ in Lebanon</span>
-            </div>
-            <div className="flex items-center gap-4">
-              <Link
-                href="/"
-                className="hover:text-[#792339] transition-colors duration-200"
+          <div className="flex flex-col sm:flex-row items-center justify-between gap-4">
+            {/* brand + builder credit */}
+            <p className="text-sm text-muted-foreground text-center sm:text-left">
+              © {new Date().getFullYear()}{" "}
+              <span className="font-medium">QWERTY</span>. Built by{" "}
+              <a
+                href="https://www.notqwerty.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="underline underline-offset-4 hover:no-underline"
               >
-                Privacy Policy
-              </Link>
-              <span>•</span>
+                www.notqwerty.com
+              </a>
+              .
+            </p>
+
+            {/* links */}
+            <div className="flex items-center gap-5 text-sm">
               <Link
-                href="/"
-                className="hover:text-[#792339] transition-colors duration-200"
+                href="/restaurant#pricing"
+                className="text-muted-foreground hover:text-foreground transition"
               >
-                Terms of Service
+                Pricing
               </Link>
+              <Link
+                href="/restaurant"
+                className="text-muted-foreground hover:text-foreground transition"
+              >
+                For Restaurants
+              </Link>
+              <a
+                href="https://instagram.com/notqwerty.co"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-muted-foreground hover:text-foreground transition"
+                aria-label="QWERTY on Instagram"
+              >
+                @notqwerty.co
+              </a>
             </div>
           </div>
         </div>
