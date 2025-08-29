@@ -31,11 +31,12 @@ export default function PrivacyPolicyPage() {
                 1. INTRODUCTION
               </h2>
               <p className="mb-4">
-                Welcome to Plate's Privacy Policy. Qwerty App ("we," "us,"
-                "our") is committed to protecting your privacy and ensuring the
-                security of your personal information. This Privacy Policy
-                explains how we collect, use, disclose, and safeguard your
-                information when you use our mobile application Plate ("App").
+                Welcome to Plate&apos;s Privacy Policy. Qwerty App
+                (&ldquo;we,&rdquo; &ldquo;us,&rdquo; &ldquo;our&rdquo;) is
+                committed to protecting your privacy and ensuring the security
+                of your personal information. This Privacy Policy explains how
+                we collect, use, disclose, and safeguard your information when
+                you use our mobile application Plate (&ldquo;App&rdquo;).
               </p>
               <p className="mb-4">
                 By using Plate, you consent to the data practices described in
@@ -479,7 +480,7 @@ export default function PrivacyPolicyPage() {
             {/* Section 9: Children's Privacy */}
             <section>
               <h2 className="text-2xl font-semibold text-gray-900 mb-4">
-                9. CHILDREN'S PRIVACY
+                9. CHILDREN&apos;S PRIVACY
               </h2>
 
               <h3 className="text-xl font-medium text-gray-800 mb-3">
@@ -488,7 +489,7 @@ export default function PrivacyPolicyPage() {
               <ul className="list-disc pl-6 mb-4 space-y-1">
                 <li>Plate is not intended for users under 18</li>
                 <li>We do not knowingly collect data from minors</li>
-                <li>Parents may contact us to remove minor's data</li>
+                <li>Parents may contact us to remove minor&apos;s data</li>
               </ul>
 
               <h3 className="text-xl font-medium text-gray-800 mb-3">
@@ -549,14 +550,14 @@ export default function PrivacyPolicyPage() {
               </ul>
 
               <h3 className="text-xl font-medium text-gray-800 mb-3">
-                11.2 "Do Not Sell"
+                11.2 &ldquo;Do Not Sell&rdquo;
               </h3>
               <p className="mb-4">
                 We do not sell personal information as defined by CCPA.
               </p>
 
               <h3 className="text-xl font-medium text-gray-800 mb-3">
-                11.3 Shine the Light
+                11.3 &ldquo;Shine the Light&rdquo;
               </h3>
               <p className="mb-4">
                 California residents may request information about disclosures
@@ -657,7 +658,7 @@ export default function PrivacyPolicyPage() {
                 <li>In-app notifications</li>
                 <li>Email to registered users</li>
                 <li>Prominent notice in the App</li>
-                <li>Update to "Last Updated" date</li>
+                <li>Update to &ldquo;Last Updated&rdquo; date</li>
               </ul>
 
               <h3 className="text-xl font-medium text-gray-800 mb-3">
@@ -737,8 +738,8 @@ export default function PrivacyPolicyPage() {
                 16.4 Complaints
               </h3>
               <p className="mb-4">
-                If you're unsatisfied with our response, you may contact your
-                local data protection authority.
+                If you&apos;re unsatisfied with our response, you may contact
+                your local data protection authority.
               </p>
             </section>
 
