@@ -29,12 +29,13 @@ export default function TermsPage() {
                 1. ACCEPTANCE OF TERMS
               </h2>
               <p className="mb-4">
-                Welcome to Plate ("we," "us," "our," or the "App"), a restaurant
+                Welcome to Plate (&ldquo;we,&rdquo; &ldquo;us,&rdquo;
+                &ldquo;our,&rdquo; or the &ldquo;App&rdquo;), a restaurant
                 reservation platform operated by Qwerty App. By downloading,
-                installing, accessing, or using Plate, you ("you," "your," or
-                "User") agree to be bound by these Terms and Conditions
-                ("Terms"). If you do not agree to these Terms, please do not use
-                our App.
+                installing, accessing, or using Plate, you (&ldquo;you,&rdquo;
+                &ldquo;your,&rdquo; or &ldquo;User&rdquo;) agree to be bound by
+                these Terms and Conditions (&ldquo;Terms&rdquo;). If you do not
+                agree to these Terms, please do not use our App.
               </p>
 
               <h3 className="text-xl font-medium text-gray-800 mb-3">
@@ -99,7 +100,10 @@ export default function TermsPage() {
                 2.2 Service Availability
               </h3>
               <ul className="list-disc pl-6 mb-4 space-y-1">
-                <li>Services are provided "as is" and "as available"</li>
+                <li>
+                  Services are provided &ldquo;as is&rdquo; and &ldquo;as
+                  available&rdquo;
+                </li>
                 <li>We do not guarantee uninterrupted or error-free service</li>
                 <li>
                   We reserve the right to modify, suspend, or discontinue
@@ -437,10 +441,10 @@ export default function TermsPage() {
                 11.1 Service Disclaimer
               </h3>
               <p className="mb-4 font-semibold">
-                THE APP IS PROVIDED "AS IS" WITHOUT WARRANTIES OF ANY KIND,
-                EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO WARRANTIES OF
-                MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE, AND
-                NON-INFRINGEMENT.
+                THE APP IS PROVIDED &ldquo;AS IS&rdquo; WITHOUT WARRANTIES OF
+                ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO
+                WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE,
+                AND NON-INFRINGEMENT.
               </p>
 
               <h3 className="text-xl font-medium text-gray-800 mb-3">
