@@ -50,9 +50,9 @@ export default function SiteFooter() {
       {/* bottom footer */}
       <div className="border-t border-border bg-white/70 backdrop-blur">
         <div className="mx-auto max-w-7xl px-6 py-6">
-          <div className="flex flex-col sm:flex-row items-center justify-between gap-4">
+          <div className="flex flex-col md:flex-row items-center justify-between gap-6 md:gap-4">
             {/* brand + builder credit */}
-            <p className="text-sm text-muted-foreground text-center sm:text-left">
+            <p className="text-sm text-muted-foreground text-center md:text-left">
               © {new Date().getFullYear()}{" "}
               <span className="font-medium">QWERTY</span>. Built by{" "}
               <a
@@ -67,30 +67,36 @@ export default function SiteFooter() {
             </p>
 
             {/* links */}
-            <div className="flex items-center gap-5 text-sm">
+            <div className="flex flex-col md:flex-row items-center gap-3 md:gap-5 text-sm">
               <Link
                 href={isRestaurantPage ? "#pricing" : "/restaurant#pricing"}
-                className="text-muted-foreground hover:text-foreground transition"
+                className="text-muted-foreground hover:text-foreground transition py-1 md:py-0"
               >
                 Pricing
               </Link>
               <Link
                 href="#"
-                className="text-muted-foreground hover:text-foreground transition"
+                className="text-muted-foreground hover:text-foreground transition py-1 md:py-0"
               >
                 For Restaurants
               </Link>
               <Link
-                href="/privacy-policy"
-                className="text-muted-foreground hover:text-foreground transition"
+                href="/privacy"
+                className="text-muted-foreground hover:text-foreground transition py-1 md:py-0"
               >
                 Privacy Policy
+              </Link>
+              <Link
+                href="/terms"
+                className="text-muted-foreground hover:text-foreground transition py-1 md:py-0"
+              >
+                Terms & Conditions
               </Link>
               <a
                 href="https://instagram.com/notqwerty.co"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-muted-foreground hover:text-foreground transition"
+                className="text-muted-foreground hover:text-foreground transition py-1 md:py-0"
                 aria-label="QWERTY on Instagram"
               >
                 @notqwerty.co
