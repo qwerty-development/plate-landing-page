@@ -113,7 +113,7 @@ export default function RestaurantChallenges() {
 
         {/* Pain points grid */}
         <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 lg:gap-8">
-          {painPoints.map((point, index) => (
+          {painPoints.map((point) => (
             <div
               key={point.title}
               className={`group relative overflow-hidden rounded-2xl border border-border/30 bg-card/50 backdrop-blur-sm p-4 sm:p-5 lg:p-6 transition-all duration-1000 hover:border-border/50 hover:bg-card/70 hover:shadow-lg hover:shadow-primary/5 ${

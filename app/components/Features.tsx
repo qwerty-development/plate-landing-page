@@ -116,7 +116,7 @@ export default function Highlights() {
               icon: <ChartIcon />,
               delay: 1000,
             },
-          ].map((feature, index) => (
+          ].map((feature) => (
             <div
               key={feature.title}
               className={`group relative overflow-hidden rounded-2xl border border-border/30 bg-card/50 backdrop-blur-sm p-4 sm:p-5 lg:p-6 transition-all duration-1000 hover:border-border/50 hover:bg-card/70 hover:shadow-lg hover:shadow-primary/5 ${
