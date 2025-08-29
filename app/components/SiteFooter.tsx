@@ -80,6 +80,12 @@ export default function SiteFooter() {
               >
                 For Restaurants
               </Link>
+              <Link
+                href="/privacy-policy"
+                className="text-muted-foreground hover:text-foreground transition"
+              >
+                Privacy Policy
+              </Link>
               <a
                 href="https://instagram.com/notqwerty.co"
                 target="_blank"
