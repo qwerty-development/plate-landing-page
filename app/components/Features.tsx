@@ -62,10 +62,10 @@ export default function Highlights() {
         />
       </div>
 
-      <div className="relative z-10 max-w-7xl mx-auto px-6 py-16 lg:py-24">
+      <div className="relative z-10 max-w-7xl mx-auto px-3 sm:px-4 md:px-6 py-12 sm:py-16 lg:py-24">
         <header className="max-w-2xl">
           <h2
-            className={`text-3xl lg:text-4xl font-bold tracking-tight transition-all duration-1000 ${
+            className={`text-2xl sm:text-3xl lg:text-4xl font-bold tracking-tight transition-all duration-1000 ${
               isVisible
                 ? "translate-y-0 opacity-100"
                 : "translate-y-8 opacity-0"
@@ -74,7 +74,7 @@ export default function Highlights() {
             Why Plate?
           </h2>
           <p
-            className={`mt-3 text-muted-foreground transition-all duration-1000 ${
+            className={`mt-3 text-sm sm:text-base text-muted-foreground transition-all duration-1000 ${
               isVisible
                 ? "translate-y-0 opacity-100"
                 : "translate-y-8 opacity-0"
@@ -86,7 +86,7 @@ export default function Highlights() {
         </header>
 
         {/* Feature grid */}
-        <div className="mt-10 grid sm:grid-cols-2 lg:grid-cols-4 gap-4 lg:gap-6">
+        <div className="mt-8 sm:mt-10 grid sm:grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4 lg:gap-6">
           {[
             {
               title: "Instant Reservations",
@@ -117,15 +117,47 @@ export default function Highlights() {
               delay: 1000,
             },
           ].map((feature, index) => (
-            <FeatureCard
-              key={index}
-              title={feature.title}
-              diner={feature.diner}
-              resto={feature.resto}
-              icon={feature.icon}
-              isVisible={isVisible}
-              delay={feature.delay}
-            />
+            <div
+              key={feature.title}
+              className={`group relative overflow-hidden rounded-2xl border border-border/30 bg-card/50 backdrop-blur-sm p-4 sm:p-5 lg:p-6 transition-all duration-1000 hover:border-border/50 hover:bg-card/70 hover:shadow-lg hover:shadow-primary/5 ${
+                isVisible
+                  ? "translate-y-0 opacity-100"
+                  : "translate-y-8 opacity-0"
+              }`}
+              style={{ transitionDelay: `${feature.delay}ms` }}
+            >
+              {/* Subtle gradient overlay */}
+              <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-accent/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+
+              {/* Icon */}
+              <div className="relative z-10 mb-3 sm:mb-4">
+                <div className="inline-flex h-10 w-10 sm:h-12 sm:w-12 items-center justify-center rounded-xl bg-gradient-to-br from-primary/15 to-accent/15 border border-primary/20">
+                  <div className="text-primary">{feature.icon}</div>
+                </div>
+              </div>
+
+              {/* Content */}
+              <div className="relative z-10 space-y-2 sm:space-y-3">
+                <h3 className="text-base sm:text-lg font-semibold tracking-tight">
+                  {feature.title}
+                </h3>
+                <div className="space-y-2">
+                  <p className="text-xs sm:text-sm text-muted-foreground leading-relaxed">
+                    <span className="font-medium text-foreground">Diners:</span>{" "}
+                    {feature.diner}
+                  </p>
+                  <p className="text-xs sm:text-sm text-muted-foreground leading-relaxed">
+                    <span className="font-medium text-foreground">
+                      Restaurants:
+                    </span>{" "}
+                    {feature.resto}
+                  </p>
+                </div>
+              </div>
+
+              {/* Hover effect */}
+              <div className="absolute inset-0 bg-gradient-to-br from-primary/10 via-transparent to-accent/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+            </div>
           ))}
         </div>
 
@@ -180,54 +212,6 @@ export default function Highlights() {
         }
       `}</style>
     </section>
-  );
-}
-
-function FeatureCard({
-  title,
-  diner,
-  resto,
-  icon,
-  isVisible,
-  delay,
-}: {
-  title: string;
-  diner: string;
-  resto: string;
-  icon: React.ReactNode;
-  isVisible: boolean;
-  delay: number;
-}) {
-  return (
-    <article
-      className={`card rounded-2xl p-5 lg:p-6 backdrop-blur supports-[backdrop-filter]:bg-[hsl(var(--card)/.55)] transition-all duration-1000 transform ${
-        isVisible
-          ? "translate-y-0 opacity-100 scale-100"
-          : "translate-y-8 opacity-0 scale-95"
-      }`}
-      style={{ transitionDelay: `${delay}ms` }}
-    >
-      <div className="flex items-start gap-3">
-        <div className="shrink-0 inline-flex h-10 w-10 rounded-xl bg-[hsl(var(--accent)/.15)] items-center justify-center transform hover:scale-110 transition-all duration-300">
-          {icon}
-        </div>
-        <div className="min-w-0">
-          <h3 className="text-base font-semibold">{title}</h3>
-          <ul className="mt-2 space-y-1.5 text-sm text-muted-foreground">
-            <li>
-              <span className="font-medium text-foreground">For diners:</span>{" "}
-              {diner}
-            </li>
-            <li>
-              <span className="font-medium text-foreground">
-                For restaurants:
-              </span>{" "}
-              {resto}
-            </li>
-          </ul>
-        </div>
-      </div>
-    </article>
   );
 }
 

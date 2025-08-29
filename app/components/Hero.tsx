@@ -44,34 +44,34 @@ export default function Hero() {
           maskImage:
             "radial-gradient(60% 60% at 20% 10%, black 0 60%, transparent 70%), radial-gradient(50% 50% at 90% 30%, black 0 55%, transparent 65%), radial-gradient(70% 70% at 50% 100%, black 0 55%, transparent 65%)",
           WebkitMaskImage:
-            "radial-gradient(60% 60% at 20% 10%, black 0 60%, transparent 70%), radial-gradient(50% 50% at 90% 30%, black 0 55%, transparent 65%), radial-gradient(70% 70% at 50% 100%, black 0 55%, transparent 65%)",
+            "radial-gradient(60% 60% at 20% 10%, black 0 60%, transparent 70%), radial-gradient(50% 50% at 90% 30%, black 0 55%, transparent 65%), radial-gradient(70% 70% at 50% 100%, black 0 55%, transparent 60%)",
           background:
             "radial-gradient(1200px 600px at 10% 0%, #add8e6 0, transparent 50%), radial-gradient(900px 500px at 100% 10%, #f4afa8 0, transparent 50%), radial-gradient(800px 500px at 50% 100%, #ea694b1a 0, transparent 60%)",
         }}
       />
 
-      <div className="relative z-10 max-w-7xl mx-auto px-6 py-12 lg:py-20 w-full">
-        <div className="grid lg:grid-cols-2 gap-12 items-center">
+      <div className="relative z-10 max-w-7xl mx-auto px-3 sm:px-4 md:px-6 py-8 sm:py-12 lg:py-20 w-full">
+        <div className="grid lg:grid-cols-2 gap-8 sm:gap-12 items-center">
           {/* Left — Content */}
-          <div className="space-y-8">
-            <div className="inline-flex items-center gap-2 rounded-full border border-border/60 bg-background/60 backdrop-blur px-3 py-1 w-max">
+          <div className="space-y-6 sm:space-y-8">
+            <div className="inline-flex items-center gap-2 rounded-full border border-border/60 bg-background/60 backdrop-blur px-2 sm:px-3 py-1 w-max">
               <span className="h-2 w-2 rounded-full bg-[#f1c20d]" />
               <span className="text-xs font-medium text-muted-foreground">
                 Reserve in seconds • No calls
               </span>
             </div>
 
-            <div className="space-y-5">
+            <div className="space-y-4 sm:space-y-5">
               <h1
-                className={`text-5xl lg:text-7xl font-extrabold leading-[1.05] tracking-tight text-foreground transition-all duration-1000 ${
+                className={`text-3xl sm:text-4xl md:text-5xl lg:text-7xl font-extrabold leading-[1.05] tracking-tight text-foreground transition-all duration-1000 ${
                   isVisible
                     ? "translate-y-0 opacity-100"
                     : "translate-y-8 opacity-0"
                 }`}
                 style={{ transitionDelay: "200ms" }}
               >
-                <div className="flex items-center ">
-                  <div className="w-16 h-16 lg:w-20 lg:h-20 relative">
+                <div className="flex items-center flex-wrap">
+                  <div className="w-12 h-12 sm:w-16 sm:h-16 lg:w-20 lg:h-20 relative mr-2 sm:mr-3">
                     <Image
                       src="/icon.png"
                       alt="Plate"
@@ -85,7 +85,7 @@ export default function Hero() {
                 </div>
               </h1>
               <p
-                className={`text-2xl lg:text-3xl text-muted-foreground font-light transition-all duration-1000 ${
+                className={`text-lg sm:text-xl md:text-2xl lg:text-3xl text-muted-foreground font-light transition-all duration-1000 ${
                   isVisible
                     ? "translate-y-0 opacity-100"
                     : "translate-y-8 opacity-0"
@@ -95,7 +95,7 @@ export default function Hero() {
                 Quick Bookings, Big Flavors
               </p>
               <p
-                className={`text-base lg:text-lg text-muted-foreground max-w-xl leading-relaxed transition-all duration-1000 ${
+                className={`text-sm sm:text-base md:text-lg text-muted-foreground max-w-xl leading-relaxed transition-all duration-1000 ${
                   isVisible
                     ? "translate-y-0 opacity-100"
                     : "translate-y-8 opacity-0"
@@ -110,7 +110,7 @@ export default function Hero() {
 
             {/* CTAs */}
             <div
-              className={`flex flex-col sm:flex-row gap-4 transition-all duration-1000 ${
+              className={`flex flex-col sm:flex-row gap-3 sm:gap-4 transition-all duration-1000 ${
                 isVisible
                   ? "translate-y-0 opacity-100"
                   : "translate-y-8 opacity-0"
@@ -121,7 +121,7 @@ export default function Hero() {
                 href="https://calendly.com/callryanforhelp/plate-demo"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="border-2 border-border text-foreground px-8 py-4 rounded-xl text-lg font-semibold hover:bg-secondary/20 hover:border-secondary/50 transition-all duration-300 transform hover:scale-105 inline-block"
+                className="border-2 border-border text-foreground px-4 sm:px-6 md:px-8 py-3 sm:py-4 rounded-xl text-base sm:text-lg font-semibold hover:bg-secondary/20 hover:border-secondary/50 transition-all duration-300 transform hover:scale-105 inline-block text-center"
               >
                 Book a Demo
               </a>
@@ -131,7 +131,7 @@ export default function Hero() {
           {/* Right — mockup with NO background/halo/card */}
           <div className="flex justify-center lg:justify-end">
             <div
-              className="relative mx-auto mt-6 sm:mt-10 w-[22rem] sm:w-[26rem] md:w-[28rem] lg:w-[30rem] motion-safe:animate-fadeUp"
+              className="relative mx-auto mt-4 sm:mt-6 sm:mt-10 w-[18rem] sm:w-[22rem] md:w-[26rem] lg:w-[30rem] motion-safe:animate-fadeUp"
               style={{ animationDelay: "200ms" }}
             >
               <Image

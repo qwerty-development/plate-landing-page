@@ -56,7 +56,7 @@ export default function RestaurantChallenges() {
   return (
     <section
       ref={challengesRef}
-      className="relative overflow-hidden py-20 lg:py-24 bg-[hsl(var(--background))]"
+      className="relative overflow-hidden py-12 sm:py-16 md:py-20 lg:py-24 bg-[hsl(var(--background))]"
       aria-label="Restaurant Challenges in Lebanon"
     >
       {/* Background with dynamic patterns */}
@@ -85,10 +85,10 @@ export default function RestaurantChallenges() {
         />
       </div>
 
-      <div className="relative z-10 max-w-7xl mx-auto px-6">
-        <header className="text-center max-w-4xl mx-auto mb-20">
+      <div className="relative z-10 max-w-7xl mx-auto px-3 sm:px-4 md:px-6">
+        <header className="text-center max-w-4xl mx-auto mb-12 sm:mb-16 md:mb-20">
           <h2
-            className={`text-4xl lg:text-5xl font-bold tracking-tight transition-all duration-1000 ${
+            className={`text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight transition-all duration-1000 ${
               isVisible
                 ? "translate-y-0 opacity-100"
                 : "translate-y-8 opacity-0"
@@ -98,123 +98,83 @@ export default function RestaurantChallenges() {
             <span className="text-primary font-bold">Tough</span>. We Get It.
           </h2>
           <p
-            className={`mt-6 text-xl text-muted-foreground transition-all duration-1000 ${
+            className={`mt-4 sm:mt-6 text-base sm:text-lg lg:text-xl text-muted-foreground max-w-3xl mx-auto transition-all duration-1000 ${
               isVisible
                 ? "translate-y-0 opacity-100"
                 : "translate-y-8 opacity-0"
             }`}
             style={{ transitionDelay: "200ms" }}
           >
-            Every day brings new challenges. But what if there was a way to turn
-            these problems into{" "}
-            <span className="font-semibold text-primary">opportunities</span>?
+            Every day brings new challenges—from managing staff to keeping
+            guests happy. But the biggest pain points? They&apos;re usually the
+            same across all restaurants.
           </p>
         </header>
 
-        {/* Pain Points Grid */}
-        <div className="grid lg:grid-cols-2 gap- mb-0">
+        {/* Pain points grid */}
+        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 lg:gap-8">
           {painPoints.map((point, index) => (
-            <PainPointCard
-              key={index}
-              {...point}
-              isVisible={isVisible}
-              index={index}
-            />
-          ))}
-        </div>
+            <div
+              key={point.title}
+              className={`group relative overflow-hidden rounded-2xl border border-border/30 bg-card/50 backdrop-blur-sm p-4 sm:p-5 lg:p-6 transition-all duration-1000 hover:border-border/50 hover:bg-card/70 hover:shadow-lg hover:shadow-primary/5 ${
+                isVisible
+                  ? "translate-y-0 opacity-100"
+                  : "translate-y-8 opacity-0"
+              }`}
+              style={{ transitionDelay: `${point.delay}ms` }}
+            >
+              {/* Subtle gradient overlay */}
+              <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-accent/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
 
-        {/* Challenge Highlight */}
-        <div
-          className={`text-center transition-all duration-1000 ${
-            isVisible ? "translate-y-0 opacity-100" : "translate-y-8 opacity-0"
-          }`}
-          style={{ transitionDelay: "900ms" }}
-        >
-          <div className="glass  max-w-4xl mx-auto">
-            <h3 className="text-2xl lg:text-3xl font-bold text-foreground mb-6">
-              These Challenges Cost Lebanese Restaurants{" "}
-              <span className="text-primary">$2.3M+</span> Annually
-            </h3>
-            <p className="text-lg text-muted-foreground mb-8 leading-relaxed">
-              From lost revenue to wasted marketing spend, the numbers add up
-              fast. But with Plate, you can turn these losses into gains.
-            </p>
-            <div className="grid grid-cols-2 sm:grid-cols-3 gap-4 sm:gap-8 text-center">
-              <div
-                className={`space-y-3 transition-all duration-700 ${
-                  isVisible
-                    ? "translate-y-0 opacity-100"
-                    : "translate-y-4 opacity-0"
-                }`}
-                style={{ transitionDelay: "1000ms" }}
-              >
-                <div className="text-4xl font-bold text-primary">$850K</div>
-                <div className="text-sm text-muted-foreground font-medium">
-                  Lost from no-shows
+              {/* Icon */}
+              <div className="relative z-10 mb-3 sm:mb-4">
+                <div className="inline-flex h-10 w-10 sm:h-12 sm:w-12 items-center justify-center rounded-xl bg-gradient-to-br from-primary/15 to-accent/15 border border-primary/20">
+                  <div className="text-primary">{point.icon}</div>
                 </div>
               </div>
-              <div
-                className={`space-y-3 transition-all duration-700 ${
-                  isVisible
-                    ? "translate-y-0 opacity-100"
-                    : "translate-y-4 opacity-0"
-                }`}
-                style={{ transitionDelay: "1100ms" }}
-              >
-                <div className="text-4xl font-bold text-primary">$1.2M</div>
-                <div className="text-sm text-muted-foreground font-medium">
-                  Wasted marketing
-                </div>
+
+              {/* Content */}
+              <div className="relative z-10 space-y-2 sm:space-y-3">
+                <h3 className="text-base sm:text-lg font-semibold tracking-tight">
+                  {point.title}
+                </h3>
+                <p className="text-sm sm:text-base text-muted-foreground leading-relaxed">
+                  {point.description}
+                </p>
               </div>
-              <div
-                className={`col-span-2 sm:col-span-1 space-y-3 transition-all duration-700 ${
-                  isVisible
-                    ? "translate-y-0 opacity-100"
-                    : "translate-y-4 opacity-0"
-                }`}
-                style={{ transitionDelay: "1200ms" }}
-              >
-                <div className="text-4xl font-bold text-primary">$250K</div>
-                <div className="text-sm text-muted-foreground font-medium">
-                  Empty table revenue
-                </div>
-              </div>
+
+              {/* Hover effect */}
+              <div className="absolute inset-0 bg-gradient-to-br from-primary/10 via-transparent to-accent/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
             </div>
-          </div>
+          ))}
         </div>
 
         {/* Bottom CTA */}
         <div
-          className={`mt-16 text-center transition-all duration-1000 ${
+          className={`mt-12 sm:mt-16 text-center transition-all duration-1000 ${
             isVisible ? "translate-y-0 opacity-100" : "translate-y-8 opacity-0"
           }`}
           style={{ transitionDelay: "1000ms" }}
         >
-          <p className="text-muted-foreground mb-6">
+          <p className="text-sm sm:text-base text-muted-foreground mb-4 sm:mb-6">
             Sound familiar? You&apos;re not alone.
-            <br />
-            But there&apos;s a better way.
           </p>
-          <button
-            className={`bg-primary hidden text-primary-foreground px-10 py-4 rounded-xl font-bold text-lg shadow-2xl border-0 relative overflow-hidden group ${
-              isVisible
-                ? "translate-y-0 opacity-100 scale-100"
-                : "translate-y-8 opacity-0 scale-95"
-            }`}
-            style={{
-              transitionDelay: "1200ms",
-              transition: "all 0.6s cubic-bezier(0.2, 0.7, 0.2, 1)",
-            }}
-          >
-            {/* Shimmer effect */}
-            <div className="absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-white/20 to-transparent group-hover:translate-x-full transition-transform duration-1000 ease-out" />
-
-            {/* Button content */}
-            <span className="relative z-10">See How Plate Solves These</span>
-
-            {/* Hover animations */}
-            <div className="absolute inset-0 bg-gradient-to-r from-primary/80 to-primary rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-          </button>
+          <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center">
+            <a
+              href="#solution"
+              className="inline-flex items-center justify-center rounded-xl bg-primary text-primary-foreground px-6 sm:px-8 py-3 sm:py-4 text-sm sm:text-base font-semibold shadow-lg hover:shadow-xl hover:bg-primary/90 transition-all duration-300 transform hover:scale-105"
+            >
+              See How We Help
+            </a>
+            <a
+              href="https://calendly.com/callryanforhelp/plate-demo"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center justify-center rounded-xl border border-border text-foreground px-6 sm:px-8 py-3 sm:py-4 text-sm sm:text-base font-semibold hover:bg-secondary/20 hover:border-secondary/50 transition-all duration-300 transform hover:scale-105"
+            >
+              Talk to Us
+            </a>
+          </div>
         </div>
       </div>
 
@@ -240,29 +200,11 @@ export default function RestaurantChallenges() {
           }
         }
 
-        /* Button hover effects */
-        .group:hover {
-          transform: translateY(-2px) scale(1.02);
-          box-shadow: 0 25px 50px rgba(0, 0, 0, 0.3);
-        }
-
-        .group:active {
-          transform: translateY(0) scale(0.98);
-        }
-
+        /* Respect reduced motion */
         @media (prefers-reduced-motion: reduce) {
           .animate-blob,
           .animate-blob-slow {
             animation: none !important;
-          }
-          .reveal {
-            animation: none !important;
-          }
-          .glass {
-            transition: none !important;
-          }
-          .group:hover {
-            transform: none !important;
           }
         }
       `}</style>
@@ -270,193 +212,21 @@ export default function RestaurantChallenges() {
   );
 }
 
-function PainPointCard({
-  title,
-  description,
-  icon,
-  isVisible,
-  delay,
-  index,
-}: {
-  title: string;
-  description: string;
-  icon: React.ReactNode;
-  isVisible: boolean;
-  delay: number;
-  index: number;
-}) {
-  return (
-    <article
-      className={`glass px-4 lg:p-8 reveal transition-all duration-1000 transform group ${
-        isVisible
-          ? "translate-y-0 opacity-100 scale-100"
-          : "translate-y-8 opacity-0 scale-95"
-      }`}
-      style={{ transitionDelay: `${delay}ms` }}
-    >
-      {/* Desktop Layout - EXACTLY the same as before */}
-      <div className="hidden lg:flex items-start gap-6">
-        <div className="shrink-0 inline-flex h-16 w-16 rounded-2xl bg-gradient-to-br from-red-50 to-red-100 items-center justify-center transform group-hover:scale-110 transition-all duration-300 shadow-lg group-hover:shadow-xl">
-          {icon}
-        </div>
-        <div className="min-w-0 flex-1">
-          <h3 className="text-xl font-bold text-foreground mb-3 group-hover:text-primary transition-colors duration-300">
-            {title}
-          </h3>
-          <p className="text-muted-foreground text-base leading-relaxed">
-            {description}
-          </p>
-          {/* Hover indicator */}
-          <div className="mt-4 flex items-center gap-3 opacity-0 group-hover:opacity-100 transition-all duration-500 transform group-hover:translate-x-0 -translate-x-2">
-            <div
-              className="flex items-center gap-2 px-3 py-1.5 rounded-full"
-              style={{
-                background:
-                  "linear-gradient(to right, hsl(var(--primary)), hsl(var(--primary)/0.8))",
-              }}
-            >
-              <div className="w-2 h-2 bg-white rounded-full animate-pulse" />
-              <span className="text-sm text-white font-semibold">
-                {index === 0 && "Plate solves this"}
-                {index === 1 && "Plate solves this too"}
-                {index === 2 && "Plate solves this as well"}
-                {index === 3 && "Plate solves this perfectly"}
-                {index === 4 && "Plate solves this completely"}
-                {index === 5 && "Plate solves this entirely"}
-              </span>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      {/* Mobile Layout - Only visible on mobile */}
-      <div className="lg:hidden p-0">
-        <div className="flex items-center justify-start gap-4 mb-4">
-          <div className="shrink-0 inline-flex h-10 w-10 rounded-2xl bg-gradient-to-br from-red-50 to-red-100 items-center justify-center transform group-hover:scale-110 transition-all duration-300 shadow-lg group-hover:shadow-xl">
-            {icon}
-          </div>
-          <h3 className="text-xl font-bold text-foreground group-hover:text-primary transition-colors duration-300">
-            {title}
-          </h3>
-        </div>
-        <div className="min-w-0 flex-1">
-          <p className="text-muted-foreground text-base leading-relaxed">
-            {description}
-          </p>
-          {/* Hover indicator */}
-          <div className="mt-4 flex items-center gap-3 opacity-0 group-hover:opacity-100 transition-all duration-500 transform group-hover:translate-x-0 -translate-x-2">
-            <div
-              className="flex items-center gap-2 px-3 py-1.5 rounded-full"
-              style={{
-                background:
-                  "linear-gradient(to right, hsl(var(--primary)), hsl(var(--primary)/0.8))",
-              }}
-            >
-              <div className="w-2 h-2 bg-white rounded-full animate-pulse" />
-              <span className="text-sm text-white font-semibold">
-                {index === 0 && "Plate solves this"}
-                {index === 1 && "Plate solves this too"}
-                {index === 2 && "Plate solves this as well"}
-                {index === 3 && "Plate solves this perfectly"}
-                {index === 4 && "Plate solves this completely"}
-                {index === 5 && "Plate solves this entirely"}
-              </span>
-            </div>
-          </div>
-        </div>
-      </div>
-    </article>
-  );
-}
-
-// Glass morphism styles - commented out as not currently used
-/*
-const glassStyles = `
-          .glass {
-          position: relative;
-          border-radius: 2rem;
-          background: linear-gradient(
-            135deg,
-            rgba(255, 255, 255, 0.15),
-            rgba(255, 255, 255, 0.05)
-          );
-          -webkit-backdrop-filter: saturate(180%) blur(25px);
-          backdrop-filter: saturate(180%) blur(25px);
-          border: 1px solid rgba(255, 255, 255, 0.2);
-          box-shadow: 
-            0 25px 50px rgba(0, 0, 0, 0.15),
-            inset 0 1px 0 rgba(255, 255, 255, 0.1);
-          overflow: hidden;
-          transition: all 0.4s cubic-bezier(0.2, 0.7, 0.2, 1);
-        }
-        .glass::before {
-          content: "";
-          position: absolute;
-          inset: 0;
-          background: linear-gradient(
-            135deg,
-            rgba(255, 255, 255, 0.1),
-            rgba(255, 255, 255, 0) 50%
-          );
-          pointer-events: none;
-          mix-blend-mode: screen;
-        }
-        .glass::after {
-          content: "";
-          position: absolute;
-          inset: 0;
-          border-radius: inherit;
-          pointer-events: none;
-          box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.1);
-        }
-        .glass:hover {
-          transform: translateY(-8px);
-          box-shadow: 
-            0 35px 70px rgba(0, 0, 0, 0.2),
-            inset 0 1px 0 rgba(255, 255, 255, 0.15);
-          border-color: rgba(255, 255, 255, 0.3);
-        }
-
-  @keyframes fadeUp {
-    0% {
-      opacity: 0;
-      transform: translateY(14px) scale(0.98);
-    }
-    60% {
-      opacity: 1;
-      transform: translateY(0) scale(1);
-    }
-    100% {
-      opacity: 1;
-      transform: translateY(0) scale(1);
-    }
-  }
-  .reveal {
-    animation: fadeUp 700ms cubic-bezier(0.2, 0.7, 0.2, 1) both;
-  }
-
-  @media (prefers-reduced-motion: reduce) {
-    .reveal {
-      animation: none !important;
-    }
-    .glass {
-      transition: none !important;
-    }
-  }
-`;
-*/
-
-// Icons
+/* Icons (inline, no extra deps) */
 function CalendarIcon() {
   return (
     <svg
       viewBox="0 0 24 24"
-      className="h-6 w-6 text-red-600"
+      className="h-5 w-5 sm:h-6 sm:w-6"
       fill="none"
       stroke="currentColor"
-      strokeWidth="1.5"
+      strokeWidth="2"
+      aria-hidden="true"
     >
-      <path d="M8 2v4M16 2v4M3 10h18M5 4h14a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2z" />
+      <rect x="3" y="4" width="18" height="18" rx="2" ry="2" />
+      <line x1="16" y1="2" x2="16" y2="6" />
+      <line x1="8" y1="2" x2="8" y2="6" />
+      <line x1="3" y1="10" x2="21" y2="10" />
     </svg>
   );
 }
@@ -465,12 +235,14 @@ function XIcon() {
   return (
     <svg
       viewBox="0 0 24 24"
-      className="h-6 w-6 text-red-600"
+      className="h-5 w-5 sm:h-6 sm:w-6"
       fill="none"
       stroke="currentColor"
-      strokeWidth="1.5"
+      strokeWidth="2"
+      aria-hidden="true"
     >
-      <path d="M18 6L6 18M6 6l12 12" />
+      <line x1="18" y1="6" x2="6" y2="18" />
+      <line x1="6" y1="6" x2="18" y2="18" />
     </svg>
   );
 }
@@ -479,14 +251,16 @@ function UsersIcon() {
   return (
     <svg
       viewBox="0 0 24 24"
-      className="h-6 w-6 text-red-600"
+      className="h-5 w-5 sm:h-6 sm:w-6"
       fill="none"
       stroke="currentColor"
-      strokeWidth="1.5"
+      strokeWidth="2"
+      aria-hidden="true"
     >
       <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2" />
       <circle cx="9" cy="7" r="4" />
-      <path d="M22 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75" />
+      <path d="m22 21-2-2a4 4 0 0 0-4-4H12a4 4 0 0 0-4 4v2" />
+      <circle cx="17" cy="7" r="4" />
     </svg>
   );
 }
@@ -495,13 +269,14 @@ function TrendingDownIcon() {
   return (
     <svg
       viewBox="0 0 24 24"
-      className="h-6 w-6 text-red-600"
+      className="h-5 w-5 sm:h-6 sm:w-6"
       fill="none"
       stroke="currentColor"
-      strokeWidth="1.5"
+      strokeWidth="2"
+      aria-hidden="true"
     >
-      <path d="M22 17l-8.5-8.5-5 5L2 7" />
-      <path d="M16 17h6v-6" />
+      <polyline points="22 17 13.5 8.5 8.5 13.5 2 7" />
+      <polyline points="16 17 22 17 22 11" />
     </svg>
   );
 }

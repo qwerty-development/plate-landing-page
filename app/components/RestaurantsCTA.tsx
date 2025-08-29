@@ -30,13 +30,13 @@ export default function RestaurantsCTA() {
       aria-label="Get Started with Plate"
     >
       {/* Inner frosted glass background */}
-      <div className="relative z-10 max-w-7xl mx-auto px-6 py-20 lg:py-28">
-        <div className="relative overflow-hidden rounded-[2.5rem] p-8 lg:p-12 shadow-2xl bg-gradient-to-br from-white/20 to-white/10 border border-white/30">
+      <div className="relative z-10 max-w-7xl mx-auto px-3 sm:px-4 md:px-6 py-12 sm:py-16 md:py-20 lg:py-28">
+        <div className="relative overflow-hidden rounded-[2rem] sm:rounded-[2.5rem] p-4 sm:p-6 md:p-8 lg:p-12 shadow-2xl bg-gradient-to-br from-white/20 to-white/10 border border-white/30">
           {/* Glowing border effect */}
-          <div className="absolute inset-0 rounded-[2.5rem] bg-gradient-to-r from-white/20 via-transparent to-white/20 opacity-50 animate-pulse z-10"></div>
-          <div className="grid lg:grid-cols-2 gap-12 items-center relative z-20">
+          <div className="absolute inset-0 rounded-[2rem] sm:rounded-[2.5rem] bg-gradient-to-r from-white/20 via-transparent to-white/20 opacity-50 animate-pulse z-10"></div>
+          <div className="grid lg:grid-cols-2 gap-8 sm:gap-10 md:gap-12 items-center relative z-20">
             {/* Left — copy */}
-            <div className="space-y-6">
+            <div className="space-y-4 sm:space-y-6">
               <p
                 className={`text-xs tracking-widest uppercase text-muted-foreground transition-all duration-1000 ${
                   isVisible
@@ -47,7 +47,7 @@ export default function RestaurantsCTA() {
                 For Restaurants
               </p>
               <h2
-                className={`text-3xl lg:text-4xl font-bold leading-tight transition-all duration-1000 ${
+                className={`text-2xl sm:text-3xl md:text-4xl font-bold leading-tight transition-all duration-1000 ${
                   isVisible
                     ? "translate-y-0 opacity-100"
                     : "translate-y-8 opacity-0"
@@ -57,7 +57,7 @@ export default function RestaurantsCTA() {
                 More bookings. Fewer gaps. Happier guests.
               </h2>
               <p
-                className={`text-muted-foreground max-w-xl transition-all duration-1000 ${
+                className={`text-sm sm:text-base text-muted-foreground max-w-xl transition-all duration-1000 ${
                   isVisible
                     ? "translate-y-0 opacity-100"
                     : "translate-y-8 opacity-0"
@@ -69,7 +69,7 @@ export default function RestaurantsCTA() {
                 and real-time insights.
               </p>
 
-              <ul className="grid sm:grid-cols-2 gap-3 pt-2">
+              <ul className="grid sm:grid-cols-2 gap-2 sm:gap-3 pt-2">
                 {[
                   "Reduce no-shows with confirmations",
                   "Boost off-peak with 1.5×–3× points",
@@ -78,23 +78,23 @@ export default function RestaurantsCTA() {
                 ].map((feature, index) => (
                   <li
                     key={index}
-                    className={`inline-flex items-center gap-2 text-sm text-muted-foreground transition-all duration-1000 ${
+                    className={`inline-flex items-start gap-2 text-xs sm:text-sm text-muted-foreground transition-all duration-1000 ${
                       isVisible
                         ? "translate-y-0 opacity-100"
                         : "translate-y-8 opacity-0"
                     }`}
                     style={{ transitionDelay: `${600 + index * 100}ms` }}
                   >
-                    <span className="inline-flex h-5 w-5 items-center justify-center rounded-full bg-[hsl(var(--accent)/.15)] border border-border">
+                    <span className="inline-flex h-4 w-4 sm:h-5 sm:w-5 items-center justify-center rounded-full bg-[hsl(var(--accent)/.15)] border border-border flex-shrink-0 mt-0.5">
                       <CheckIcon />
                     </span>
-                    <span>{feature}</span>
+                    <span className="leading-tight">{feature}</span>
                   </li>
                 ))}
               </ul>
 
               <div
-                className={`flex flex-wrap gap-3 pt-2 transition-all duration-1000 ${
+                className={`flex flex-col sm:flex-row gap-3 pt-2 transition-all duration-1000 ${
                   isVisible
                     ? "translate-y-0 opacity-100"
                     : "translate-y-8 opacity-0"
@@ -103,7 +103,7 @@ export default function RestaurantsCTA() {
               >
                 <a
                   href="/restaurant"
-                  className="inline-flex items-center rounded-full bg-[hsl(var(--primary))] text-[hsl(var(--primary-foreground))] px-5 py-2.5 text-sm font-medium shadow-sm hover:opacity-90 transition-all duration-300 transform hover:scale-105"
+                  className="inline-flex items-center justify-center rounded-full bg-[hsl(var(--primary))] text-[hsl(var(--primary-foreground))] px-4 sm:px-5 py-2.5 text-sm font-medium shadow-sm hover:opacity-90 transition-all duration-300 transform hover:scale-105 text-center"
                 >
                   Get Plate for Restaurants
                 </a>
@@ -111,13 +111,13 @@ export default function RestaurantsCTA() {
                   href="https://calendly.com/callryanforhelp/plate-demo"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center rounded-full border px-5 py-2.5 text-sm font-medium hover:bg-accent/10 transition-all duration-300 transform hover:scale-105"
+                  className="inline-flex items-center justify-center rounded-full border px-4 sm:px-5 py-2.5 text-sm font-medium hover:bg-accent/10 transition-all duration-300 transform hover:scale-105 text-center"
                 >
                   Talk to us
                 </a>
               </div>
               <div
-                className={`flex items-center gap-2 pt-2 transition-all duration-1000 ${
+                className={`flex flex-col sm:flex-row sm:items-center gap-2 pt-2 transition-all duration-1000 ${
                   isVisible
                     ? "translate-y-0 opacity-100"
                     : "translate-y-8 opacity-0"
@@ -143,7 +143,7 @@ export default function RestaurantsCTA() {
               style={{ transitionDelay: "1200ms" }}
             >
               <figure
-                className="relative w-[22rem] sm:w-[26rem] lg:w-[30rem] animate-slideIn"
+                className="relative w-[18rem] sm:w-[22rem] md:w-[26rem] lg:w-[30rem] animate-slideIn"
                 aria-hidden="true"
               >
                 <div className="relative overflow-hidden">
@@ -252,7 +252,7 @@ function CheckIcon() {
   return (
     <svg
       viewBox="0 0 24 24"
-      className="h-3.5 w-3.5"
+      className="h-3 w-3 sm:h-3.5 sm:w-3.5"
       fill="none"
       stroke="currentColor"
       strokeWidth="2"

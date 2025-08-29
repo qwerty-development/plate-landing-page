@@ -78,23 +78,23 @@ export default function RestaurantHero() {
         }}
       />
 
-      <div className="relative z-10 max-w-7xl mx-auto px-6 py-12 lg:py-20 w-full">
-        <div className="grid lg:grid-cols-2 gap-12 items-center">
+      <div className="relative z-10 max-w-7xl mx-auto px-3 sm:px-4 md:px-6 py-8 sm:py-12 lg:py-20 w-full">
+        <div className="grid lg:grid-cols-2 gap-8 sm:gap-10 md:gap-12 items-center">
           {/* Left — Content */}
-          <div className="space-y-8">
-            <div className="inline-flex items-center gap-2 rounded-full border border-border/60 bg-background/60 backdrop-blur px-3 py-1 w-max">
+          <div className="space-y-6 sm:space-y-8">
+            <div className="inline-flex items-center gap-2 rounded-full border border-border/60 bg-background/60 backdrop-blur px-2 sm:px-3 py-1 w-max">
               <span className="h-2 w-2 rounded-full bg-[#f1c20d]" />
               <span className="text-xs font-medium text-muted-foreground">
                 For Lebanese Restaurants
               </span>
             </div>
 
-            <div className="space-y-5">
+            <div className="space-y-4 sm:space-y-5">
               {/* Fixed height container for headlines to prevent layout shift */}
-              <div className="h-[280px] lg:h-[320px] flex items-center relative overflow-hidden">
+              <div className="h-[200px] sm:h-[240px] md:h-[280px] lg:h-[320px] flex items-center relative overflow-hidden">
                 {/* Current headline */}
                 <h1
-                  className={`text-5xl lg:text-7xl font-extrabold leading-[1.05] tracking-tight text-foreground absolute inset-0 flex items-center transition-all duration-1000 ease-out ${
+                  className={`text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-7xl font-extrabold leading-[1.05] tracking-tight text-foreground absolute inset-0 flex items-center transition-all duration-1000 ease-out ${
                     isVisible && !isChanging
                       ? "translate-y-0 opacity-100"
                       : "translate-y-8 opacity-0"
@@ -109,7 +109,7 @@ export default function RestaurantHero() {
                 {/* Next headline (appears during transition) */}
                 {isChanging && (
                   <h1
-                    className="text-5xl lg:text-7xl font-extrabold leading-[1.05] tracking-tight text-foreground absolute inset-0 flex items-center transition-all duration-1000 ease-out translate-y-8 opacity-0"
+                    className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-7xl font-extrabold leading-[1.05] tracking-tight text-foreground absolute inset-0 flex items-center transition-all duration-1000 ease-out translate-y-8 opacity-0"
                     style={{
                       animation: "slideIn 1s ease-out forwards",
                       animationDelay: "0.5s",
@@ -122,7 +122,7 @@ export default function RestaurantHero() {
                 )}
               </div>
               <p
-                className={`text-xl lg:text-2xl text-muted-foreground font-light transition-all duration-1000 ${
+                className={`text-lg sm:text-xl lg:text-2xl text-muted-foreground font-light transition-all duration-1000 ${
                   isVisible
                     ? "translate-y-0 opacity-100"
                     : "translate-y-8 opacity-0"
@@ -136,24 +136,24 @@ export default function RestaurantHero() {
 
             {/* CTAs */}
             <div
-              className={`flex flex-col hidden sm:flex-row gap-4 transition-all duration-1000 ${
+              className={`flex flex-col sm:flex-row gap-3 sm:gap-4 transition-all duration-1000 ${
                 isVisible
                   ? "translate-y-0 opacity-100"
                   : "translate-y-8 opacity-0"
               }`}
               style={{ transitionDelay: "600ms" }}
             >
-              <button className="bg-primary text-primary-foreground px-8 py-4 rounded-xl text-lg font-semibold hover:bg-primary/90 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:scale-105">
+              <button className="bg-primary text-primary-foreground px-6 sm:px-8 py-3 sm:py-4 rounded-xl text-base sm:text-lg font-semibold hover:bg-primary/90 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:scale-105">
                 Get Started Now
               </button>
-              <button className="border-2 border-border text-foreground px-8 py-4 rounded-xl text-lg font-semibold hover:bg-secondary/20 hover:border-secondary/50 transition-all duration-300 transform hover:scale-105">
+              <button className="border-2 border-border text-foreground px-6 sm:px-8 py-3 sm:py-4 rounded-xl text-base sm:text-lg font-semibold hover:bg-secondary/20 hover:border-secondary/50 transition-all duration-300 transform hover:scale-105">
                 Learn More
               </button>
             </div>
 
             {/* Trust indicators */}
             <div
-              className={`flex items-center gap-6 pt-4 transition-all duration-1000 ${
+              className={`flex flex-col sm:flex-row sm:items-center gap-3 sm:gap-6 pt-4 transition-all duration-1000 ${
                 isVisible
                   ? "translate-y-0 opacity-100"
                   : "translate-y-8 opacity-0"
@@ -184,7 +184,7 @@ export default function RestaurantHero() {
           {/* Right — Restaurant dashboard mockup */}
           <div className="flex justify-center lg:justify-end">
             <div
-              className="relative mx-auto mt-6 sm:mt-10 w-[22rem] sm:w-[26rem] md:w-[28rem] lg:w-[30rem] motion-safe:animate-fadeUp"
+              className="relative mx-auto mt-4 sm:mt-6 sm:mt-10 w-[18rem] sm:w-[22rem] md:w-[26rem] lg:w-[30rem] motion-safe:animate-fadeUp"
               style={{ animationDelay: "200ms" }}
             >
               <Image
