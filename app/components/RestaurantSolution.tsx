@@ -111,20 +111,15 @@ export default function RestaurantSolution() {
         </header>
 
         {/* Core Features Grid */}
-        <div className="space-y-6">
-          {/* First 3 cards in 3-column grid */}
-          <div className="grid lg:grid-cols-2 xl:grid-cols-3 gap-6">
-            {coreFeatures.slice(0, 3).map((feature, index) => (
-              <FeatureCard key={index} {...feature} isVisible={isVisible} />
-            ))}
-          </div>
-
-          {/* Bottom 2 cards each taking half width */}
-          <div className="grid lg:grid-cols-2 gap-6">
-            {coreFeatures.slice(3).map((feature, index) => (
-              <FeatureCard key={index + 3} {...feature} isVisible={isVisible} />
-            ))}
-          </div>
+        <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-6 gap-6">
+          {coreFeatures.map((feature, index) => (
+            <FeatureCard
+              key={index}
+              {...feature}
+              isVisible={isVisible}
+              gridSpan={index >= 3 ? "xl:col-span-3" : "xl:col-span-2"}
+            />
+          ))}
         </div>
 
         {/* Bottom CTA */}
@@ -182,12 +177,14 @@ function FeatureCard({
   icon,
   isVisible,
   delay,
+  gridSpan,
 }: {
   name: string;
   benefit: string;
   icon: React.ReactNode;
   isVisible: boolean;
   delay: number;
+  gridSpan: string;
 }) {
   return (
     <article
@@ -195,7 +192,7 @@ function FeatureCard({
         isVisible
           ? "translate-y-0 opacity-100 scale-100"
           : "translate-y-8 opacity-0 scale-95"
-      }`}
+      } ${gridSpan}`}
       style={{ transitionDelay: `${delay}ms` }}
     >
       <div className="relative h-full rounded-2xl p-6 bg-white/10 backdrop-blur border border-white/20 text-white hover:bg-white/20 transition-all duration-300">
