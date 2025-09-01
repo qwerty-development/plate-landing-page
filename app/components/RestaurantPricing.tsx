@@ -24,7 +24,7 @@ export default function RestaurantPricing() {
 
   const plans = [
     {
-      name: "Plate Lite",
+      name: "Basic",
       bestFor: "Essential booking management",
       monthlyCost: "$50",
       bookingFees: "$1 per cover / $0.5 per widget booking",
@@ -39,10 +39,10 @@ export default function RestaurantPricing() {
       delay: 200,
     },
     {
-      name: "Plate Pro",
+      name: "Pro",
       bestFor: "The complete command center",
-      monthlyCost: "$130",
-      bookingFees: "Unlimited Free Bookings",
+      monthlyCost: "$150",
+      bookingFees: "$0.7 per cover / Free per widget booking",
       features: {
         managerApp: true,
         realTimeFloorplan: true,
@@ -200,7 +200,7 @@ function PricingCard({
   isVisible: boolean;
   delay: number;
 }) {
-  const isPro = name === "Plate Pro";
+  const isPro = name === "Pro";
 
   return (
     <article
@@ -270,7 +270,7 @@ function PricingCard({
         </div>
 
         {/* Features */}
-        <div className="mt-8 space-y-4">
+        <div className="mt-8 hidden space-y-4">
           <FeatureRow
             label="Manager App"
             included={features.managerApp}
@@ -303,12 +303,12 @@ function PricingCard({
           />
         </div>
 
-        <div className="mt-8">
+        <div className="mt-8 flex justify-center">
           <a
             href="https://calendly.com/callryanforhelp/plate-demo"
             target="_blank"
             rel="noopener noreferrer"
-            className={`w-full rounded-xl px-6 py-3 text-sm font-semibold transition-all duration-300 transform hover:scale-105 ${
+            className={`rounded-xl px-6 py-3 text-sm font-semibold transition-all duration-300 transform hover:scale-105 ${
               isPro
                 ? "bg-primary text-primary-foreground hover:bg-primary/90 shadow-lg hover:shadow-xl"
                 : "border-2 border-border text-foreground hover:bg-secondary/20 hover:border-secondary/50"
