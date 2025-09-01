@@ -58,7 +58,7 @@ export default function RestaurantPricing() {
       name: "Pro",
       bestFor: "The complete command center",
       monthlyCost: "$150",
-      bookingFees: "$0.7 per cover / Free per widget booking",
+      bookingFees: "$0.5 per cover / Free per widget booking",
       features: {
         onlineReservations: true,
         managerAppAccess: "full",
