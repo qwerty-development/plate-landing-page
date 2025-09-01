@@ -162,7 +162,7 @@ export default function RestaurantChallenges() {
           <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center">
             <a
               href="#solution"
-              className="inline-flex items-center justify-center rounded-xl bg-primary text-primary-foreground px-6 sm:px-8 py-3 sm:py-4 text-sm sm:text-base font-semibold shadow-lg hover:shadow-xl hover:bg-primary/90 transition-all duration-300 transform hover:scale-105"
+              className="hidden items-center justify-center rounded-xl bg-primary text-primary-foreground px-6 sm:px-8 py-3 sm:py-4 text-sm sm:text-base font-semibold shadow-lg hover:shadow-xl hover:bg-primary/90 transition-all duration-300 transform hover:scale-105"
             >
               See How We Help
             </a>
