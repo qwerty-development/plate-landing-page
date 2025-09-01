@@ -20,9 +20,8 @@ export default function Home() {
       {/* Hero (no anchor needed) */}
       <Hero />
 
-      {/* Anchored sections for the navbar */}
-      <section id="how-points">
-        <HowPoints />
+      <section id="features">
+        <Highlights />
       </section>
 
       <section id="screens">
@@ -33,8 +32,9 @@ export default function Home() {
         <RestaurantsCTA />
       </section>
 
-      <section id="features">
-        <Highlights />
+      {/* Anchored sections for the navbar */}
+      <section id="how-points">
+        <HowPoints />
       </section>
 
       {/* Footer also serves as the #download anchor for the navbar CTA */}

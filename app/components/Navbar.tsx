@@ -8,7 +8,7 @@ import { usePathname } from "next/navigation";
 type NavItem = { href: string; label: string };
 
 const NAV_ITEMS: NavItem[] = [
-  { href: "#how-points", label: "How" },
+  { href: "#how-points", label: "Loyalty Program" },
   { href: "#screens", label: "Screens" },
   { href: "#restaurants", label: "Restaurants" },
   { href: "#features", label: "Features" },

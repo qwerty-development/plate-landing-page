@@ -95,7 +95,7 @@ export default function RestaurantChallenges() {
             }`}
           >
             Running a Restaurant in Lebanon is{" "}
-            <span className="text-primary font-bold">Tough</span>. We Get It.
+            <span className="text-primary font-bold">Challenging</span>. We Get It.
           </h2>
           <p
             className={`mt-4 sm:mt-6 text-base sm:text-lg lg:text-xl text-muted-foreground max-w-3xl mx-auto transition-all duration-1000 ${

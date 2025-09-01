@@ -27,7 +27,7 @@ export default function RestaurantLoyaltyProgram() {
       step: 1,
       title: "You Fund the Basics",
       description:
-        "You only contribute a small amount (100 points ≈ $1.50) when a guest successfully dines. No booking, no cost.",
+        "You only contribute a small amount when a guest successfully dines. No booking, no cost.",
       icon: <DollarIcon />,
       delay: 200,
     },
@@ -147,7 +147,7 @@ export default function RestaurantLoyaltyProgram() {
               </span>
               .
             </p>
-            <div className="grid sm:grid-cols-3 gap-8 text-center">
+            <div className="grid sm:grid-cols-2 gap-8 text-center max-w-2xl mx-auto">
               <div
                 className={`space-y-3 transition-all duration-700 ${
                   isVisible
@@ -155,19 +155,6 @@ export default function RestaurantLoyaltyProgram() {
                     : "translate-y-4 opacity-0"
                 }`}
                 style={{ transitionDelay: "900ms" }}
-              >
-                <div className="text-4xl font-bold text-primary">$0.015</div>
-                <div className="text-sm text-muted-foreground font-medium">
-                  Cost per point
-                </div>
-              </div>
-              <div
-                className={`space-y-3 transition-all duration-700 ${
-                  isVisible
-                    ? "translate-y-0 opacity-100"
-                    : "translate-y-4 opacity-0"
-                }`}
-                style={{ transitionDelay: "1000ms" }}
               >
                 <div className="text-4xl font-bold text-primary">3-5x</div>
                 <div className="text-sm text-muted-foreground font-medium">
@@ -180,7 +167,7 @@ export default function RestaurantLoyaltyProgram() {
                     ? "translate-y-0 opacity-100"
                     : "translate-y-4 opacity-0"
                 }`}
-                style={{ transitionDelay: "1100ms" }}
+                style={{ transitionDelay: "1000ms" }}
               >
                 <div className="text-4xl font-bold text-primary">85%</div>
                 <div className="text-sm text-muted-foreground font-medium">
