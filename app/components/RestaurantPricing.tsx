@@ -22,19 +22,35 @@ export default function RestaurantPricing() {
     return () => observer.disconnect();
   }, []);
 
-  const plans = [
+  const plans: Array<{
+    name: string;
+    bestFor: string;
+    monthlyCost: string;
+    bookingFees: string;
+    features: {
+      onlineReservations: boolean;
+      managerAppAccess: boolean | "limited" | "full";
+      realTimeFloorplan: boolean;
+      guestCrmPersonalization: boolean;
+      marketingToolsReview: boolean;
+      aiSmartAssignAnalytics: boolean;
+      universalLoyaltyProgram: boolean;
+    };
+    delay: number;
+  }> = [
     {
       name: "Basic",
       bestFor: "Essential booking management",
       monthlyCost: "$50",
       bookingFees: "$1 per cover / $0.5 per widget booking",
       features: {
-        managerApp: false,
+        onlineReservations: true,
+        managerAppAccess: "limited",
         realTimeFloorplan: false,
-        guestCrm: false,
-        marketingTools: false,
-        analytics: false,
-        loyaltyProgram: false,
+        guestCrmPersonalization: false,
+        marketingToolsReview: false,
+        aiSmartAssignAnalytics: false,
+        universalLoyaltyProgram: false,
       },
       delay: 200,
     },
@@ -44,12 +60,13 @@ export default function RestaurantPricing() {
       monthlyCost: "$150",
       bookingFees: "$0.7 per cover / Free per widget booking",
       features: {
-        managerApp: true,
+        onlineReservations: true,
+        managerAppAccess: "full",
         realTimeFloorplan: true,
-        guestCrm: true,
-        marketingTools: true,
-        analytics: true,
-        loyaltyProgram: true,
+        guestCrmPersonalization: true,
+        marketingToolsReview: true,
+        aiSmartAssignAnalytics: true,
+        universalLoyaltyProgram: true,
       },
       delay: 400,
     },
@@ -190,12 +207,13 @@ function PricingCard({
   monthlyCost: string;
   bookingFees: string;
   features: {
-    managerApp: boolean;
+    onlineReservations: boolean;
+    managerAppAccess: boolean | "limited" | "full";
     realTimeFloorplan: boolean;
-    guestCrm: boolean;
-    marketingTools: boolean;
-    analytics: boolean;
-    loyaltyProgram: boolean;
+    guestCrmPersonalization: boolean;
+    marketingToolsReview: boolean;
+    aiSmartAssignAnalytics: boolean;
+    universalLoyaltyProgram: boolean;
   };
   isVisible: boolean;
   delay: number;
@@ -270,35 +288,47 @@ function PricingCard({
         </div>
 
         {/* Features */}
-        <div className="mt-8 hidden space-y-4">
+        <div className="mt-8 space-y-4">
           <FeatureRow
-            label="Manager App"
-            included={features.managerApp}
+            label="Online Reservations (Plate App)"
+            included={features.onlineReservations}
             isPro={isPro}
           />
           <FeatureRow
-            label="Real-time Floor Plan"
+            label="Plate Restaurant Manager App Access"
+            included={features.managerAppAccess}
+            isPro={isPro}
+            specialLabel={
+              features.managerAppAccess === "limited"
+                ? "Limited"
+                : features.managerAppAccess === "full"
+                ? "Full Access"
+                : undefined
+            }
+          />
+          <FeatureRow
+            label="Real-time Floorplan & Table Management"
             included={features.realTimeFloorplan}
             isPro={isPro}
           />
           <FeatureRow
-            label="Guest CRM"
-            included={features.guestCrm}
+            label="Guest CRM & Personalization"
+            included={features.guestCrmPersonalization}
             isPro={isPro}
           />
           <FeatureRow
-            label="Marketing Tools"
-            included={features.marketingTools}
+            label="Marketing Tools & Review Management"
+            included={features.marketingToolsReview}
             isPro={isPro}
           />
           <FeatureRow
-            label="Advanced Analytics"
-            included={features.analytics}
+            label="AI SmartAssign™ & Analytics"
+            included={features.aiSmartAssignAnalytics}
             isPro={isPro}
           />
           <FeatureRow
-            label="Loyalty Program"
-            included={features.loyaltyProgram}
+            label="Universal Loyalty Program Integration"
+            included={features.universalLoyaltyProgram}
             isPro={isPro}
           />
         </div>
@@ -326,10 +356,12 @@ function FeatureRow({
   label,
   included,
   isPro,
+  specialLabel,
 }: {
   label: string;
-  included: boolean;
+  included: boolean | "limited" | "full";
   isPro: boolean;
+  specialLabel?: string;
 }) {
   return (
     <div className="flex items-center justify-between">
@@ -340,7 +372,21 @@ function FeatureRow({
       >
         {label}
       </span>
-      {included ? (
+      {specialLabel ? (
+        <span
+          className={`text-xs px-2 py-1 rounded-full ${
+            specialLabel === "Limited"
+              ? isPro
+                ? "bg-orange-100 text-orange-800"
+                : "bg-orange-50 text-orange-700"
+              : isPro
+              ? "bg-green-100 text-green-800"
+              : "bg-green-50 text-green-700"
+          }`}
+        >
+          {specialLabel}
+        </span>
+      ) : included ? (
         <CheckIcon className="h-5 w-5 text-green-500" />
       ) : (
         <XIcon className="h-5 w-5 text-gray-400" />
