@@ -240,12 +240,9 @@ function PricingCard({
       <div
         className={`relative h-full rounded-2xl p-8 transition-all duration-300 ${
           isPro
-            ? "text-gray-900 shadow-2xl scale-105 border-2 border-primary/20"
-            : "border border-border/60 text-foreground hover:opacity-90"
+            ? "bg-white text-gray-900 shadow-2xl scale-105 border-2 border-primary/20"
+            : "bg-white/80 backdrop-blur border border-border/60 text-foreground hover:bg-white/90"
         }`}
-        style={{
-          background: "#FFECE2",
-        }}
       >
         <div className="text-center">
           <h3
